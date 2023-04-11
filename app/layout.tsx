@@ -1,4 +1,7 @@
-import './globals.css'
+import Footer from '@/components/Footer/Footer'
+import Header from '@/components/Header/Header'
+import Nav from '@/components/Nav/Nav'
+import './globals.scss'
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -13,7 +16,11 @@ export const metadata = {
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="relative flex min-h-screen min-w-[320px] flex-col overflow-x-hidden">
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }

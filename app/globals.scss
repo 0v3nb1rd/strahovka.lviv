@@ -1,0 +1,15 @@
+@tailwind base;
+/* @layer base {
+  html {
+    @apply bg-[#f6f5f4];
+  }
+} */
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --rounded-btn: 12px;
+  background-color: #f6f5f4;
+  --rounded-box: 8px;
+  --padding-card: 14px;
+}
