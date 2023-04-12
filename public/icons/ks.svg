@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="72" height="70">
+<g stroke="#00a0ff" stroke-width="8" stroke-linecap="round">
+<path d="M36,9 V23.5"/>
+<path d="M36,9 V23.5" transform="rotate(72 36 37)"/>
+<path d="M36,9 V23.5" transform="rotate(144 36 37)"/>
+<path d="M36,9 V23.5" transform="rotate(216 36 37)"/>
+<path d="M36,9 V23.5" transform="rotate(288 36 37)"/></g>
+</svg>

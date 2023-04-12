@@ -3,16 +3,16 @@ import React from 'react'
 
 const FeaturesSection = () => {
   return (
-    <div className="overflow-hidden py-16">
+    <div className="overflow-hidden">
       <div className="container m-auto space-y-8 px-6 text-gray-500 md:px-12">
         <div>
-          <span className="text-lg font-semibold text-gray-600">Наші особливості</span>
-          <h2 className="mt-4 text-2xl font-bold text-gray-900 md:text-4xl">
-            Повний захист для вашої машини <br className="lg:block" hidden /> та не тільки
+          <span className="bg-yellow-100 px-2 text-lg font-semibold text-gray-600">Наші особливості</span>
+          <h2 className="mt-4 pl-4 text-2xl font-bold text-gray-900 md:text-4xl">
+            Повний захист для вашої машини, <br className="lg:block" hidden /> та безліч переваг
           </h2>
         </div>
 
-        <div className="mt-16 grid divide-x divide-y overflow-hidden rounded-xl border sm:grid-cols-2 lg:grid-cols-3 lg:divide-y-0 xl:grid-cols-4">
+        <div className="mt-16 grid divide-x divide-y overflow-hidden rounded-2xl border sm:grid-cols-2 lg:grid-cols-3 lg:divide-y-0 xl:grid-cols-4">
           <div className="group relative bg-white transition hover:z-[1] hover:shadow-2xl">
             <div className="relative space-y-8 p-8">
               <Image src="/icons/security.svg" className="w-10" width="512" height="512" alt="burger illustration" />

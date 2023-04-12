@@ -39,13 +39,13 @@ module.exports = {
     themes: [
       {
         light: {
-          primary: '#bde0fe',
+          primary: '#31A3DD',
           // 'primary-outline': 'FC2B2B',
           // "primary-focus": "#2B7A99",
           // "primary-content": "#ffffff",
           // "primary-content": "#cfffa8",
           // "primary-focus": "red",
-          secondary: '#a2d2ff',
+          secondary: '#fee440',
           // 'secondary-focus': '#264653',
           // 'secondary-content': '#ffffff',
           accent: '#37CDFF',

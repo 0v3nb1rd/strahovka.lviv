@@ -13,3 +13,13 @@
   --rounded-box: 8px;
   --padding-card: 14px;
 }
+
+.banner {
+  @apply relative h-[480px] w-full overflow-hidden rounded-2xl;
+  &::after {
+    @apply absolute bottom-0  left-1/2 h-16 w-full -translate-x-1/2 bg-gradient-to-t from-white/80 via-white/90 to-white/0 content-[''];
+  }
+  & > img {
+    @apply object-cover object-[0_60%];
+  }
+}
