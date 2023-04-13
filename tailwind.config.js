@@ -46,7 +46,7 @@ module.exports = {
           // "primary-content": "#cfffa8",
           // "primary-focus": "red",
           secondary: '#fee440',
-          // 'secondary-focus': '#264653',
+          'secondary-focus': '#fee440',
           // 'secondary-content': '#ffffff',
           accent: '#37CDFF',
           'accent-focus': '#2AAFCB',

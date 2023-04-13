@@ -17,12 +17,12 @@ const Header = () => {
         <Nav />
 
         <div className="mr-4">
-          <a className="link-hover flex items-center gap-2 text-lg font-medium" href="tel:380687678898">
-            <Image src={logo_ks} width={24} height={24} alt="kyivstar logo" />
+          <a className="link-hover flex items-center gap-2  font-medium" href="tel:380687678898">
+            <Image src={logo_ks} width={22} height={22} alt="kyivstar logo" />
             <span className="">(068)767 88 98</span>
           </a>
-          <a className="link-hover flex items-center gap-2 text-lg font-medium" href="tel:380687678898">
-            <Image src={logo_life} width={24} height={24} alt="kyivstar logo" />
+          <a className="link-hover flex items-center gap-2  font-medium" href="tel:380687678898">
+            <Image src={logo_life} width={22} height={2} alt="kyivstar logo" />
             <span className="">(068)767 88 98</span>
           </a>
         </div>

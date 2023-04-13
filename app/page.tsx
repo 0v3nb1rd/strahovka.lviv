@@ -8,10 +8,10 @@ import ServiceCards from '@/components/ServiceCards/ServiceCards'
 import Image from 'next/image'
 
 // const inter = Inter({ subsets: ['latin'] })
-import img_post_1 from '../assets/img/img_1.jpg'
-import img_post_2 from '../assets/img/img_2.jpg'
-import img_post_3 from '../assets/img/img_3.jpg'
-import img_post_4 from '../assets/img/img_4.jpg'
+import img_post_1 from '@assets/img/img_1.jpg'
+import img_post_2 from '@assets/img/img_2.jpg'
+import img_post_3 from '@assets/img/img_3.jpg'
+import img_post_4 from '@assets/img/img_4.jpg'
 
 const HomePage = () => {
   return (
