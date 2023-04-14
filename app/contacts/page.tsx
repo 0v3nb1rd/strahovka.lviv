@@ -1,10 +1,15 @@
 import CtaBlock from '@/components/CtaBlock'
+import Team from '@/components/Team'
 import { BiPhoneCall, BiEnvelope, BiMap } from 'react-icons/Bi'
 const ContactsPage = () => {
   return (
     <main className="main main--about">
       <div className="container mx-auto">
-        <section className="my-2 rounded-2xl border-2 border-gray-100 bg-white p-14">
+        <section>
+          <Team />
+        </section>
+
+        <section className="my-2 mb-20 rounded-2xl border-2 border-gray-100 bg-white p-14">
           <div className="flex flex-col gap-16">
             <div className="title mx-auto max-w-2xl">
               <div className="flex flex-col items-center">
