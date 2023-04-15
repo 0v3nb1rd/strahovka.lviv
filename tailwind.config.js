@@ -62,24 +62,12 @@ module.exports = {
           info: '#2094F3',
           warning: '#fee440',
           error: '#FF5724',
-
-          '.btn-dropdown': {
+          '.btn-ghost:hover, .btn-ghost.btn-active': {
             'background-color': '#ffffff',
-            'border-color': '#D1D5DB',
-            color: '#9CA3AF',
-          },
-          '.btn-dropdown:hover': {
-            // "background-color": "rgba(53,82,20,0.1)",
-            'background-color': '#ffffff',
-            'border-color': 'rgba(53,82,20,0.1)',
             color: '#1F2937',
-            'box-shadow': '0px 5px 10px rgba(53, 82, 20, 0.25)',
           },
-          '.btn-dropdown:focus': {
+          '.btn-ghost:focus': {
             'background-color': '#ffffff',
-            'border-color': 'rgba(53,82,20,0.1)',
-            color: '#1F2937',
-            'box-shadow': '0px 5px 10px rgba(53, 82, 20, 0.25)',
           },
         },
       },

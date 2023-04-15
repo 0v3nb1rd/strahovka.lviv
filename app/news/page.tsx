@@ -23,15 +23,15 @@ const NewsPage = () => {
     <main className="main main--news-cat">
       <div className="container mx-auto">
         <div className="my-2 flex justify-between">
-          <aside className="w-[220px]">
-            <div className="flex flex-col gap-1">
-              <a className="btn-ghost btn-active btn w-[200px] justify-start gap-2 text-base normal-case" href="/news/">
+          <aside className="w-[240px]">
+            <div className="flex flex-col gap-2">
+              <a className="btn-ghost btn-active btn-block btn justify-start gap-2 text-base normal-case" href="/news/">
                 <BiHome fontSize={24} /> Усі статті
               </a>
-              <a className="btn-ghost btn w-[200px] justify-start gap-2 text-base	normal-case" href="/news/">
+              <a className="btn-ghost btn-block btn justify-start gap-2 text-base	normal-case" href="/news/">
                 <BiNews fontSize={24} /> Новини
               </a>
-              <a className="btn-ghost btn w-[200px] justify-start gap-2 text-base normal-case	" href="/news/">
+              <a className="btn-ghost btn-block btn justify-start gap-2 text-base normal-case	" href="/news/">
                 <BiInfoCircle fontSize={24} /> Поради
               </a>
             </div>
