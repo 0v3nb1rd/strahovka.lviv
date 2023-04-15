@@ -25,7 +25,7 @@ const ContactsPage = () => {
               <ul className="title flex w-[40%] flex-col gap-12">
                 <li>
                   <div className="flex items-center gap-6">
-                    <div className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl  bg-primary text-white shadow-2xl shadow-primary">
+                    <div className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl  bg-primary text-white shadow-2xl shadow-primary/50">
                       <BiPhoneCall fontSize={34} />
                     </div>
                     <span className="flex flex-col">
@@ -38,7 +38,7 @@ const ContactsPage = () => {
 
                 <li>
                   <div className="flex items-center gap-6">
-                    <div className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-[#80ed99] shadow-2xl shadow-[#80ed99]">
+                    <div className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-[#80ed99] shadow-2xl shadow-[#80ed99]/80">
                       <BiEnvelope fontSize={34} />
                     </div>
                     <span className="flex flex-col">
@@ -50,7 +50,7 @@ const ContactsPage = () => {
 
                 <li>
                   <div className="flex items-center gap-6">
-                    <div className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-secondary shadow-2xl shadow-secondary  ">
+                    <div className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-secondary shadow-2xl shadow-secondary/50 ">
                       <BiMap fontSize={34} />
                     </div>
                     <span className="flex flex-col">

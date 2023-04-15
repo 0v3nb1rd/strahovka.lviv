@@ -23,3 +23,16 @@
     @apply object-cover object-[0_60%];
   }
 }
+
+ul.list-line {
+  @apply text-left;
+  > li {
+    @apply relative mb-2 pl-14;
+    &::before {
+      @apply absolute left-0 top-3.5 h-[2px] w-[35px] bg-black/50 content-[''];
+    }
+    &.accent {
+      @apply text-accent;
+    }
+  }
+}
