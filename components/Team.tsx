@@ -6,14 +6,6 @@ import person3 from '@assets/photos/person3.png'
 const Team = () => {
   return (
     <div>
-      <div className="container mx-auto flex justify-center pt-16">
-        <div>
-          <p className="pb-3 text-center text-lg font-normal text-gray-500">BUILDING TEAM</p>
-          <h1 className="mx-auto w-5/6 pb-6 text-center text-3xl font-extrabold text-gray-800 sm:w-4/6 xl:text-4xl">
-            The Talented People Behind the Scenes of the Organization
-          </h1>
-        </div>
-      </div>
       <div className="w-full px-10 pt-10">
         <div className="container mx-auto">
           <div
