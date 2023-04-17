@@ -2,10 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { HiPhoneOutgoing } from 'react-icons/hi'
 
-import Logo from '@components/Logo'
-import Nav from '@components/Nav/Nav'
-import logo_ks from '@assets/img/ks.svg'
-import logo_life from '@assets/img/lifecell_logo.svg'
+import Logo from '../Logo'
+import Nav from '../Nav/Nav'
+import logo_ks from '@/assets/img/ks.svg'
+import logo_life from '@/assets/img/lifecell_logo.svg'
 
 const Header = () => {
   return (

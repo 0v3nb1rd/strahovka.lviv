@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import banner from '@assets/img/banner.jpg'
-import banner_1 from '@assets/img/banner_1.jpg'
-import banner_2 from '@assets/img/banner_2.jpg'
+import banner from '@/assets/img/banner.jpg'
+import banner_1 from '@/assets/img/banner_1.jpg'
+import banner_2 from '@/assets/img/banner_2.jpg'
 
 const Banner = () => {
   return (

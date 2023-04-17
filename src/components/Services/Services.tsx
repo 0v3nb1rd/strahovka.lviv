@@ -1,12 +1,12 @@
 import Service from './Service'
 
-import img_services from '@assets/photos/poslugi.jpg'
-import img_carInsurance from '@assets/photos/avtostrahuvannya.jpg'
-import img_life from '@assets/photos/life.jpg'
-import img_travel from '@assets/photos/travel.jpg'
-import insurance_resp from '@assets/photos/services/insurance_resp.jpg'
-import insurance_business from '@assets/photos/services/insurance_business.jpg'
-import insurance_pets from '@assets/photos/services/insurance_pets.jpg'
+import img_services from '@/assets/photos/poslugi.jpg'
+import img_carInsurance from '@/assets/photos/avtostrahuvannya.jpg'
+import img_life from '@/assets/photos/life.jpg'
+import img_travel from '@/assets/photos/travel.jpg'
+import insurance_resp from '@/assets/photos/services/insurance_resp.jpg'
+import insurance_business from '@/assets/photos/services/insurance_business.jpg'
+import insurance_pets from '@/assets/photos/services/insurance_pets.jpg'
 
 const serviceData = [
   {

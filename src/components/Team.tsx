@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
-import person1 from '@assets/photos/person1.jpg'
-import person2 from '@assets/photos/person2.png'
-import person3 from '@assets/photos/person3.png'
+import person1 from '@/assets/photos/person1.jpg'
+import person2 from '@/assets/photos/person2.png'
+import person3 from '@/assets/photos/person3.png'
 
 const Team = () => {
   return (

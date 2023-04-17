@@ -1,5 +1,4 @@
 import Image, { StaticImageData } from 'next/image'
-import { SVGProps } from 'react'
 
 interface ServiceProps {
   title: string
