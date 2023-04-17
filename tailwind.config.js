@@ -47,7 +47,7 @@ module.exports = {
           // "primary-focus": "red",
           secondary: '#fee440',
           'secondary-focus': '#fee440',
-          // 'secondary-content': '#ffffff',
+          // 'secondary-content': '#606c38',
           accent: '#37CDFF',
           'accent-focus': '#2AAFCB',
           'accent-content': '#ffffff',
@@ -62,12 +62,9 @@ module.exports = {
           info: '#2094F3',
           warning: '#fee440',
           error: '#FF5724',
-          '.btn-ghost:hover, .btn-ghost.btn-active': {
+          '.btn-ghost:hover, btn-ghost:focus, .btn-ghost.btn-active': {
             'background-color': '#ffffff',
             color: '#1F2937',
-          },
-          '.btn-ghost:focus': {
-            'background-color': '#ffffff',
           },
         },
       },

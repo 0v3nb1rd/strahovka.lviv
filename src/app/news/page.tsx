@@ -13,6 +13,9 @@ import {
   BiTimeFive,
 } from 'react-icons/Bi'
 
+import Badge from '@/components/UI/Badge'
+import NewsList from '@/components/UI/NewsList/NewsList'
+
 import img_post_1 from '@/assets/img/img_1.jpg'
 import img_post_2 from '@/assets/img/img_2.jpg'
 import img_post_3 from '@/assets/img/img_3.jpg'
@@ -38,14 +41,14 @@ const NewsPage = () => {
           </aside>
 
           <section className="mx-3 w-[640px]">
-            {/* <Link href="/news/info-about-some-historical">Info about some historical</Link> */}
-            <article className="rounded-2xl bg-white">
+            <NewsList />
+            {/* <article className="rounded-2xl bg-white">
               <div className="mb-7">
                 <div className="px-5 py-4">
                   <ul className="header mb-3 flex gap-6">
                     <li className="">
-                      <a href="#" className="badge badge-secondary badge-lg hover:scale-110 hover:shadow-inner">
-                        Новини
+                      <a>
+                        <Badge variant="primary">Новини</Badge>
                       </a>
                     </li>
                     <li className="flex items-center gap-2">
@@ -191,7 +194,7 @@ const NewsPage = () => {
                   </button>
                 </div>
               </div>
-            </article>
+            </article> */}
           </section>
 
           <section className="w-[320px]">

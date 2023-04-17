@@ -12,6 +12,7 @@ import img_post_1 from '@/assets/img/img_1.jpg'
 import img_post_2 from '@/assets/img/img_2.jpg'
 import img_post_3 from '@/assets/img/img_3.jpg'
 import img_post_4 from '@/assets/img/img_4.jpg'
+import Badge from '@/components/UI/Badge'
 
 const HomePage = () => {
   return (
@@ -83,7 +84,10 @@ const HomePage = () => {
         <div className="container space-y-8">
           <div className="flex items-end justify-between">
             <div className="">
-              <span className="bg-yellow-100 px-2 text-lg font-semibold text-gray-600">Останні новини</span>
+              {/* <span className="bg-yellow-100 px-2 text-lg font-semibold text-gray-600">Останні новини</span> */}
+              <Badge variant="primary" linked>
+                Останні новини
+              </Badge>
               <h2 className="mt-4 pl-4 text-2xl font-bold text-gray-900 md:text-4xl">
                 Тут ви можете ознайомитись з новинами, <br className="lg:block" /> та порадами
               </h2>
@@ -184,9 +188,6 @@ const HomePage = () => {
 
       <section className="my-20">
         <div className="container">
-          {/* <div className="md:px-12">
-            <PromoSection />
-          </div> */}
           <div className="flex justify-center">
             <CtaBlock />
           </div>

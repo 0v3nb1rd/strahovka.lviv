@@ -1,11 +1,15 @@
 import Image from 'next/image'
 
+import Badge from './UI/Badge'
+
 const FeaturesSection = () => {
   return (
     <div className="overflow-hidden">
       <div className="container m-auto space-y-8 px-6 text-gray-500 md:px-12">
         <div>
-          <span className="bg-yellow-100 px-2 text-lg font-semibold text-gray-600">Наші особливості</span>
+          {/* <span className="bg-yellow-100 px-2 text-lg font-semibold text-gray-600">Наші особливості</span> */}
+          {/* <span className="badge-secondary badge badge-lg text-yellow-800">Наші особливості</span> */}
+          <Badge variant="primary">Наші особливості</Badge>
           <h2 className="mt-4 pl-4 text-2xl font-bold text-gray-900 md:text-4xl">
             Повний захист для вашої машини, <br className="lg:block" hidden /> та безліч переваг
           </h2>
