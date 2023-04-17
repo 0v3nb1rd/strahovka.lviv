@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 import {
   BiLike,
@@ -16,7 +17,6 @@ import img_post_1 from '@assets/img/img_1.jpg'
 import img_post_2 from '@assets/img/img_2.jpg'
 import img_post_3 from '@assets/img/img_3.jpg'
 import img_post_4 from '@assets/img/img_4.jpg'
-import Image from 'next/image'
 
 const NewsPage = () => {
   return (
@@ -44,7 +44,7 @@ const NewsPage = () => {
                 <div className="px-5 py-4">
                   <ul className="header mb-3 flex gap-6">
                     <li className="">
-                      <a href="#" className="badge-secondary badge badge-lg hover:scale-110 hover:shadow-inner">
+                      <a href="#" className="badge badge-secondary badge-lg hover:scale-110 hover:shadow-inner">
                         Новини
                       </a>
                     </li>
@@ -96,7 +96,7 @@ const NewsPage = () => {
                 <div className="px-5 py-4">
                   <ul className="header mb-3 flex gap-6">
                     <li className="">
-                      <a href="#" className="badge-secondary badge badge-lg hover:scale-110 hover:shadow-inner">
+                      <a href="#" className="badge badge-secondary badge-lg hover:scale-110 hover:shadow-inner">
                         Новини
                       </a>
                     </li>
@@ -148,7 +148,7 @@ const NewsPage = () => {
                 <div className="px-5 py-4">
                   <ul className="header mb-3 flex gap-6">
                     <li className="">
-                      <a href="#" className="badge-secondary badge badge-lg hover:scale-110 hover:shadow-inner">
+                      <a href="#" className="badge badge-secondary badge-lg hover:scale-110 hover:shadow-inner">
                         Новини
                       </a>
                     </li>

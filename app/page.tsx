@@ -1,11 +1,11 @@
 // import { Inter } from 'next/font/google'
-
-import Banner from '@/components/Banner'
-import CtaBlock from '@/components/CtaBlock'
-import FeaturesSection from '@/components/Features'
-import PromoSection from '@/components/PromoSection'
-import ServiceCards from '@/components/ServiceCards/ServiceCards'
 import Image from 'next/image'
+
+import Banner from '@components/Banner'
+import CtaBlock from '@components/CtaBlock'
+import FeaturesSection from '@components/Features'
+import PromoSection from '@components/PromoSection'
+import ServiceCards from '@components/ServiceCards/ServiceCards'
 
 // const inter = Inter({ subsets: ['latin'] })
 import img_post_1 from '@assets/img/img_1.jpg'

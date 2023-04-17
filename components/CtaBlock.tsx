@@ -1,5 +1,3 @@
-import React from 'react'
-
 const CtaBlock = () => {
   return (
     <div className="w-full max-w-4xl rounded-2xl border-2 border-gray-100 bg-white p-14">
