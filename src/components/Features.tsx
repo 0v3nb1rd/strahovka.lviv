@@ -7,9 +7,7 @@ const FeaturesSection = () => {
     <div className="overflow-hidden">
       <div className="container m-auto space-y-8 px-6 text-gray-500 md:px-12">
         <div>
-          {/* <span className="bg-yellow-100 px-2 text-lg font-semibold text-gray-600">Наші особливості</span> */}
-          {/* <span className="badge-secondary badge badge-lg text-yellow-800">Наші особливості</span> */}
-          <Badge variant="primary">Наші особливості</Badge>
+          <Badge variant="secondary">Наші особливості</Badge>
           <h2 className="mt-4 pl-4 text-2xl font-bold text-gray-900 md:text-4xl">
             Повний захист для вашої машини, <br className="lg:block" hidden /> та безліч переваг
           </h2>
@@ -29,12 +27,12 @@ const FeaturesSection = () => {
                   медичні витрати.
                 </p>
               </div>
-              <a href="#" className="flex items-center justify-between group-hover:text-yellow-600">
+              {/* <a href="#" className="flex items-center justify-between group-hover:text-yellow-600">
                 <span className="text-sm">Читати ще</span>
                 <span className="-translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">
                   →
                 </span>
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -55,12 +53,12 @@ const FeaturesSection = () => {
                 </p>
               </div>
 
-              <a href="#" className="flex items-center justify-between group-hover:text-yellow-600">
+              {/* <a href="#" className="flex items-center justify-between group-hover:text-yellow-600">
                 <span className="text-sm">Читати ще</span>
                 <span className="-translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">
                   →
                 </span>
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -75,12 +73,12 @@ const FeaturesSection = () => {
                   умов.
                 </p>
               </div>
-              <a href="#" className="flex items-center justify-between group-hover:text-yellow-600">
+              {/* <a href="#" className="flex items-center justify-between group-hover:text-yellow-600">
                 <span className="text-sm">Читати ще</span>
                 <span className="-translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">
                   →
                 </span>
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -94,12 +92,12 @@ const FeaturesSection = () => {
                   Доступні та конкурентоспроможні ціни на страхові поліси забезпечують економію вашого бюджету.
                 </p>
               </div>
-              <a href="#" className="flex items-center justify-between group-hover:text-yellow-600">
+              {/* <a href="#" className="flex items-center justify-between group-hover:text-yellow-600">
                 <span className="text-sm">Читати ще</span>
                 <span className="-translate-x-4 text-2xl opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">
                   →
                 </span>
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

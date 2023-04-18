@@ -21,6 +21,74 @@ import img_post_2 from '@/assets/img/img_2.jpg'
 import img_post_3 from '@/assets/img/img_3.jpg'
 import img_post_4 from '@/assets/img/img_4.jpg'
 
+const newsData = [
+  {
+    category: 'Новини',
+    date: '20.12.2022',
+    views: 3,
+    title: "В Україні в 2016 році потрібно ввести медстрахування всіх громадян — прем'єр",
+    description: 'lorem ipsum dolor sit amet, consectetur adip',
+    imageUrl: img_post_1,
+    reviews: 5,
+    likes: {
+      amount: 3,
+      liked: true,
+    },
+  },
+  {
+    category: 'Новини',
+    date: '07.10.2022',
+    views: 0,
+    title: 'Автомобілістам росії доведеться замінити всі поліси ОСАЦВ з 1 липня 2016 року',
+    description: 'lorem ipsum dolor sit amet, consectetur adip',
+    imageUrl: img_post_2,
+    reviews: 0,
+    likes: {
+      amount: 0,
+      liked: false,
+    },
+  },
+  {
+    category: 'Новини',
+    date: '04.04.2022',
+    views: 0,
+    title: 'Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄС',
+    description: 'lorem ipsum dolor sit amet, consectetur adip',
+    imageUrl: img_post_3,
+    reviews: 0,
+    likes: {
+      amount: 0,
+      liked: false,
+    },
+  },
+  {
+    category: 'Новини',
+    date: '18.02.2022',
+    views: 1,
+    title: 'Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄС',
+    description: 'lorem ipsum dolor sit amet, consectetur adip',
+    imageUrl: img_post_4,
+    reviews: 0,
+    likes: {
+      amount: 0,
+      liked: false,
+    },
+  },
+  {
+    category: 'Новини',
+    date: '10.12.2022',
+    views: 3,
+    title: "В Україні в 2016 році потрібно ввести медстрахування всіх громадян — прем'єр",
+    description: 'lorem ipsum dolor sit amet, consectetur adip',
+    imageUrl: img_post_1,
+    reviews: 5,
+    likes: {
+      amount: 3,
+      liked: true,
+    },
+  },
+]
+
 const NewsPage = () => {
   return (
     <main className="main main--news-cat">
@@ -41,160 +109,7 @@ const NewsPage = () => {
           </aside>
 
           <section className="mx-3 w-[640px]">
-            <NewsList />
-            {/* <article className="rounded-2xl bg-white">
-              <div className="mb-7">
-                <div className="px-5 py-4">
-                  <ul className="header mb-3 flex gap-6">
-                    <li className="">
-                      <a>
-                        <Badge variant="primary">Новини</Badge>
-                      </a>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <BiTimeFive />
-                      <span className="countdown text-base">10.12.2022</span>
-                    </li>
-                    <li className="ml-auto flex items-center gap-2">
-                      <BiShow fontSize={22} />
-                      <span className="countdown w-5 text-base">
-                        <span style={{ '--value': 3 } as React.CSSProperties}></span>
-                      </span>
-                    </li>
-                  </ul>
-                  <h2 className="text-2xl font-medium">
-                    В Україні в 2016 році потрібно ввести медстрахування всіх громадян — прем’єр
-                  </h2>
-                </div>
-
-                <figure className="h- relative h-[360px] w-full">
-                  <Image src={img_post_1} alt="photo art 1" fill className="object-cover" />
-                </figure>
-
-                <div className="flex gap-10 px-5 py-4">
-                  <button className="group flex items-center gap-2 transition">
-                    <BiMessageAltDetail fontSize={22} className="transition group-hover:scale-110" />
-                    <span className="countdown w-5 text-base">
-                      <span style={{ '--value': 1 } as React.CSSProperties}></span>
-                    </span>
-                  </button>
-                  <button className="group">
-                    <BiBookmark fontSize={22} className="transition group-hover:scale-110" />
-                  </button>
-                  <button className="group">
-                    <BiShare fontSize={22} className="transition group-hover:scale-110" />
-                  </button>
-                  <button className="group ml-auto flex items-center gap-2">
-                    <BiLike fontSize={22} className="text-red-500 transition group-hover:scale-110" />
-                    <span className="countdown w-5 text-base">
-                      <span style={{ '--value': 2 } as React.CSSProperties}></span>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <article className="rounded-2xl bg-white">
-              <div className="mb-7">
-                <div className="px-5 py-4">
-                  <ul className="header mb-3 flex gap-6">
-                    <li className="">
-                      <a href="#" className="badge badge-secondary badge-lg hover:scale-110 hover:shadow-inner">
-                        Новини
-                      </a>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <BiTimeFive />
-                      <span className="countdown text-base">10.12.2022</span>
-                    </li>
-                    <li className="ml-auto flex items-center gap-2">
-                      <BiShow fontSize={22} />
-                      <span className="countdown w-5 text-base">
-                        <span style={{ '--value': 1 } as React.CSSProperties}></span>
-                      </span>
-                    </li>
-                  </ul>
-                  <h2 className="text-2xl font-medium">
-                    Автомобілістам росії доведеться замінити всі поліси ОСАЦВ з 1 липня 2016 року
-                  </h2>
-                </div>
-
-                <figure className="h- relative h-[360px] w-full">
-                  <Image src={img_post_2} alt="photo art 1" fill className="object-cover" />
-                </figure>
-
-                <div className="flex gap-10 px-5 py-4">
-                  <button className="group flex items-center gap-2 transition">
-                    <BiMessageAltDetail fontSize={22} className="transition group-hover:scale-110" />
-                    <span className="countdown w-5 text-base">
-                      <span style={{ '--value': 1 } as React.CSSProperties}></span>
-                    </span>
-                  </button>
-                  <button className="group">
-                    <BiBookmark fontSize={22} className="transition group-hover:scale-110" />
-                  </button>
-                  <button className="group">
-                    <BiShare fontSize={22} className="transition group-hover:scale-110" />
-                  </button>
-                  <button className="group ml-auto flex items-center gap-2">
-                    <BiLike fontSize={22} className=" transition group-hover:scale-110" />
-                    <span className="countdown w-5 text-base">
-                      <span style={{ '--value': 1 } as React.CSSProperties}></span>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </article>
-
-            <article className="rounded-2xl bg-white">
-              <div className="mb-7">
-                <div className="px-5 py-4">
-                  <ul className="header mb-3 flex gap-6">
-                    <li className="">
-                      <a href="#" className="badge badge-secondary badge-lg hover:scale-110 hover:shadow-inner">
-                        Новини
-                      </a>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <BiTimeFive />
-                      <span className="countdown text-base">10.12.2022</span>
-                    </li>
-                    <li className="ml-auto flex items-center gap-2">
-                      <BiShow fontSize={22} />
-                      <span className="countdown w-5 text-base">
-                        <span style={{ '--value': 1 } as React.CSSProperties}></span>
-                      </span>
-                    </li>
-                  </ul>
-                  <h2 className="text-2xl font-medium">Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄС</h2>
-                </div>
-
-                <figure className="h- relative h-[360px] w-full">
-                  <Image src={img_post_3} alt="photo art 1" fill className="object-cover" />
-                </figure>
-
-                <div className="flex gap-10 px-5 py-4">
-                  <button className="group flex items-center gap-2 transition">
-                    <BiMessageAltDetail fontSize={22} className="transition group-hover:scale-110" />
-                    <span className="countdown w-5 text-base">
-                      <span style={{ '--value': 1 } as React.CSSProperties}></span>
-                    </span>
-                  </button>
-                  <button className="group">
-                    <BiBookmark fontSize={22} className="transition group-hover:scale-110" />
-                  </button>
-                  <button className="group">
-                    <BiShare fontSize={22} className="transition group-hover:scale-110" />
-                  </button>
-                  <button className="group ml-auto flex items-center gap-2">
-                    <BiLike fontSize={22} className=" transition group-hover:scale-110" />
-                    <span className="countdown w-5 text-base">
-                      <span style={{ '--value': 1 } as React.CSSProperties}></span>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </article> */}
+            <NewsList newsData={newsData} />
           </section>
 
           <section className="w-[320px]">

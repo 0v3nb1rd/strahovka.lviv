@@ -14,6 +14,21 @@
   --padding-card: 14px;
 }
 
+header.scrolled {
+  .wrap {
+    @apply z-10;
+    nav {
+      @apply mt-1 bg-white/50 drop-shadow-xl;
+    }
+    .logo {
+      @apply text-base hover:bg-transparent;
+      > img {
+        @apply h-10;
+      }
+    }
+  }
+}
+
 .banner {
   @apply relative h-[480px] w-full overflow-hidden rounded-2xl;
   &::after {

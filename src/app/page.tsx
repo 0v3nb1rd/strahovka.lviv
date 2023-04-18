@@ -13,6 +13,76 @@ import img_post_2 from '@/assets/img/img_2.jpg'
 import img_post_3 from '@/assets/img/img_3.jpg'
 import img_post_4 from '@/assets/img/img_4.jpg'
 import Badge from '@/components/UI/Badge'
+import Link from 'next/link'
+import NewsList from '@/components/UI/NewsList/NewsList'
+
+const newsData = [
+  {
+    category: 'Новини',
+    date: '20.12.2022',
+    views: 3,
+    title: "В Україні в 2016 році потрібно ввести медстрахування всіх громадян — прем'єр",
+    description: 'lorem ipsum dolor sit amet, consectetur adip',
+    imageUrl: img_post_1,
+    reviews: 5,
+    likes: {
+      amount: 3,
+      liked: true,
+    },
+  },
+  {
+    category: 'Новини',
+    date: '07.10.2022',
+    views: 0,
+    title: 'Автомобілістам росії доведеться замінити всі поліси ОСАЦВ з 1 липня 2016 року',
+    description: 'lorem ipsum dolor sit amet, consectetur adip',
+    imageUrl: img_post_2,
+    reviews: 0,
+    likes: {
+      amount: 0,
+      liked: false,
+    },
+  },
+  {
+    category: 'Новини',
+    date: '04.04.2022',
+    views: 0,
+    title: 'Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄС',
+    description: 'lorem ipsum dolor sit amet, consectetur adip',
+    imageUrl: img_post_3,
+    reviews: 0,
+    likes: {
+      amount: 0,
+      liked: false,
+    },
+  },
+  {
+    category: 'Новини',
+    date: '18.02.2022',
+    views: 1,
+    title: 'Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄС',
+    description: 'lorem ipsum dolor sit amet, consectetur adip',
+    imageUrl: img_post_4,
+    reviews: 0,
+    likes: {
+      amount: 0,
+      liked: false,
+    },
+  },
+  {
+    category: 'Новини',
+    date: '10.12.2022',
+    views: 3,
+    title: "В Україні в 2016 році потрібно ввести медстрахування всіх громадян — прем'єр",
+    description: 'lorem ipsum dolor sit amet, consectetur adip',
+    imageUrl: img_post_1,
+    reviews: 5,
+    likes: {
+      amount: 3,
+      liked: true,
+    },
+  },
+]
 
 const HomePage = () => {
   return (
@@ -84,80 +154,21 @@ const HomePage = () => {
         <div className="container space-y-8">
           <div className="flex items-end justify-between">
             <div className="">
-              {/* <span className="bg-yellow-100 px-2 text-lg font-semibold text-gray-600">Останні новини</span> */}
-              <Badge variant="primary" linked>
+              <Badge variant="secondary" linked>
                 Останні новини
               </Badge>
               <h2 className="mt-4 pl-4 text-2xl font-bold text-gray-900 md:text-4xl">
                 Тут ви можете ознайомитись з новинами, <br className="lg:block" /> та порадами
               </h2>
             </div>
-            <a href="/" className=" btn">
+            <Link href="/" className="btn">
               Усі новини
-            </a>
+            </Link>
           </div>
 
-          <ul className="mt-16 grid min-h-[320px] gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <li>
-              <a
-                href="/1stmu_ee5/www/novyny/nevidkladna-dopomoga-v-stanah-zagrozy-zhyttja.html"
-                className="relative flex h-full overflow-hidden rounded-2xl bg-white/40 shadow transition-all delay-75 duration-100 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl"
-              >
-                <Image src={img_post_1} alt="blog image" fill style={{ objectFit: 'cover' }} />
-                <div className="absolute bottom-0 left-0 right-0 p-2 font-semibold text-black lg:p-6 lg:text-base xl:text-xl">
-                  <sub className=" absolute -inset-6 bottom-0 block bg-gradient-to-t from-white via-white/80 to-white/0 "></sub>
-                  <h2 className="relative  line-clamp-3 text-xl font-semibold leading-5 transition-colors">
-                    В Україні в 2016 році потрібно ввести медстрахування всіх громадян — прем’єр
-                  </h2>
-                </div>
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="/1stmu_ee5/www/novyny/nevidkladna-dopomoga-v-stanah-zagrozy-zhyttja.html"
-                className="relative flex h-full overflow-hidden rounded-2xl bg-white/40 shadow transition-all delay-75 duration-100 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl"
-              >
-                <Image src={img_post_2} alt="blog image" fill style={{ objectFit: 'cover' }} />
-                <div className="absolute bottom-0 left-0 right-0 p-2 font-semibold text-black lg:p-6 lg:text-base xl:text-xl">
-                  <sub className=" absolute -inset-6 bottom-0 block bg-gradient-to-t from-white via-white/80 to-white/0 "></sub>
-                  <h2 className="relative line-clamp-3 text-xl font-semibold leading-5 transition-colors">
-                    Автомобілістам росії доведеться замінити всі поліси ОСАЦВ з 1 липня 2016 року
-                  </h2>
-                </div>
-              </a>
-            </li>
-
-            <li>
-              <a
-                href="/1stmu_ee5/www/novyny/nevidkladna-dopomoga-v-stanah-zagrozy-zhyttja.html"
-                className="relative flex h-full overflow-hidden rounded-2xl bg-white/40 shadow transition-all delay-75 duration-100 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl"
-              >
-                <Image src={img_post_3} alt="blog image" fill style={{ objectFit: 'cover' }} />
-                <div className="absolute bottom-0 left-0 right-0 p-2 font-semibold text-black lg:p-6 lg:text-base xl:text-xl">
-                  <sub className=" absolute -inset-6 bottom-0 block bg-gradient-to-t from-white via-white/80 to-white/0 "></sub>
-                  <h2 className="relative  line-clamp-3 text-xl font-semibold leading-5 transition-colors">
-                    Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄС{' '}
-                  </h2>
-                </div>
-              </a>
-            </li>
-
-            {/* <li>
-              <a
-                href="/1stmu_ee5/www/novyny/nevidkladna-dopomoga-v-stanah-zagrozy-zhyttja.html"
-                className="relative flex h-full overflow-hidden rounded-2xl bg-white/40 shadow transition-all delay-75 duration-100 hover:-translate-y-1 hover:scale-105 hover:shadow-2xl"
-              >
-                <Image src={img_post_4} alt="blog image" fill style={{ objectFit: 'cover' }} />
-                <div className="absolute bottom-0 left-0 right-0 p-2 font-semibold text-black lg:p-6 lg:text-base xl:text-xl">
-                  <sub className=" absolute -inset-10 block bg-gradient-to-t from-white/80 via-white/90 to-white/0 "></sub>
-                  <h2 className="relative  line-clamp-3 text-lg font-semibold leading-5 transition-colors">
-                    Хто гірше всіх платить по Автоцивілці / ОСАЦВ
-                  </h2>
-                </div>
-              </a>
-            </li> */}
-          </ul>
+          <div className="mt-16">
+            <NewsList maxLength={3} newsData={newsData} />
+          </div>
         </div>
       </section>
 
