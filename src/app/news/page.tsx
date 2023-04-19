@@ -94,7 +94,7 @@ const NewsPage = () => {
     <main className="main main--news-cat">
       <div className="container mx-auto">
         <div className="my-2 flex justify-between">
-          <aside className="w-[240px]">
+          <aside className="sticky top-[5.5rem] h-full w-[240px]">
             <div className="flex flex-col gap-2">
               <a className="btn-ghost btn-active btn-block btn justify-start gap-2 text-base normal-case" href="/news/">
                 <BiHome fontSize={24} /> Усі статті
@@ -112,7 +112,7 @@ const NewsPage = () => {
             <NewsList newsData={newsData} />
           </section>
 
-          <section className="w-[320px]">
+          <section className="sticky top-[5.5rem] h-full w-[320px]">
             <div className="overflow-hidden rounded-2xl bg-white p-5">
               <h2 className="text-lg font-bold">Популярні статті:</h2>
               <ul>

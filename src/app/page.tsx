@@ -155,13 +155,13 @@ const HomePage = () => {
           <div className="flex items-end justify-between">
             <div className="">
               <Badge variant="secondary" linked>
-                Останні новини
+                Останні статті
               </Badge>
               <h2 className="mt-4 pl-4 text-2xl font-bold text-gray-900 md:text-4xl">
                 Тут ви можете ознайомитись з новинами, <br className="lg:block" /> та порадами
               </h2>
             </div>
-            <Link href="/" className="btn">
+            <Link href="/news" className="btn">
               Усі новини
             </Link>
           </div>
