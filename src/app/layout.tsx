@@ -16,7 +16,7 @@ export const metadata = {
 
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
-    <html lang="en">
+    <html lang="ua">
       <body className="relative flex min-h-screen min-w-[320px] flex-col overflow-x-hidden">
         <Header />
         {children}
