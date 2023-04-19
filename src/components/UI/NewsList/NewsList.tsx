@@ -13,7 +13,9 @@ const NewsList: React.FC<any> = ({ newsData, maxLength = undefined }) => {
       })}
     >
       {newsData.slice(0, maxLength).map((data: any) => (
-        <NewsCard key={uuid()} maxLength={maxLength} {...data} />
+        <li key={uuid()}>
+          <NewsCard maxLength={maxLength} {...data} />
+        </li>
       ))}
     </ul>
   )
