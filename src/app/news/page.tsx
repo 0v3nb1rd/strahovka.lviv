@@ -1,4 +1,6 @@
 import NewsList from '@/components/UI/NewsList/NewsList'
+import { Suspense } from 'react'
+import LoadingPage from './loading'
 
 const fetchNews = async () => {
   const resp = await fetch(`${process.env.BASE_FETCH_URL}/api/news`)
@@ -10,7 +12,11 @@ const fetchNews = async () => {
 const NewsPage = async () => {
   const newsData = await fetchNews()
 
-  return <NewsList newsData={newsData} />
+  return (
+    <Suspense fallback={<LoadingPage />}>
+      <NewsList newsData={newsData} />
+    </Suspense>
+  )
 }
 
 export default NewsPage
