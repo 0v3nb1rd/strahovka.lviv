@@ -11,7 +11,7 @@ interface paramsProps {
 
 const fetchNews = async () => {
   const resp = await fetch(`${process.env.BASE_FETCH_URL}/api/news`)
-  await new Promise((res) => setTimeout(res, 2000))
+  // await new Promise((res) => setTimeout(res, 2000))
   const newsData = await resp.json()
   return newsData
 }
@@ -19,7 +19,7 @@ const fetchNews = async () => {
 const NewPage = async ({ params: { slug } }: paramsProps) => {
   const newsData = await fetchNews()
 
-  const { category, date, title, views, description, imageUrl, reviews, likes, maxLength }: any = newsData.find(
+  const { category_ua, date, title, views, description, imageUrl, reviews, likes, maxLength }: any = newsData.find(
     (x: any) => x.slug === slug
   )
 
@@ -30,7 +30,7 @@ const NewPage = async ({ params: { slug } }: paramsProps) => {
           <ul className="header mb-3 flex gap-6">
             <li className="">
               <div>
-                <Badge variant="primary">{category}</Badge>
+                <Badge variant="primary">{category_ua}</Badge>
               </div>
             </li>
             <li className="flex items-center gap-2">

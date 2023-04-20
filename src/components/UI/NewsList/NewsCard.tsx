@@ -10,7 +10,8 @@ type likesType = {
   liked: boolean
 }
 interface NewsCardProps {
-  category: string
+  category_en?: string
+  category_ua?: string
   date: string
   title: string
   slug: string
@@ -23,7 +24,7 @@ interface NewsCardProps {
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({
-  category,
+  category_ua,
   date,
   maxLength,
   title,
@@ -43,7 +44,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
           <ul className="header mb-3 flex gap-6">
             <li className="">
               <div>
-                <Badge variant="primary">{category}</Badge>
+                <Badge variant="primary">{category_ua}</Badge>
               </div>
             </li>
             <li className="flex items-center gap-2">
