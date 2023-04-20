@@ -1,86 +1,7 @@
-// const inter = Inter({ subsets: ['latin'] })
-import img_post_1 from '@/assets/img/img_1.jpg'
-import img_post_2 from '@/assets/img/img_2.jpg'
-import img_post_3 from '@/assets/img/img_3.jpg'
-import img_post_4 from '@/assets/img/img_4.jpg'
-import Badge from '@/components/UI/Badge'
-import Link from 'next/link'
-import NewsList from '@/components/UI/NewsList/NewsList'
-import type { StaticImageData } from 'next/image'
 import Image from 'next/image'
+import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/Bi'
 
-const newsData = [
-  {
-    category: 'Новини',
-    date: '20.12.2022',
-    views: 3,
-    title: "В Україні в 2016 році потрібно ввести медстрахування всіх громадян - прем'єр",
-    slug: 'v-ukrayini-v-2016-rotsi-potribno-vvesti-medstrakhuvannya-vsikh-gromadyan-premier',
-    description: 'lorem ipsum dolor sit amet, consectetur adip',
-    imageUrl: img_post_1,
-    reviews: 5,
-    likes: {
-      amount: 3,
-      liked: true,
-    },
-  },
-  {
-    category: 'Новини',
-    date: '07.10.2022',
-    views: 0,
-    title: 'Автомобілістам росії доведеться замінити всі поліси ОСАЦВ з 1 липня 2016 року',
-    slug: 'avtomobilistam-rosiyi-dovedetsya-zaminiti-vsi-polisi-osatsv-z-1-lipnya-2016-roku',
-    description: 'lorem ipsum dolor sit amet, consectetur adip',
-    imageUrl: img_post_2,
-    reviews: 0,
-    likes: {
-      amount: 0,
-      liked: false,
-    },
-  },
-  {
-    category: 'Новини',
-    date: '04.04.2022',
-    views: 0,
-    title: 'Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄС',
-    slug: 'limiti-po-osatsv-v-ukrayini-budut-privedeni-do-standartiv-ies',
-    description: 'lorem ipsum dolor sit amet, consectetur adip',
-    imageUrl: img_post_3,
-    reviews: 0,
-    likes: {
-      amount: 0,
-      liked: false,
-    },
-  },
-  {
-    category: 'Новини',
-    date: '18.02.2022',
-    views: 1,
-    title: 'Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄСC',
-    slug: 'iti-po-osatsv-v-ukrayini-budut-privedeni-do-standartiv-iesc',
-    description: 'lorem ipsum dolor sit amet, consectetur adip',
-    imageUrl: img_post_4,
-    reviews: 0,
-    likes: {
-      amount: 0,
-      liked: false,
-    },
-  },
-  {
-    category: 'Новини',
-    date: '10.12.2022',
-    views: 3,
-    title: "В Україні в 2016 році потрібно ввести медстрахування всіх громадян - прем'єрр",
-    slug: 'v-ukrayini-v-2016-rotsi-potribno-vvesti-medstrakhuvannya-vsikh-gromadyan-premierr',
-    description: 'lorem ipsum dolor sit amet, consectetur adip',
-    imageUrl: img_post_1,
-    reviews: 5,
-    likes: {
-      amount: 3,
-      liked: true,
-    },
-  },
-]
+import Badge from '@/components/UI/Badge'
 
 interface paramsProps {
   params: {
@@ -88,25 +9,80 @@ interface paramsProps {
   }
 }
 
-const News: React.FC<paramsProps> = ({ params: { slug } }) => {
+const fetchNews = async () => {
+  const resp = await fetch(`${process.env.BASE_FETCH_URL}/api/news`)
+  await new Promise((res) => setTimeout(res, 2000))
+  const newsData = await resp.json()
+  return newsData
+}
+
+const NewPage = async ({ params: { slug } }: paramsProps) => {
+  const newsData = await fetchNews()
+
   const { category, date, title, views, description, imageUrl, reviews, likes, maxLength }: any = newsData.find(
-    (x) => x.slug === slug
+    (x: any) => x.slug === slug
   )
 
   return (
-    <main className="main main--news-art">
-      <div className="container mx-auto">
-        <h1 className="m-10 text-center text-4xl font-bold">New page</h1>
-        <div className="flex justify-between">
-          <span>{date}</span>
-          <Badge variant="secondary">{category}</Badge>
+    <div className="flex flex-col">
+      <div className="relative mb-6 flex h-full flex-col overflow-hidden rounded-2xl bg-white">
+        <div className="px-5 py-4">
+          <ul className="header mb-3 flex gap-6">
+            <li className="">
+              <div>
+                <Badge variant="primary">{category}</Badge>
+              </div>
+            </li>
+            <li className="flex items-center gap-2">
+              <BiTimeFive />
+              <span className="countdown text-base">{date}</span>
+            </li>
+            <li className="ml-auto flex items-center gap-2">
+              <BiShow fontSize={22} />
+              <span className="countdown w-5 text-base">
+                <span style={{ '--value': views } as React.CSSProperties}></span>
+              </span>
+            </li>
+          </ul>
+
+          <h2 className="line-clamp-3 text-2xl font-medium">{title}</h2>
         </div>
-        <article>{title}</article>
-        <Image src={imageUrl} alt={title} />
-        <p>{description}</p>
+
+        <figure className="relative mt-auto h-[360px] w-full">
+          <Image src={imageUrl} alt="photo art 1" fill className="object-cover" />
+        </figure>
+
+        <p className="description px-5 py-4" dangerouslySetInnerHTML={{ __html: description }} />
+
+        <div className="flex gap-10 px-5 py-4">
+          <button className="group flex items-center gap-2 transition">
+            <BiMessageAltDetail fontSize={22} className="transition group-hover:scale-110" />
+            <span className="countdown w-5 text-base">
+              <span style={{ '--value': reviews } as React.CSSProperties}></span>
+            </span>
+          </button>
+          <button className="group">
+            <BiBookmark fontSize={22} className="transition group-hover:scale-110" />
+          </button>
+          <button className="group">
+            <BiShare fontSize={22} className="transition group-hover:scale-110" />
+          </button>
+          <button className="group ml-auto flex items-center gap-2">
+            <BiLike fontSize={22} className={`transition group-hover:scale-110 ${likes.liked ? 'text-red-500' : ''}`} />
+            <span className="countdown w-5 text-base">
+              <span style={{ '--value': likes.amount } as React.CSSProperties}></span>
+            </span>
+          </button>
+        </div>
       </div>
-    </main>
+
+      <div className="relative mb-6 flex h-full flex-col overflow-hidden rounded-2xl bg-white">
+        <div className="p-5">
+          <p>Comments Block: </p>
+        </div>
+      </div>
+    </div>
   )
 }
 
-export default News
+export default NewPage

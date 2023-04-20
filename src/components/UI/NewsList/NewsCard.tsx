@@ -1,19 +1,9 @@
+import Link from 'next/link'
 import Image, { StaticImageData } from 'next/image'
-import {
-  BiLike,
-  BiShare,
-  BiMessageAltDetail,
-  BiShow,
-  BiInfoCircle,
-  BiHome,
-  BiBookmark,
-  BiNews,
-  BiTimeFive,
-} from 'react-icons/Bi'
+import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/Bi'
 import cn from 'classnames'
 
 import Badge from '@/components/UI/Badge'
-import Link from 'next/link'
 
 type likesType = {
   amount: number
@@ -46,12 +36,7 @@ const NewsCard: React.FC<NewsCardProps> = ({
   return (
     <Link
       href={`/news/${slug}`}
-      className={cn(
-        'relative flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow transition-all delay-75 duration-100 hover:shadow-xl',
-        {
-          'hover:-translate-y-1': maxLength === 3,
-        }
-      )}
+      className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow transition-all delay-75 duration-100 hover:shadow-xl"
     >
       <div className="px-5 py-4">
         {maxLength === undefined && (

@@ -1,9 +1,6 @@
 import cn from 'classnames'
 
 import NewsCard from './NewsCard'
-import { v4 as uuid } from 'uuid'
-
-import { StaticImageData } from 'next/image'
 
 const NewsList: React.FC<any> = ({ newsData, maxLength = undefined }) => {
   return (
@@ -12,8 +9,8 @@ const NewsList: React.FC<any> = ({ newsData, maxLength = undefined }) => {
         'sm:grid-cols-2 lg:grid-cols-3': maxLength === 3,
       })}
     >
-      {newsData.slice(0, maxLength).map((data: any) => (
-        <li key={uuid()}>
+      {newsData?.slice(0, maxLength).map((data: any) => (
+        <li key={data.id}>
           <NewsCard maxLength={maxLength} {...data} />
         </li>
       ))}
