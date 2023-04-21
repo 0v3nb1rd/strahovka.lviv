@@ -1,6 +1,8 @@
 import cn from 'classnames'
 
 import NewsCard from './NewsCard'
+import SkeletonNews from '@/app/news/loading'
+import { Suspense } from 'react'
 
 const NewsList: React.FC<any> = ({ newsData, maxLength = undefined }) => {
   return (
@@ -9,9 +11,15 @@ const NewsList: React.FC<any> = ({ newsData, maxLength = undefined }) => {
         'sm:grid-cols-2 lg:grid-cols-3': maxLength === 3,
       })}
     >
+      {/* <li className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-white">
+        <SkeletonNews />
+      </li> */}
+
       {newsData?.slice(0, maxLength).map((data: any) => (
         <li key={data.id}>
-          <NewsCard maxLength={maxLength} {...data} />
+          <Suspense fallback={<SkeletonNews />}>
+            <NewsCard maxLength={maxLength} {...data} />
+          </Suspense>
         </li>
       ))}
     </ul>

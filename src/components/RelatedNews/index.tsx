@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const fetchNews = async () => {
   const resp = await fetch(`${process.env.BASE_FETCH_URL}/api/news`)
-  await new Promise((res) => setTimeout(res, 2000))
+  // await new Promise((res) => setTimeout(res, 2000))
   const newsData = await resp.json()
   return newsData
 }
