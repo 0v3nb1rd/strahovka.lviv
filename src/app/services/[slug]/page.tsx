@@ -1,30 +1,45 @@
 import Image from 'next/image'
+import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/Bi'
 
-import { BiPhoneCall, BiEnvelope, BiMap } from 'react-icons/Bi'
+import Badge from '@/components/UI/Badge'
 
-import img_cooperation from '@/assets/photos/cooperation.jpg'
+interface paramsProps {
+  params: {
+    slug: string
+  }
+}
 
-const CooperationPage = () => {
+const fetchServices = async () => {
+  const resp = await fetch(`${process.env.BASE_FETCH_URL}/api/services`)
+  const servicesData = await resp.json()
+  return servicesData
+}
+
+const NewPage = async ({ params: { slug } }: paramsProps) => {
+  const servicesData = await fetchServices()
+
+  const { category_ua, title, full_text, img_url }: any = servicesData.find((x: any) => x.slug === slug)
+
   return (
-    <main className="main main--cooperation">
+    <main className="main main--services">
       <div className="container mx-auto">
         <section className="mx-10 mb-14 mt-2 rounded-2xl  bg-white p-14 pb-20 shadow-md">
           <div className="flex flex-col gap-16">
             <div className="title mx-auto max-w-2xl">
               <div className="flex flex-col items-center">
-                <span className="badge-secondary badge badge-lg mb-3">Співпраця</span>
+                <span className="badge-secondary badge badge-lg mb-3">{category_ua}</span>
                 <h1 className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
-                  Стати страховим агентом
+                  {title}
                 </h1>
-                <p className="text-center text-lg font-semibold text-black/60">
-                  Запрошує до співпраці як досвідчених страховиків, так і фахівців-початківців, які бажають опанувати
-                  нову, цікаву та попитну професію.
-                </p>
+                <div
+                  className="text-center text-lg font-semibold text-black/60"
+                  dangerouslySetInnerHTML={{ __html: full_text }}
+                />
               </div>
             </div>
 
             <div className="relative h-[480px] overflow-hidden rounded-2xl">
-              <Image className="object-cover" src={img_cooperation} fill alt="image cooperation" />
+              <Image src={img_url} className="object-cover" fill alt={title} />
             </div>
 
             <div className="mx-auto flex max-w-[840px] flex-col gap-4 text-lg">
@@ -162,4 +177,4 @@ const CooperationPage = () => {
   )
 }
 
-export default CooperationPage
+export default NewPage
