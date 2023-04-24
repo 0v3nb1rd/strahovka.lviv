@@ -91,10 +91,9 @@ const newsData = [
 
 const HomePage = () => {
   return (
-    <main className="main">
-      <section className="my-2">
+    <main className="main pt-32">
+      <section>
         <div className="container">
-          {/* <h1 className="m-10 text-center text-4xl font-bold">Автоцивілка</h1> */}
           <Banner />
 
           <div className="-mt-24">

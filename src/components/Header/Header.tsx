@@ -1,25 +1,24 @@
 'use client'
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { HiPhoneOutgoing } from 'react-icons/hi'
+import { useEffect, useState, forwardRef, useRef } from 'react'
+
+import cn from 'classnames'
 
 import Logo from '../Logo'
 import Nav from '../Nav/Nav'
-import logo_ks from '@/assets/img/ks.svg'
-import logo_life from '@/assets/img/lifecell_logo.svg'
-import { useEffect, useState } from 'react'
-import cn from 'classnames'
 
-const Header = () => {
+import Burger from '../UI/Burger/Burger'
+import PhoneList from '../UI/PhoneList/PhoneList'
+
+const Header = forwardRef<HTMLElement>(() => {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
+    document.querySelector('.drawer-content')?.addEventListener('scroll', (e) => handleScroll(e))
   }, [])
 
-  const handleScroll = () => {
-    const offset = window.scrollY
+  const handleScroll = (e: any) => {
+    const offset = e.target.scrollTop
     if (offset > 30) {
       setScrolled(true)
     } else {
@@ -29,27 +28,20 @@ const Header = () => {
 
   return (
     <header
-      className={cn('py-14', {
+      className={cn('sticky top-0 z-30 flex h-0 w-full justify-center ', {
         scrolled: scrolled,
       })}
     >
-      <div className="wrap container fixed left-0 right-0 top-0 z-10">
+      <div className="wrap container">
         <nav className=" my-4 flex items-center justify-between rounded-2xl bg-white px-2 py-1 text-base backdrop-blur-lg transition-all">
+          <Burger className="flex-none xl:hidden" />
+
           <Logo />
 
-          <Nav />
+          <Nav className="hidden items-center gap-4 xl:flex" />
 
           <div className="flex gap-6">
-            <div>
-              <a className="link-hover flex items-center gap-2  font-medium" href="tel:380687678898">
-                <Image src={logo_ks} width={22} height={22} className="h-[22px] w-[22px]" alt="kyivStar logo" />
-                <span className="">(068)767 88 98</span>
-              </a>
-              <a className="link-hover flex items-center gap-2  font-medium" href="tel:380687678898">
-                <Image src={logo_life} width={22} height={22} className="h-[22px] w-[22px]" alt="lifeCell logo" />
-                <span className="">(068)767 88 98</span>
-              </a>
-            </div>
+            <PhoneList className="hidden xl:block" />
 
             <label className="swap swap-flip mr-4 text-3xl">
               <input type="checkbox" />
@@ -210,6 +202,6 @@ const Header = () => {
       </div>
     </header>
   )
-}
+})
 
 export default Header

@@ -10,7 +10,7 @@ const ServicesPage = async () => {
   const servicesData = await fetchServices()
 
   return (
-    <main className="main main--services">
+    <main className="main main--services pt-32">
       <div className="container mx-auto">
         <div className="mb-16 mt-2">
           <Services data={servicesData} />

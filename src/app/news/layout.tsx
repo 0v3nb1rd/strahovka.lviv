@@ -13,9 +13,9 @@ export const metadata = {
 
 const NewsLayout = async (props: any) => {
   return (
-    <main className="main main--news">
+    <main className="main main--news pt-32">
       <div className="container mx-auto">
-        <div className="my-2 flex justify-between">
+        <div className="flex justify-between">
           <Aside />
 
           <section className="mx-3 w-[640px]">{props.children}</section>

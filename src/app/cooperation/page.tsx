@@ -6,7 +6,7 @@ import img_cooperation from '@/assets/photos/cooperation.jpg'
 
 const CooperationPage = () => {
   return (
-    <main className="main main--cooperation">
+    <main className="main main--cooperation pt-32">
       <div className="container mx-auto">
         <section className="mx-10 mb-14 mt-2 rounded-2xl  bg-white p-14 pb-20 shadow-md">
           <div className="flex flex-col gap-16">
