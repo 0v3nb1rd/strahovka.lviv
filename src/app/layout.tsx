@@ -1,5 +1,7 @@
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
+import DrawerSide from '@/components/Drawer/DrawerSide'
+import Modal from '@/components/Modal/Modal'
 
 import './globals.scss'
 
@@ -16,10 +18,24 @@ export const metadata = {
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="ua">
-      <body className="relative flex min-h-screen min-w-[320px] flex-col overflow-x-hidden">
-        <Header />
-        {children}
-        <Footer />
+      <body>
+        <div className="drawer absolute">
+          <input id="drawer-menu" type="checkbox" className="drawer-toggle" />
+          <div className="drawer-content">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+
+          <DrawerSide />
+        </div>
+
+        <Modal>
+          <h3 className="text-lg font-bold">Congratulations random Internet user!</h3>
+          <p className="py-4">
+            You've been selected for a chance to get one year of subscription to use Wikipedia for free!
+          </p>
+        </Modal>
       </body>
     </html>
   )
