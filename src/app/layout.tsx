@@ -4,6 +4,9 @@ import DrawerSide from '@/components/Drawer/DrawerSide'
 import Modal from '@/components/Modal/Modal'
 
 import './globals.scss'
+import ModalForm from '@/components/Forms/ModalForm'
+import Logo from '@/components/Logo'
+import Badge from '@/components/UI/Badge'
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -30,12 +33,7 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
           <DrawerSide />
         </div>
 
-        <Modal>
-          <h3 className="text-lg font-bold">Congratulations random Internet user!</h3>
-          <p className="py-4">
-            You've been selected for a chance to get one year of subscription to use Wikipedia for free!
-          </p>
-        </Modal>
+        <Modal variant="sm" title="Зелена карта" />
       </body>
     </html>
   )

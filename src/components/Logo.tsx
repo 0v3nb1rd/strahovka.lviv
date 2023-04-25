@@ -10,7 +10,7 @@ const Logo = ({ className }: { className?: string }) => {
       }`}
     >
       <span className="first-letter: relative z-10 -mr-5">STRAHOVKA</span>
-      <Image src="/logo.svg" alt="logo" width={64} height={64} className=" h-[64px] w-[64px] transition-all" />
+      <Image src="/logo.svg" alt="logo" width={64} height={64} className="h-[64px] w-[64px] transition-all" />
     </Link>
   )
 }
