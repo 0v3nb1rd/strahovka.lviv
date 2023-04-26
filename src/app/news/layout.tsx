@@ -1,10 +1,6 @@
 import RelatedPosts from '@/components/RelatedNews'
 import Aside from '@/components/UI/NewsList/Aside'
 
-// interface NewsLayoutProps {
-//   children: React.ReactNode
-// }
-
 export const metadata = {
   title: 'Новини | Strahovka.lviv',
   description: 'A sample Next.js app showing dynamic routing with modals as a route.',

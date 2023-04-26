@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image, { StaticImageData } from 'next/image'
-import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/bi'
 import cn from 'classnames'
+import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/bi'
 
 import Badge from '@/components/UI/Badge'
 
