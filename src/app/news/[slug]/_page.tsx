@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/Bi'
+import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/bi'
 
 import Badge from '@/components/UI/Badge'
 

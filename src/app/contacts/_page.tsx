@@ -1,4 +1,4 @@
-import { BiPhoneCall, BiEnvelope, BiMap } from 'react-icons/Bi'
+import { BiPhoneCall, BiEnvelope, BiMap } from 'react-icons/bi'
 
 import CtaBlock from '@/components/CtaBlock'
 import Faq from '@/components/Faq'

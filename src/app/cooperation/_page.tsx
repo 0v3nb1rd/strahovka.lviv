@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { BiPhoneCall, BiEnvelope, BiMap } from 'react-icons/Bi'
+import { BiPhoneCall, BiEnvelope, BiMap } from 'react-icons/bi'
 
 import img_cooperation from '@/assets/photos/cooperation.jpg'
 

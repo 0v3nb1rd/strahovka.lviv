@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation'
 
 import Link from 'next/link'
-import { BiInfoCircle, BiHome, BiNews } from 'react-icons/Bi'
+import { BiInfoCircle, BiHome, BiNews } from 'react-icons/bi'
 
 const Aside = (props: any) => {
   const searchParams = useSearchParams()
