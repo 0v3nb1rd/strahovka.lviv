@@ -1,20 +1,20 @@
 // import { Inter } from 'next/font/google'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import Banner from '@/components/Banner'
 import CtaBlock from '@/components/CtaBlock'
 import FeaturesSection from '@/components/Features'
 import PromoSection from '@/components/PromoSection'
 import ServiceCards from '@/components/ServiceCards/ServiceCards'
+import Badge from '@/components/UI/Badge'
+import NewsList from '@/components/UI/NewsList/NewsList'
 
 // const inter = Inter({ subsets: ['latin'] })
 import img_post_1 from '@/assets/img/img_1.jpg'
 import img_post_2 from '@/assets/img/img_2.jpg'
 import img_post_3 from '@/assets/img/img_3.jpg'
 import img_post_4 from '@/assets/img/img_4.jpg'
-import Badge from '@/components/UI/Badge'
-import Link from 'next/link'
-import NewsList from '@/components/UI/NewsList/NewsList'
 
 const newsData = [
   {
