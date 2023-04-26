@@ -9,7 +9,7 @@ const fetchServices = async () => {
   return servicesData
 }
 
-const ServicesPage = async () => {
+const ServicesPage = async (props: any) => {
   const servicesData = await fetchServices()
 
   return (
