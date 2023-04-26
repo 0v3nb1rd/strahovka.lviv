@@ -10,8 +10,13 @@ interface paramsProps {
 }
 
 const fetchServices = async () => {
-  const resp = await fetch(`${process.env.BASE_FETCH_URL}/api/services`)
-  const servicesData = await resp.json()
+  const res = await fetch(`${process.env.BASE_FETCH_URL}/api/services`)
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch data on: ' + process.env.BASE_FETCH_URL)
+  }
+
+  const servicesData = await res.json()
   return servicesData
 }
 
@@ -27,7 +32,7 @@ const NewPage = async ({ params: { slug } }: paramsProps) => {
           <div className="flex flex-col gap-16">
             <div className="title mx-auto max-w-2xl">
               <div className="flex flex-col items-center">
-                <span className="badge-secondary badge badge-lg mb-3">{category_ua}</span>
+                <span className="badge badge-secondary badge-lg mb-3">{category_ua}</span>
                 <h1 className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
                   {title}
                 </h1>

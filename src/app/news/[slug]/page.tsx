@@ -10,9 +10,12 @@ interface paramsProps {
 }
 
 const fetchNews = async () => {
-  const resp = await fetch(`${process.env.BASE_FETCH_URL}/api/news`)
+  const res = await fetch(`${process.env.BASE_FETCH_URL}/api/news`)
   // await new Promise((res) => setTimeout(res, 2000))
-  const newsData = await resp.json()
+  if (!res.ok) {
+    throw new Error('Failed to fetch data on: ' + process.env.BASE_FETCH_URL + '/api/news')
+  }
+  const newsData = await res.json()
   return newsData
 }
 

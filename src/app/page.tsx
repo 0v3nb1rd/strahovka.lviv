@@ -8,7 +8,7 @@ import FeaturesSection from '@/components/Features'
 import PromoSection from '@/components/PromoSection'
 import ServiceCards from '@/components/ServiceCards/ServiceCards'
 import Badge from '@/components/UI/Badge'
-// import NewsList from '@/components/UI/NewsList/NewsList'
+import NewsList from '@/components/UI/NewsList/NewsList'
 
 // const inter = Inter({ subsets: ['latin'] })
 import img_post_1 from '@/assets/img/img_1.jpg'
@@ -171,7 +171,7 @@ const HomePage = () => {
           </div>
 
           <div className="mt-16">
-            {/* <NewsList maxLength={3} newsData={newsData} /> */}
+            <NewsList maxLength={3} newsData={newsData} />
           </div>
         </div>
       </section>

@@ -1,8 +1,11 @@
 import Services from '@/components/Services/Services'
 
 const fetchServices = async () => {
-  const resp = await fetch(`${process.env.BASE_FETCH_URL}/api/services`)
-  const servicesData = await resp.json()
+  const res = await fetch(`${process.env.BASE_FETCH_URL}/api/services`)
+  if (!res.ok) {
+    throw new Error('Failed to fetch data on: ' + process.env.BASE_FETCH_URL)
+  }
+  const servicesData = await res.json()
   return servicesData
 }
 
