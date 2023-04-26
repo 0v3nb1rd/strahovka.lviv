@@ -14,7 +14,7 @@ const NewsLayout = async (props: any) => {
         <div className="flex justify-between">
           <Aside />
 
-          {/* <section className="mx-3 w-[640px]">{props.children}</section> */}
+          <section className="mx-3 w-[640px]">{props.children}</section>
 
           {/* @ts-expect-error Server Component */}
           <RelatedPosts maxLength={3} />
