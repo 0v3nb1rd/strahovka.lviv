@@ -1,15 +1,30 @@
 import Services from '@/components/Services/Services'
 
-const fetchServices = async () => {
+export interface ServicesProps {
+  id: string
+  category_en: string
+  category_ua: string
+  date: string
+  title: string
+  slug: string
+  short_text: string
+  full_text: string
+  thumbnail_url: string
+  img_url: string
+}
+
+const fetchServices = async (): Promise<ServicesProps> => {
   const res = await fetch(`${process.env.BASE_FETCH_URL}/api/services`)
+
   if (!res.ok) {
     throw new Error('Failed to fetch data on: ' + process.env.BASE_FETCH_URL)
   }
+
   const servicesData = await res.json()
   return servicesData
 }
 
-const ServicesPage = async (props: any) => {
+export default async function ServicesPage() {
   const servicesData = await fetchServices()
 
   return (
@@ -22,5 +37,3 @@ const ServicesPage = async (props: any) => {
     </main>
   )
 }
-
-export default ServicesPage

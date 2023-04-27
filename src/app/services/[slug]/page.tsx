@@ -1,12 +1,12 @@
 import Image from 'next/image'
-export interface ServicesProps {
+export interface ServiceProps {
   category_ua: string
   title: string
   full_text: string
   img_url: string
 }
 
-const fetchServiceBySlug = async (slug: string): Promise<ServicesProps> => {
+const fetchServiceBySlug = async (slug: string): Promise<ServiceProps> => {
   const res = await fetch(`${process.env.BASE_FETCH_URL}/api/services?slug=${slug}`)
 
   if (!res.ok) {
@@ -18,7 +18,7 @@ const fetchServiceBySlug = async (slug: string): Promise<ServicesProps> => {
 }
 
 export default async function NewPage({ params }: { params: { slug: string } }) {
-  const service = await fetchServiceBySlug(params.slug)
+  const serviceData = await fetchServiceBySlug(params.slug)
 
   return (
     <main className="main main--services pt-32">
@@ -27,19 +27,19 @@ export default async function NewPage({ params }: { params: { slug: string } }) 
           <div className="flex flex-col gap-16">
             <div className="title mx-auto max-w-2xl">
               <div className="flex flex-col items-center">
-                <span className="badge-secondary badge badge-lg mb-3">{service.category_ua}</span>
+                <span className="badge-secondary badge badge-lg mb-3">{serviceData.category_ua}</span>
                 <h1 className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
-                  {service.title}
+                  {serviceData.title}
                 </h1>
                 <div
                   className="text-center text-lg font-semibold text-black/60"
-                  dangerouslySetInnerHTML={{ __html: service.full_text }}
+                  dangerouslySetInnerHTML={{ __html: serviceData.full_text }}
                 />
               </div>
             </div>
 
             <div className="relative h-[480px] overflow-hidden rounded-2xl">
-              <Image src={service.img_url} className="object-cover" fill alt={service.title} />
+              <Image src={serviceData.img_url} className="object-cover" fill alt={serviceData.title} />
             </div>
 
             <div className="mx-auto flex max-w-[840px] flex-col gap-4 text-lg">
