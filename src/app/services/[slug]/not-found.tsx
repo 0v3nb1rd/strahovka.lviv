@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 
-import errorMascot from '../../pubic/icons/error.png'
+import errorMascot from '@/assets/icons/error.png'
 
 export default function Error({ error }: { error: Error }) {
   return (
