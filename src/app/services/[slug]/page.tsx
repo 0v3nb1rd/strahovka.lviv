@@ -1,3 +1,4 @@
+import getURL from '@/utils'
 import Image from 'next/image'
 
 export interface ServiceProps {
@@ -8,10 +9,10 @@ export interface ServiceProps {
 }
 
 const fetchServiceBySlug = async (slug: string): Promise<ServiceProps> => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/services?slug=${slug}`)
+  const res = await fetch(getURL(`/api/services?slug=${slug}`))
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data on: ' + process.env.NEXT_PUBLIC_URL)
+    throw new Error('Failed to fetch data on: ')
   }
 
   const servicesData = await res.json()

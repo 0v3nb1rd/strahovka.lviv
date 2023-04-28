@@ -1,8 +1,9 @@
+import getURL from '@/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
 const fetchNews = async () => {
-  const resp = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/news`)
+  const resp = await fetch(getURL('/api/news'))
   // await new Promise((res) => setTimeout(res, 2000))
   const newsData = await resp.json()
   return newsData

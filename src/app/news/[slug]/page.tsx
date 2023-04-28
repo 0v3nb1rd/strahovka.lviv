@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/bi'
 
 import Badge from '@/components/UI/Badge'
+import getURL from '@/utils'
 
 interface paramsProps {
   params: {
@@ -10,10 +11,10 @@ interface paramsProps {
 }
 
 const fetchNews = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/news`)
+  const res = await fetch(getURL('/api/news'))
   // await new Promise((res) => setTimeout(res, 2000))
   if (!res.ok) {
-    throw new Error('Failed to fetch data on: ' + process.env.NEXT_PUBLIC_VERCEL_URL + '/api/news')
+    throw new Error('Failed to fetch data on: ' + '/api/news')
   }
   const newsData = await res.json()
   return newsData
