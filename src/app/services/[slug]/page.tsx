@@ -8,7 +8,7 @@ export interface ServiceProps {
 }
 
 const fetchServiceBySlug = async (slug: string): Promise<ServiceProps> => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/services?slug=${slug}`)
+  const res = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/services?slug=${slug}`)
 
   if (!res.ok) {
     throw new Error('Failed to fetch data on: ' + process.env.NEXT_PUBLIC_VERCEL_URL)

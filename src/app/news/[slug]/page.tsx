@@ -10,7 +10,7 @@ interface paramsProps {
 }
 
 const fetchNews = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/news`)
+  const res = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/news`)
   // await new Promise((res) => setTimeout(res, 2000))
   if (!res.ok) {
     throw new Error('Failed to fetch data on: ' + process.env.NEXT_PUBLIC_VERCEL_URL + '/api/news')
