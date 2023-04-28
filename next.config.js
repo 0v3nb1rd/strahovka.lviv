@@ -1,22 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  trailingSlash: true,
-  experimental: {
-    appDir: true,
-  },
-  images: {
-    domains: ['pbs.twimg.com', 'picsum.photos'],
-  },
-  i18n: {
-    localeDetection: false,
-    locales: ['uk', 'en'],
-    defaultLocale: 'uk',
-  },
   async headers() {
     return [
       {
-        // mathching all API routes
+        // matching all API routes
         source: '/api/:path*',
         headers: [
           { key: 'Access-Control-Allow-Credentials', value: 'true' },
@@ -30,6 +17,19 @@ const nextConfig = {
         ],
       },
     ]
+  },
+  reactStrictMode: true,
+  trailingSlash: true,
+  experimental: {
+    appDir: true,
+  },
+  images: {
+    domains: ['pbs.twimg.com', 'picsum.photos'],
+  },
+  i18n: {
+    localeDetection: false,
+    locales: ['uk', 'en'],
+    defaultLocale: 'uk',
   },
 }
 
