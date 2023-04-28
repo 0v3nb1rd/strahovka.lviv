@@ -15,7 +15,7 @@ const Nav: React.FC<NavProps> = ({ className, ...rest }) => {
   return (
     <ul className={className}>
       {mainRoute.map((link) => (
-        <li key={link.path}>
+        <li key={link.id}>
           <Link href={link.path} className={`btn ${pathname.includes(link.path) ? 'btn-active' : ''}`}>
             {link.label}
           </Link>
