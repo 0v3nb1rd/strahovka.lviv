@@ -14,10 +14,10 @@ export interface ServicesProps {
 }
 
 const fetchServices = async (): Promise<ServicesProps> => {
-  const res = await fetch(`${process.env.BASE_FETCH_URL}/api/services`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/services`)
 
   if (!res.ok) {
-    throw new Error('Failed to fetch data on: ' + process.env.BASE_FETCH_URL)
+    throw new Error('Failed to fetch data on: ' + process.env.NEXT_PUBLIC_VERCEL_URL)
   }
 
   const servicesData = await res.json()
