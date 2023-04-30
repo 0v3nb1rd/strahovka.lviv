@@ -1,3 +1,4 @@
+import { serviceData } from '@/store'
 import getURL from '@/utils'
 import Image from 'next/image'
 
@@ -8,19 +9,20 @@ export interface ServiceProps {
   img_url: string
 }
 
-const fetchServiceBySlug = async (slug: string): Promise<ServiceProps> => {
-  const res = await fetch(getURL(`/api/services?slug=${slug}`))
+// const fetchServiceBySlug = async (slug: string): Promise<ServiceProps> => {
+//   const res = await fetch(getURL(`/api/services?slug=${slug}`))
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch data on: ')
-  }
+//   if (!res.ok) {
+//     throw new Error('Failed to fetch data on: ')
+//   }
 
-  const servicesData = await res.json()
-  return servicesData
-}
+//   const servicesData = await res.json()
+//   return servicesData
+// }
 
 export default async function NewPage({ params }: { params: { slug: string } }) {
-  const serviceData = await fetchServiceBySlug(params.slug)
+  // const serviceData = await fetchServiceBySlug(params.slug)
+  const service: any = serviceData.find((x: any) => x.slug === params.slug)
 
   return (
     <main className="main main--services pt-32">
@@ -29,19 +31,19 @@ export default async function NewPage({ params }: { params: { slug: string } }) 
           <div className="flex flex-col gap-16">
             <div className="title mx-auto max-w-2xl">
               <div className="flex flex-col items-center">
-                <span className="badge-secondary badge badge-lg mb-3">{serviceData.category_ua}</span>
+                <span className="badge-secondary badge badge-lg mb-3">{service.category_ua}</span>
                 <h1 className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
-                  {serviceData.title}
+                  {service.title}
                 </h1>
                 <div
                   className="text-center text-lg font-semibold text-black/60"
-                  dangerouslySetInnerHTML={{ __html: serviceData.full_text }}
+                  dangerouslySetInnerHTML={{ __html: service.full_text }}
                 />
               </div>
             </div>
 
             <div className="relative h-[480px] overflow-hidden rounded-2xl">
-              <Image src={serviceData.img_url} className="object-cover" fill alt={serviceData.title} />
+              <Image src={service.img_url} className="object-cover" fill alt={service.title} />
             </div>
 
             <div className="mx-auto flex max-w-[840px] flex-col gap-4 text-lg">
