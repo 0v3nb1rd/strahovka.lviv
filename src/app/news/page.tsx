@@ -1,11 +1,11 @@
 import { Suspense } from 'react'
 
 import LoadingPage from './loading'
-import getURL from '../../utils'
+import { baseUrl } from '@/utils'
 import NewsList from '@/components/UI/NewsList/NewsList'
 
 const fetchNews = async () => {
-  const res = await fetch(getURL('/api/news'))
+  const res = await fetch(`${baseUrl}/api/news`)
   // await new Promise((res) => setTimeout(res, 2000))
   if (!res.ok) {
     throw new Error('Failed to fetch data on: ')

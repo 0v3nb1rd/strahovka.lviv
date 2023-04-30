@@ -1,5 +1,5 @@
 import Services from '../../components/Services/Services'
-import getURL from '../../utils'
+import { baseUrl } from '../../utils'
 
 export interface ServicesProps {
   id: string
@@ -15,7 +15,7 @@ export interface ServicesProps {
 }
 
 const fetchServices = async (): Promise<ServicesProps> => {
-  const res = await fetch(getURL('/api/services'))
+  const res = await fetch(`${baseUrl}/api/services`)
 
   if (!res.ok) {
     throw new Error('Failed to fetch data on: ' + 'service')

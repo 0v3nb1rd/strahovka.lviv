@@ -1,9 +1,9 @@
-import getURL from '../../utils'
+import { baseUrl } from '../../utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
 const fetchNews = async () => {
-  const resp = await fetch(getURL('/api/news'))
+  const resp = await fetch(`${baseUrl}/api/news`)
   // await new Promise((res) => setTimeout(res, 2000))
   const newsData = await resp.json()
   return newsData

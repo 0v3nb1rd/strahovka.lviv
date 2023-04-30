@@ -1,5 +1,5 @@
 import { serviceData } from '../../../../store'
-import getURL from '../../../utils'
+import { baseUrl } from '../../../utils'
 import Image from 'next/image'
 
 export interface ServiceProps {
@@ -10,7 +10,7 @@ export interface ServiceProps {
 }
 
 const fetchServiceBySlug = async (slug: string): Promise<ServiceProps> => {
-  const res = await fetch(getURL(`/api/services?slug=${slug}`), {
+  const res = await fetch(`${baseUrl}/api/services?slug=${slug}`, {
     next: {
       revalidate: 60,
     },
