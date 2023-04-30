@@ -6,11 +6,11 @@ const nextConfig = {
   // images: {
   //   domains: ['pbs.twimg.com', 'picsum.photos'],
   // },
-  // i18n: {
-  //   localeDetection: false,
-  //   locales: ['uk', 'en'],
-  //   defaultLocale: 'uk',
-  // },
+  i18n: {
+    localeDetection: false,
+    locales: ['uk', 'en'],
+    defaultLocale: 'uk',
+  },
 }
 
 module.exports = nextConfig
