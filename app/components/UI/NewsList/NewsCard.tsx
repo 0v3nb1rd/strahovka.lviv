@@ -1,36 +1,46 @@
-import Image from 'next/image'
+import Link from 'next/link'
+import Image, { StaticImageData } from 'next/image'
+import cn from 'classnames'
 import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/bi'
 
-import Badge from '@/components/UI/Badge'
-import getURL from '@/utils'
+import Badge from '../Badge'
 
-interface paramsProps {
-  params: {
-    slug: string
-  }
+type likesType = {
+  amount: number
+  liked: boolean
+}
+interface NewsCardProps {
+  category_en?: string
+  category_ua?: string
+  date: string
+  title: string
+  slug: string
+  description?: string
+  views: number
+  imageUrl: StaticImageData
+  reviews: number
+  likes: likesType
+  maxLength: number
 }
 
-const fetchNews = async () => {
-  const res = await fetch(getURL('/api/news'))
-  // await new Promise((res) => setTimeout(res, 2000))
-  if (!res.ok) {
-    throw new Error('Failed to fetch data on: ' + '/api/news')
-  }
-  const newsData = await res.json()
-  return newsData
-}
-
-const NewPage = async ({ params: { slug } }: paramsProps) => {
-  const newsData = await fetchNews()
-
-  const { category_ua, date, title, views, description, imageUrl, reviews, likes, maxLength }: any = newsData.find(
-    (x: any) => x.slug === slug
-  )
-
+const NewsCard: React.FC<NewsCardProps> = ({
+  category_ua,
+  date,
+  maxLength,
+  title,
+  slug,
+  views,
+  imageUrl,
+  reviews,
+  likes,
+}) => {
   return (
-    <div className="flex flex-col">
-      <div className="relative mb-6 flex h-full flex-col overflow-hidden rounded-2xl bg-white">
-        <div className="px-5 py-4">
+    <Link
+      href={`/news/${slug}`}
+      className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow transition-all delay-75 duration-100 hover:shadow-xl"
+    >
+      <div className="px-5 py-4">
+        {maxLength === undefined && (
           <ul className="header mb-3 flex gap-6">
             <li className="">
               <div>
@@ -48,16 +58,21 @@ const NewPage = async ({ params: { slug } }: paramsProps) => {
               </span>
             </li>
           </ul>
+        )}
 
-          <h2 className="line-clamp-3 text-2xl font-medium">{title}</h2>
-        </div>
+        <h2 className={`line-clamp-3 font-medium ${maxLength === 3 ? 'text-xl' : 'text-2xl'}`}>{title}</h2>
+      </div>
 
-        <figure className="relative mt-auto h-[360px] w-full">
-          <Image src={imageUrl} alt="photo art 1" fill className="object-cover" />
-        </figure>
+      <figure
+        className={cn(' relative mt-auto w-full', {
+          'h-[240px]': maxLength === 3,
+          'h-[360px]': !maxLength,
+        })}
+      >
+        <Image src={imageUrl} alt="photo art 1" fill className="object-cover" />
+      </figure>
 
-        <p className="description px-5 py-4" dangerouslySetInnerHTML={{ __html: description }} />
-
+      {maxLength === undefined && (
         <div className="flex gap-10 px-5 py-4">
           <button className="group flex items-center gap-2 transition">
             <BiMessageAltDetail fontSize={22} className="transition group-hover:scale-110" />
@@ -78,15 +93,9 @@ const NewPage = async ({ params: { slug } }: paramsProps) => {
             </span>
           </button>
         </div>
-      </div>
-
-      <div className="relative mb-6 flex h-full flex-col overflow-hidden rounded-2xl bg-white">
-        <div className="p-5">
-          <p>Comments Block: </p>
-        </div>
-      </div>
-    </div>
+      )}
+    </Link>
   )
 }
 
-export default NewPage
+export default NewsCard

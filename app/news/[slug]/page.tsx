@@ -1,46 +1,36 @@
-import Link from 'next/link'
-import Image, { StaticImageData } from 'next/image'
-import cn from 'classnames'
+import Image from 'next/image'
 import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/bi'
 
-import Badge from '@/components/UI/Badge'
+import Badge from '../../components/UI/Badge'
+import getURL from '../../../utils'
 
-type likesType = {
-  amount: number
-  liked: boolean
-}
-interface NewsCardProps {
-  category_en?: string
-  category_ua?: string
-  date: string
-  title: string
-  slug: string
-  description?: string
-  views: number
-  imageUrl: StaticImageData
-  reviews: number
-  likes: likesType
-  maxLength: number
+interface paramsProps {
+  params: {
+    slug: string
+  }
 }
 
-const NewsCard: React.FC<NewsCardProps> = ({
-  category_ua,
-  date,
-  maxLength,
-  title,
-  slug,
-  views,
-  imageUrl,
-  reviews,
-  likes,
-}) => {
+const fetchNews = async () => {
+  const res = await fetch(getURL('/api/news'))
+  // await new Promise((res) => setTimeout(res, 2000))
+  if (!res.ok) {
+    throw new Error('Failed to fetch data on: ' + '/api/news')
+  }
+  const newsData = await res.json()
+  return newsData
+}
+
+const NewPage = async ({ params: { slug } }: paramsProps) => {
+  const newsData = await fetchNews()
+
+  const { category_ua, date, title, views, description, imageUrl, reviews, likes, maxLength }: any = newsData.find(
+    (x: any) => x.slug === slug
+  )
+
   return (
-    <Link
-      href={`/news/${slug}`}
-      className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow transition-all delay-75 duration-100 hover:shadow-xl"
-    >
-      <div className="px-5 py-4">
-        {maxLength === undefined && (
+    <div className="flex flex-col">
+      <div className="relative mb-6 flex h-full flex-col overflow-hidden rounded-2xl bg-white">
+        <div className="px-5 py-4">
           <ul className="header mb-3 flex gap-6">
             <li className="">
               <div>
@@ -58,21 +48,16 @@ const NewsCard: React.FC<NewsCardProps> = ({
               </span>
             </li>
           </ul>
-        )}
 
-        <h2 className={`line-clamp-3 font-medium ${maxLength === 3 ? 'text-xl' : 'text-2xl'}`}>{title}</h2>
-      </div>
+          <h2 className="line-clamp-3 text-2xl font-medium">{title}</h2>
+        </div>
 
-      <figure
-        className={cn(' relative mt-auto w-full', {
-          'h-[240px]': maxLength === 3,
-          'h-[360px]': !maxLength,
-        })}
-      >
-        <Image src={imageUrl} alt="photo art 1" fill className="object-cover" />
-      </figure>
+        <figure className="relative mt-auto h-[360px] w-full">
+          <Image src={imageUrl} alt="photo art 1" fill className="object-cover" />
+        </figure>
 
-      {maxLength === undefined && (
+        <p className="description px-5 py-4" dangerouslySetInnerHTML={{ __html: description }} />
+
         <div className="flex gap-10 px-5 py-4">
           <button className="group flex items-center gap-2 transition">
             <BiMessageAltDetail fontSize={22} className="transition group-hover:scale-110" />
@@ -93,9 +78,15 @@ const NewsCard: React.FC<NewsCardProps> = ({
             </span>
           </button>
         </div>
-      )}
-    </Link>
+      </div>
+
+      <div className="relative mb-6 flex h-full flex-col overflow-hidden rounded-2xl bg-white">
+        <div className="p-5">
+          <p>Comments Block: </p>
+        </div>
+      </div>
+    </div>
   )
 }
 
-export default NewsCard
+export default NewPage

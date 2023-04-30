@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import cn from 'classnames'
 
 import NewsCard from './NewsCard'
-import SkeletonNews from '@/app/news/loading'
+import SkeletonNews from '../../../news/loading'
 
 const NewsList: React.FC<any> = ({ newsData, maxLength = undefined }) => {
   return (

@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
-import { mainRoute } from '@/routes'
+import { mainRoute } from '../../../routes'
 
 interface NavProps {
   className?: string

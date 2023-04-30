@@ -1,5 +1,5 @@
-import Services from '@/components/Services/Services'
-import getURL from '@/utils'
+import Services from '../components/Services/Services'
+import getURL from '../../utils'
 
 export interface ServicesProps {
   id: string

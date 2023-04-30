@@ -1,4 +1,4 @@
-import getURL from '@/utils'
+import getURL from '../../../utils'
 import Image from 'next/image'
 import Link from 'next/link'
 

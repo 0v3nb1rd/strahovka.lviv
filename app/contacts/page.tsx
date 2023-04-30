@@ -1,8 +1,8 @@
 import { BiPhoneCall, BiEnvelope, BiMap } from 'react-icons/bi'
 
-import Faq from '@/components/Faq'
-import Team from '@/components/Team'
-import ContactForm from '@/components/Forms/ContactForm'
+import Faq from '../components/Faq'
+import Team from '../components/Team'
+import ContactForm from '../components/Forms/ContactForm'
 
 const ContactsPage = () => {
   return (
@@ -12,7 +12,7 @@ const ContactsPage = () => {
           <div className="flex flex-col gap-16">
             <div className="title mx-auto max-w-2xl">
               <div className="flex flex-col items-center">
-                <span className="badge-secondary badge badge-lg mb-3">Контакти</span>
+                <span className="badge badge-secondary badge-lg mb-3">Контакти</span>
                 <h1 className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
                   Зв'яжіться з нами
                 </h1>
@@ -76,7 +76,7 @@ const ContactsPage = () => {
 
         <div className="container mx-auto flex justify-center ">
           <div className="flex flex-col items-center">
-            <span className="badge-secondary badge badge-lg mb-3">Наша Команда</span>
+            <span className="badge badge-secondary badge-lg mb-3">Наша Команда</span>
             <h2 className=" w-5/6 pb-6 text-center text-3xl font-extrabold text-gray-800 sm:w-4/6 xl:text-4xl">
               Талановиті люди за лаштунками організації
             </h2>

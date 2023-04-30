@@ -1,5 +1,5 @@
-import RelatedPosts from '@/components/RelatedNews'
-import Aside from '@/components/UI/NewsList/Aside'
+import RelatedPosts from '../components/RelatedNews'
+import Aside from '../components/UI/NewsList/Aside'
 
 export const metadata = {
   title: 'Новини | Strahovka.lviv',

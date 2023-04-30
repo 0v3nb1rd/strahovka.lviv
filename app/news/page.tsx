@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 
 import LoadingPage from './loading'
-import getURL from '@/utils'
+import getURL from '../../utils'
 // import NewsList from '@/components/UI/NewsList/NewsList'
 
 const fetchNews = async () => {

@@ -1,5 +1,5 @@
-import { serviceData } from '@/store'
-import getURL from '@/utils'
+import { serviceData } from '../../../store'
+import getURL from '../../../utils'
 import Image from 'next/image'
 
 export interface ServiceProps {
@@ -31,7 +31,7 @@ export default async function NewPage({ params }: { params: { slug: string } }) 
           <div className="flex flex-col gap-16">
             <div className="title mx-auto max-w-2xl">
               <div className="flex flex-col items-center">
-                <span className="badge-secondary badge badge-lg mb-3">{service.category_ua}</span>
+                <span className="badge badge-secondary badge-lg mb-3">{service.category_ua}</span>
                 <h1 className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
                   {service.title}
                 </h1>

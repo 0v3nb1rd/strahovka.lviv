@@ -1,6 +1,6 @@
-import Nav from '@/components/Nav/Nav'
-import Logo from '@/components/Logo'
-import PhoneList from '@/components/UI/PhoneList/PhoneList'
+import Nav from '../Nav/Nav'
+import Logo from '../Logo'
+import PhoneList from '../UI/PhoneList/PhoneList'
 
 const DrawerSide = () => {
   return (
