@@ -9,20 +9,24 @@ export interface ServiceProps {
   img_url: string
 }
 
-// const fetchServiceBySlug = async (slug: string): Promise<ServiceProps> => {
-//   const res = await fetch(getURL(`/api/services?slug=${slug}`))
+const fetchServiceBySlug = async (slug: string): Promise<ServiceProps> => {
+  const res = await fetch(getURL(`/api/services?slug=${slug}`), {
+    next: {
+      revalidate: 60,
+    },
+  })
 
-//   if (!res.ok) {
-//     throw new Error('Failed to fetch data on: ')
-//   }
+  if (!res.ok) {
+    throw new Error('Failed to fetch data on: ')
+  }
 
-//   const servicesData = await res.json()
-//   return servicesData
-// }
+  const servicesData = await res.json()
+  return servicesData
+}
 
 export default async function NewPage({ params }: { params: { slug: string } }) {
-  // const serviceData = await fetchServiceBySlug(params.slug)
-  const service: any = serviceData.find((x: any) => x.slug === params.slug)
+  const service = await fetchServiceBySlug(params.slug)
+  // const service: any = serviceData.find((x: any) => x.slug === params.slug)
 
   return (
     <main className="main main--services pt-32">
