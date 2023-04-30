@@ -8,7 +8,7 @@ const Footer = () => {
           <div>
             <Logo />
             <p className="mt-4 max-w-xs text-sm text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, accusantium. v.1.30
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, accusantium. v.1.31
             </p>
             <div className="mt-8 flex space-x-6 text-gray-600">
               <a className="hover:opacity-75" href="./" target="_blank" rel="noreferrer">
