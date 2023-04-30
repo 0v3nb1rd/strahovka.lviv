@@ -1,4 +1,4 @@
-import { serviceData } from '../../../store'
+import { serviceData } from '../../../../store'
 import getURL from '../../../utils'
 import Image from 'next/image'
 
@@ -25,19 +25,16 @@ const fetchServiceBySlug = async (slug: string): Promise<ServiceProps> => {
 }
 
 export default async function NewPage({ params: { slug } }: { params: { slug: string } }) {
-  // const service = await fetchServiceBySlug(slug)
-  console.log(slug)
-
-  // const service: any = serviceData.find((x: any) => x.slug === params.slug)
+  const service = await fetchServiceBySlug(slug)
 
   return (
     <main className="main main--services pt-32">
       <div className="container mx-auto">
         <section className="mx-10 mb-14 mt-2 rounded-2xl  bg-white p-14 pb-20 shadow-md">
           <div className="flex flex-col gap-16">
-            {/* <div className="title mx-auto max-w-2xl">
+            <div className="title mx-auto max-w-2xl">
               <div className="flex flex-col items-center">
-                <span className="badge badge-secondary badge-lg mb-3">{service.category_ua}</span>
+                <span className="badge-secondary badge badge-lg mb-3">{service.category_ua}</span>
                 <h1 className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
                   {service.title}
                 </h1>
@@ -50,7 +47,7 @@ export default async function NewPage({ params: { slug } }: { params: { slug: st
 
             <div className="relative h-[480px] overflow-hidden rounded-2xl">
               <Image src={service.img_url} className="object-cover" fill alt={service.title} />
-            </div> */}
+            </div>
 
             <div className="mx-auto flex max-w-[840px] flex-col gap-4 text-lg">
               <p className="pl-14 text-xl">Якщо Ви початківець, новачок у страхуванні:</p>
