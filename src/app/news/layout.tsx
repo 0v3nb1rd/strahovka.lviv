@@ -1,5 +1,7 @@
+import { Suspense } from 'react'
 import RelatedPosts from '../../components/RelatedNews'
 import Aside from '../../components/UI/NewsList/Aside'
+import SkeletonNews from './loading'
 
 export const metadata = {
   title: 'Новини | Strahovka.lviv',
@@ -14,7 +16,9 @@ const NewsLayout = async (props: any) => {
         <div className="flex justify-between">
           <Aside />
 
-          <section className="mx-3 w-[640px]">{props.children}</section>
+          <section className="mx-3 w-[640px] pb-6">
+            <Suspense fallback={<SkeletonNews />}>{props.children}</Suspense>
+          </section>
 
           {/* @ts-expect-error Server Component */}
           <RelatedPosts maxLength={3} />

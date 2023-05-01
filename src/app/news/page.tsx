@@ -1,6 +1,5 @@
 import { Suspense } from 'react'
 
-import LoadingPage from './loading'
 import { baseUrl } from '@/utils'
 import NewsList from '@/components/UI/NewsList/NewsList'
 
@@ -23,17 +22,17 @@ const NewsPage = async (props: any) => {
     const filteredNews = newsData.filter((newsItem: any) => {
       return newsItem.category_en.toLowerCase().includes(type.toLowerCase())
     })
-    return <Suspense fallback={<LoadingPage />}>{<NewsList newsData={filteredNews} />}</Suspense>
+    return <NewsList newsData={filteredNews} />
   }
 
   if (type === 'tips') {
     const filteredTips = newsData.filter((newsItem: any) => {
       return newsItem.category_en.toLowerCase().includes(type.toLowerCase())
     })
-    return <Suspense fallback={<LoadingPage />}>{<NewsList newsData={filteredTips} />}</Suspense>
+    return <NewsList newsData={filteredTips} />
   }
 
-  return <Suspense fallback={<LoadingPage />}>{<NewsList newsData={newsData} />}</Suspense>
+  return <NewsList newsData={newsData} />
 }
 
 export default NewsPage
