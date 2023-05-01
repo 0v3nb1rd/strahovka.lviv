@@ -26,8 +26,6 @@ const Header = forwardRef<HTMLElement>(() => {
     }
   }
 
-  console.log('NEXT_PUBLIC_VERCEL_URL: ', process.env.NEXT_PUBLIC_VERCEL_URL && process.env.NEXT_PUBLIC_VERCEL_URL)
-
   return (
     <header
       className={cn('sticky top-0 z-30 flex h-0 w-full justify-center ', {

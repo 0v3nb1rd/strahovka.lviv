@@ -1,14 +1,15 @@
 import Logo from '../Logo'
+import { DiCode } from 'react-icons/di'
 
 const Footer = () => {
   return (
     <footer className="mt-auto bg-gradient-to-r from-neutral-100/40 via-white/80 to-neutral-100/40">
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <div className="grid grid-cols-1 items-baseline gap-8 lg:grid-cols-3">
           <div>
             <Logo />
             <p className="mt-4 max-w-xs text-sm text-gray-600">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, accusantium. v.1.33
+              Страхування - угода між страховиком та страхувальником, що забезпечує захист від ризиків за певну плату.
             </p>
             <div className="mt-8 flex space-x-6 text-gray-600">
               <a className="hover:opacity-75" href="./" target="_blank" rel="noreferrer">
@@ -61,92 +62,77 @@ const Footer = () => {
           </div>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-4">
             <div>
-              <p className="font-medium">Company</p>
+              <p className="font-medium">Статті</p>
               <nav className="mt-4 flex flex-col space-y-2 text-sm text-gray-500">
                 <a className="hover:opacity-75" href="./">
-                  {' '}
-                  About{' '}
+                  Новини
                 </a>
                 <a className="hover:opacity-75" href="./">
-                  {' '}
-                  Meet the Team{' '}
+                  Поради
                 </a>
                 <a className="hover:opacity-75" href="./">
-                  {' '}
-                  History{' '}
+                  Варто Знати
                 </a>
                 <a className="hover:opacity-75" href="./">
-                  {' '}
-                  Careers{' '}
+                  інше
+                </a>
+              </nav>
+            </div>
+
+            <div>
+              <p className="font-medium">Послуги</p>
+              <nav className="mt-4 flex flex-col space-y-2 text-sm leading-tight text-gray-500">
+                <a className="hover:opacity-75" href="./">
+                  Авто цивілка
+                </a>
+                <a className="hover:opacity-75" href="./">
+                  Зелена карта
+                </a>
+                <a className="hover:opacity-75" href="./">
+                  КАСКО
+                </a>
+              </nav>
+            </div>
+
+            <div>
+              <p className="font-medium">Співпраця</p>
+              <nav className="mt-4 flex flex-col space-y-2 text-sm text-gray-500">
+                <a className="hover:opacity-75" href="./">
+                  Співпраця
+                </a>
+                <a className="hover:opacity-75" href="./">
+                  Вакансії
+                </a>
+                <a className="hover:opacity-75" href="./">
+                  інше
                 </a>
               </nav>
             </div>
             <div>
-              <p className="font-medium">Services</p>
+              <p className="font-medium">Контакти</p>
               <nav className="mt-4 flex flex-col space-y-2 text-sm text-gray-500">
                 <a className="hover:opacity-75" href="./">
-                  {' '}
-                  1on1 Coaching{' '}
+                  Контактна форма
                 </a>
                 <a className="hover:opacity-75" href="./">
-                  {' '}
-                  Company Review{' '}
+                  FAQ
                 </a>
                 <a className="hover:opacity-75" href="./">
-                  {' '}
-                  Accounts Review{' '}
-                </a>
-                <a className="hover:opacity-75" href="./">
-                  {' '}
-                  HR Consulting{' '}
-                </a>
-                <a className="hover:opacity-75" href="./">
-                  {' '}
-                  SEO Optimisation{' '}
-                </a>
-              </nav>
-            </div>
-            <div>
-              <p className="font-medium">Helpful Links</p>
-              <nav className="mt-4 flex flex-col space-y-2 text-sm text-gray-500">
-                <a className="hover:opacity-75" href="./">
-                  {' '}
-                  Contact{' '}
-                </a>
-                <a className="hover:opacity-75" href="./">
-                  {' '}
-                  FAQs{' '}
-                </a>
-                <a className="hover:opacity-75" href="./">
-                  {' '}
-                  Live Chat{' '}
-                </a>
-              </nav>
-            </div>
-            <div>
-              <p className="font-medium">Legal</p>
-              <nav className="mt-4 flex flex-col space-y-2 text-sm text-gray-500">
-                <a className="hover:opacity-75" href="./">
-                  {' '}
-                  Privacy Policy{' '}
-                </a>
-                <a className="hover:opacity-75" href="./">
-                  {' '}
-                  Terms &amp; Conditions{' '}
-                </a>
-                <a className="hover:opacity-75" href="./">
-                  {' '}
-                  Returns Policy{' '}
-                </a>
-                <a className="hover:opacity-75" href="./">
-                  {' '}
-                  Accessibility{' '}
+                  Команда
                 </a>
               </nav>
             </div>
           </div>
         </div>
-        <p className="mt-8 text-xs text-gray-800">© 2023 Strahovka.lviv.ua</p>
+        <p className="mt-8 flex items-center text-xs text-gray-800">
+          © 2023 Strahovka.lviv.ua{' '}
+          <a
+            className=" text-red-500 transition-all hover:scale-105 hover:text-red-700"
+            href="https://0v3nb1rd.github.io/"
+          >
+            <DiCode className="inline-block text-2xl " />
+          </a>
+        </p>
       </div>
     </footer>
   )
