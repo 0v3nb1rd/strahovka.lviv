@@ -3,6 +3,7 @@ import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } f
 
 import Badge from '../../../components/UI/Badge'
 import { baseUrl } from '@/utils'
+import DisqusComments from '@/components/DisqusComments'
 
 interface paramsProps {
   params: {
@@ -23,7 +24,7 @@ const fetchNews = async () => {
 const NewPage = async ({ params: { slug } }: paramsProps) => {
   const newsData = await fetchNews()
 
-  const { category_ua, date, title, views, description, imageUrl, reviews, likes, maxLength }: any = newsData.find(
+  const { id, category_ua, date, title, views, description, imageUrl, reviews, likes, maxLength }: any = newsData.find(
     (x: any) => x.slug === slug
   )
 
@@ -82,6 +83,7 @@ const NewPage = async ({ params: { slug } }: paramsProps) => {
 
       <div className="relative mb-6 flex h-full flex-col overflow-hidden rounded-2xl bg-white">
         <div className="p-5">
+          <DisqusComments post={{ id, title }} path={`${baseUrl}/news/${slug}`} />
           <p>Comments Block: </p>
         </div>
       </div>
