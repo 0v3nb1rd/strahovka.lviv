@@ -8,8 +8,9 @@ import ModalForm from '../components/Forms/ModalForm'
 import Logo from '../components/Logo'
 import Badge from '../components/UI/Badge'
 
-interface RootLayoutProps {
+type propType = {
   children: React.ReactNode
+  modal?: React.ReactNode
 }
 
 export const metadata = {
@@ -18,7 +19,7 @@ export const metadata = {
     "Послуги Страхування у Львові та Україні | Автострахування Страхування майна Страхування здоров'я Калькулятор розрахунку ціни тел 068 767 88 98; 093 655 58 99",
 }
 
-const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
+export default function RootLayout(props: propType) {
   return (
     <html lang="ua">
       <body>
@@ -26,17 +27,15 @@ const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
           <input id="drawer-menu" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content">
             <Header />
-            {children}
+            {props.children}
             <Footer />
           </div>
 
           <DrawerSide />
         </div>
-
-        <Modal variant="sm" title="Зелена карта" />
+        {/* {props.modal} */}
+        {/* <Modal variant="sm" title="Зелена карта" /> */}
       </body>
     </html>
   )
 }
-
-export default RootLayout

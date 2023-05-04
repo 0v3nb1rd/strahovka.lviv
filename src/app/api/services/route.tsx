@@ -7,7 +7,7 @@ export const GET = async (req: Request) => {
   const slug = searchParams.get('slug')
 
   if (slug) {
-    const serviceItem = serviceData.find((item) => item.slug === slug)
+    const serviceItem = serviceData.allCards.find((item) => item.slug === slug)
     return NextResponse.json(serviceItem)
   }
 

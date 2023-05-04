@@ -1,50 +1,69 @@
-import Image from 'next/image'
+'use client'
 
-const ServiceCards = () => (
-  <div className=" ">
-    <ul className="flex items-center justify-center gap-4">
-      <li>
-        <label
-          htmlFor="modal-service"
-          className="flex min-h-[220px] w-80 cursor-pointer flex-col rounded-2xl border bg-white/40 px-8 py-12 shadow backdrop-blur-lg delay-75 duration-100 hover:-translate-y-1 hover:bg-white hover:shadow-2xl"
-        >
-          <div className="flex items-center gap-4">
-            <Image src="/icons/man-driving.svg" width="48" height="48" alt="Автоцивілка" />
-            <h2 className="text-xl font-semibold text-gray-700">Автоцивілка</h2>
-          </div>
-          <p className="text-md mt-5 font-light leading-5 text-gray-700">Безпека вашого авто та грошей.</p>
-        </label>
-      </li>
+import { useEffect, useRef, useState } from 'react'
+import Card from './Card'
+import Modal from '@/components/Modal/Modal'
 
-      <li>
-        <label
-          htmlFor="modal-service"
-          className="flex min-h-[220px] w-80 cursor-pointer flex-col rounded-2xl border bg-white/40 px-8 py-12 shadow backdrop-blur-lg delay-75 duration-100 hover:-translate-y-1 hover:bg-white hover:shadow-2xl"
-        >
-          <div className="flex items-center gap-4">
-            <Image src="/icons/car-new.svg" width="48" height="48" alt="Автоцивілка" />
-            <h2 className="text-xl font-semibold text-gray-700">Зелена карта</h2>
-          </div>
-          <p className="text-md mt-5 font-light leading-5 text-gray-700">Комфортні подорожі за кордоном.</p>
-        </label>
-      </li>
+const serviceData = {
+  mainCards: [
+    {
+      id: '1',
+      title: 'Автоцивілка',
+      slug: '',
+      desc: 'Безпека вашого авто та грошей.',
+      icon_url: '/icons/man-driving.svg',
+    },
+    {
+      id: '2',
+      title: 'Зелена карта',
+      desc: 'Комфортні подорожі за кордоном.',
+      icon_url: '/icons/car-new.svg',
+    },
+    {
+      id: '3',
+      title: 'КАСКО',
+      desc: 'Захистіть свій автомобіль від будь-яких небезпек.',
+      icon_url: '/icons/insurance-user.svg',
+    },
+  ],
+}
 
-      <li>
-        <label
-          htmlFor="modal-service"
-          className="flex min-h-[220px] w-80 cursor-pointer flex-col rounded-2xl border bg-white/40 px-8 py-12 shadow backdrop-blur-lg delay-75 duration-100 hover:-translate-y-1 hover:bg-white hover:shadow-2xl"
-        >
-          <div className="flex items-center gap-4">
-            <Image src="/icons/insurance-user.svg" width="48" height="48" alt="Автоцивілка" />
-            <h2 className="text-xl font-semibold text-gray-700">КАСКО</h2>
-          </div>
-          <p className="text-md mt-5 font-light leading-5 text-gray-700">
-            Захистіть свій автомобіль від будь-яких небезпек.
-          </p>
-        </label>
-      </li>
-    </ul>
-  </div>
-)
+export default function ServiceCards() {
+  const modalRef = useRef(null)
 
-export default ServiceCards
+  const [modal, setModal] = useState<any>({
+    on: false,
+    title: 'Замовити послугу',
+    desc: '',
+  })
+
+  useEffect(() => {
+    const handleClickOutside = (e: any) => {
+      if (e.target === modalRef.current) {
+        setModal({ ...modal, on: false })
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
+  const handleClick = (obj: any) => {
+    setModal({ ...modal, ...obj, on: true })
+  }
+
+  return (
+    <div>
+      <ul className="flex items-center justify-center gap-4">
+        {serviceData.mainCards.map((card) => (
+          <li key={card.id}>
+            <Card {...card} onClick={(obj: any) => handleClick(obj)} />
+          </li>
+        ))}
+      </ul>
+
+      <Modal ref={modalRef} variant="sm" icon_url={modal.icon_url} title={modal.title} checked={modal.on} />
+    </div>
+  )
+}

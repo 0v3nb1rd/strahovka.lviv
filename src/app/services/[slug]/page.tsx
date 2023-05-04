@@ -1,15 +1,9 @@
-import { serviceData } from '../../../../store'
 import { baseUrl } from '../../../utils'
 import Image from 'next/image'
 
-export interface ServiceProps {
-  category_ua: string
-  title: string
-  full_text: string
-  img_url: string
-}
+import type { AllServices, ParamsSlug } from '@/@types'
 
-const fetchServiceBySlug = async (slug: string): Promise<ServiceProps> => {
+const fetchServiceBySlug = async (slug: string): Promise<AllServices> => {
   const res = await fetch(`${baseUrl}/api/services?slug=${slug}`, {
     next: {
       revalidate: 60,
@@ -24,7 +18,7 @@ const fetchServiceBySlug = async (slug: string): Promise<ServiceProps> => {
   return servicesData
 }
 
-export default async function NewPage({ params: { slug } }: { params: { slug: string } }) {
+export default async function NewPage({ params: { slug } }: ParamsSlug) {
   const service = await fetchServiceBySlug(slug)
 
   return (
