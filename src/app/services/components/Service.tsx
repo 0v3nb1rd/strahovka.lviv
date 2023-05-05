@@ -17,7 +17,7 @@ const Service: React.FC<ServiceProps> = ({ title, category, description, imgUrl,
     >
       <div className="title mx-auto max-w-2xl">
         <div className="flex flex-col items-center">
-          <span className="badge badge-secondary badge-lg mb-3">{category}</span>
+          <span className="badge-secondary badge badge-lg mb-3">{category}</span>
           <h1 className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
             {title}
           </h1>

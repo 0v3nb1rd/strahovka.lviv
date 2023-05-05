@@ -20,6 +20,6 @@ export type MainServices = {
  * All Service Data.
  */
 export interface ServiceProps {
-  top: MainServices
-  all: AllServices
+  top: MainServices[]
+  all: AllServices[]
 }

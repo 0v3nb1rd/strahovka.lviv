@@ -10,5 +10,11 @@ export const metadata = {
 }
 
 export default function ServiceLayout({ children, params }: RootLayoutProps) {
-  return <>{children}</>
+  return (
+    <main className="main main--services pt-32">
+      <div className="container mx-auto">
+        <div className="mb-16 mt-2">{children}</div>
+      </div>
+    </main>
+  )
 }
