@@ -11,7 +11,7 @@ export const serviceData = [
     full_text:
       "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
     thumbnail_url: '/photos/services/avtostrahuvannya.jpg',
-    img_url: '/photos/services/avtostrahuvannya.jpg',
+    icon_url: '/photos/services/avtostrahuvannya.jpg',
   },
   {
     id: '2',
@@ -24,7 +24,7 @@ export const serviceData = [
     full_text:
       "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
     thumbnail_url: '/photos/services/life.jpg',
-    img_url: '/photos/services/life.jpg',
+    icon_url: '/photos/services/life.jpg',
   },
   {
     id: '3',
@@ -38,7 +38,7 @@ export const serviceData = [
     full_text:
       "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
     thumbnail_url: '/photos/services/poslugi.jpg',
-    img_url: '/photos/services/poslugi.jpg',
+    icon_url: '/photos/services/poslugi.jpg',
   },
   {
     id: '4',
@@ -52,7 +52,7 @@ export const serviceData = [
     full_text:
       "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
     thumbnail_url: '/photos/services/travel.jpg',
-    img_url: '/photos/services/travel.jpg',
+    icon_url: '/photos/services/travel.jpg',
   },
   {
     id: '5',
@@ -66,7 +66,7 @@ export const serviceData = [
     full_text:
       "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
     thumbnail_url: '/photos/services/insurance_business.jpg',
-    img_url: '/photos/services/insurance_business.jpg',
+    icon_url: '/photos/services/insurance_business.jpg',
   },
   {
     id: '6',
@@ -80,7 +80,7 @@ export const serviceData = [
     full_text:
       "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
     thumbnail_url: '/photos/services/insurance_resp.jpg',
-    img_url: '/photos/services/insurance_resp.jpg',
+    icon_url: '/photos/services/insurance_resp.jpg',
   },
   {
     id: '7',
@@ -93,6 +93,6 @@ export const serviceData = [
     full_text:
       "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
     thumbnail_url: '/photos/services/insurance_pets.jpg',
-    img_url: '/photos/services/insurance_pets.jpg',
+    icon_url: '/photos/services/insurance_pets.jpg',
   },
 ]

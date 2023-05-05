@@ -8,7 +8,7 @@ export type AllServices = {
   short_text: string
   full_text: string
   thumbnail_url: string
-  img_url: string
+  icon_url: string
 }
 export type MainServices = {
   id?: string
@@ -20,6 +20,6 @@ export type MainServices = {
  * All Service Data.
  */
 export interface ServiceProps {
-  mainCards: MainServices
-  allCards: AllServices
+  top: MainServices
+  all: AllServices
 }

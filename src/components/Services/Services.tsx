@@ -1,6 +1,6 @@
 import Service from './Service'
 
-const Services = ({ data }: any) => {
+export default function Services({ data }: any) {
   return (
     <ul className="grid grid-cols-3 gap-8">
       {data?.map((service: any) => (
@@ -17,5 +17,3 @@ const Services = ({ data }: any) => {
     </ul>
   )
 }
-
-export default Services

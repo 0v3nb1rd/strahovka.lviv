@@ -40,7 +40,7 @@ export default async function NewPage({ params: { slug } }: ParamsSlug) {
             </div>
 
             <div className="relative h-[480px] overflow-hidden rounded-2xl">
-              <Image src={service.img_url} className="object-cover" fill alt={service.title} />
+              <Image src={service.icon_url} className="object-cover" fill alt={service.title} />
             </div>
 
             <div className="mx-auto flex max-w-[840px] flex-col gap-4 text-lg">

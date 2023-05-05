@@ -5,7 +5,7 @@ import Card from './Card'
 import Modal from '@/components/Modal/Modal'
 
 const serviceData = {
-  mainCards: [
+  top: [
     {
       id: '1',
       title: 'Автоцивілка',
@@ -56,7 +56,7 @@ export default function ServiceCards() {
   return (
     <div>
       <ul className="flex items-center justify-center gap-4">
-        {serviceData.mainCards.map((card) => (
+        {serviceData.top.map((card) => (
           <li key={card.id}>
             <Card {...card} onClick={(obj: any) => handleClick(obj)} />
           </li>
