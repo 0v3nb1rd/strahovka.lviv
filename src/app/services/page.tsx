@@ -14,13 +14,13 @@ const fetchServices = async (req?: Request): Promise<ServiceProps> => {
 }
 
 export default async function ServicesPage() {
-  const { all } = await fetchServices()
+  const items = await fetchServices()
 
   return (
     <main className="main main--services pt-32">
       <div className="container mx-auto">
         <div className="mb-16 mt-2">
-          <Services data={all} />
+          <Services data={items.all} />
         </div>
       </div>
     </main>
