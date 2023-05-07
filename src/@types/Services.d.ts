@@ -8,7 +8,7 @@ export type AllServices = {
   short_text: string
   full_text: string
   thumbnail_url: string
-  icon_url: string
+  image_url: string
 }
 export type MainServices = {
   id?: string

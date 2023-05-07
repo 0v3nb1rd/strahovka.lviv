@@ -4,19 +4,25 @@
 			"id": "1",
 			"title": "Автоцивілка",
 			"desc": "Безпека вашого авто та грошей.",
-			"icon_url": "/icons/man-driving.svg"
+			"icon_url": "/icons/man-driving.svg",
+			"thumbnail_url": "",
+			"image_url": ""
 		},
 		{
 			"id": "2",
 			"title": "Зелена карта",
 			"desc": "Комфортні подорожі за кордоном.",
-			"icon_url": "/icons/car-new.svg"
+			"icon_url": "/icons/car-new.svg",
+			"thumbnail_url": "",
+			"image_url": ""
 		},
 		{
 			"id": "3",
 			"title": "КАСКО",
 			"desc": "Захистіть свій автомобіль від будь-яких небезпек.",
-			"icon_url": "/icons/insurance-user.svg"
+			"icon_url": "/icons/insurance-user.svg",
+			"thumbnail_url": "",
+			"image_url": ""
 		}
 	],
 	"all": [
@@ -29,8 +35,8 @@
 			"slug": "car-insurance",
 			"short_text": "Статистичні дані кажуть нам, що навіть водії з великим досвідом також часом потрапляють у різні негативні пригоди на дорогах.",
 			"full_text": "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
-			"thumbnail_url": "/photos/services/avtostrahuvannya.jpg",
-			"icon_url": "/photos/services/avtostrahuvannya.jpg"
+			"thumbnail_url": "/photos/services/icon/avtostrahuvannya.jpg",
+			"image_url": "/photos/services/photo/car_insurance.jpg"
 		},
 		{
 			"id": "2",
@@ -41,8 +47,8 @@
 			"slug": "life-insurance",
 			"short_text": "Сьогодні майже всі знають про можливість медичного страхування.",
 			"full_text": "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
-			"thumbnail_url": "/photos/services/life.jpg",
-			"icon_url": "/photos/services/life.jpg"
+			"thumbnail_url": "/photos/services/icon/life.jpg",
+			"image_url": "/photos/services/photo/life_insurance.jpg"
 		},
 		{
 			"id": "3",
@@ -53,8 +59,8 @@
 			"slug": "property-insurance",
 			"short_text": "Всi знають, як багато енергії, сил та засобів ми зазвичай вкладаємо в облаштування домашнього вогнища.",
 			"full_text": "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
-			"thumbnail_url": "/photos/services/poslugi.jpg",
-			"icon_url": "/photos/services/poslugi.jpg"
+			"thumbnail_url": "/photos/services/icon/poslugi.jpg",
+			"image_url": "/photos/services/photo/home_insurance_2.jpg"
 		},
 		{
 			"id": "4",
@@ -65,8 +71,8 @@
 			"slug": "tourist-insurance",
 			"short_text": "Відпустка, поїздки, подорожі — заповітна мрія будь-якої людини, адже цієї події ми чекаємо протягом довгих робочих буднів.",
 			"full_text": "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
-			"thumbnail_url": "/photos/services/travel.jpg",
-			"icon_url": "/photos/services/travel.jpg"
+			"thumbnail_url": "/photos/services/icon/travel.jpg",
+			"image_url": "/photos/services/photo/travel_insurance.jpg"
 		},
 		{
 			"id": "5",
@@ -77,8 +83,8 @@
 			"slug": "business-insurance",
 			"short_text": "Статистичні дані кажуть нам, що навіть водії з великим досвідом також часом потрапляють у різні негативні пригоди на дорогах.",
 			"full_text": "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
-			"thumbnail_url": "/photos/services/insurance_business.jpg",
-			"icon_url": "/photos/services/insurance_business.jpg"
+			"thumbnail_url": "/photos/services/icon/insurance_business.jpg",
+			"image_url": "/photos/services/photo/buisiness_insurance.jpg"
 		},
 		{
 			"id": "6",
@@ -89,8 +95,8 @@
 			"slug": "responsibility-insurance",
 			"short_text": "Що Ви відповіли б на запитання: хто така безвідповідальна людина? Багато хто скаже — це той, хто не хоче брати на себе відповідальність.",
 			"full_text": "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
-			"thumbnail_url": "/photos/services/insurance_resp.jpg",
-			"icon_url": "/photos/services/insurance_resp.jpg"
+			"thumbnail_url": "/photos/services/icon/insurance_resp.jpg",
+			"image_url": "/photos/services/photo/resp_insurance.jpg"
 		},
 		{
 			"id": "7",
@@ -101,8 +107,8 @@
 			"slug": "animal-insurance",
 			"short_text": "У багатьох з нас є друзі, які на відміну від більшості наших приятелів мають вуса, лапи та хвіст.",
 			"full_text": "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
-			"thumbnail_url": "/photos/services/insurance_pets.jpg",
-			"icon_url": "/photos/services/insurance_pets.jpg"
+			"thumbnail_url": "/photos/services/icon/insurance_pets.jpg",
+			"image_url": "/photos/services/photo/animal_insurance.jpg"
 		}
 	]
 }

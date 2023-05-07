@@ -13,3 +13,16 @@ export const GET = async (req: Request) => {
 
   return NextResponse.json(serviceData)
 }
+
+// export async function POST(req: Request, res: NextResponse) {
+//   const { title, description, link, level } = await req.json()
+
+//   const serviceData = {
+//     title,
+//     description,
+//     link,
+//     level,
+//   }
+
+//   return NextResponse.json(serviceData)
+// }
