@@ -9,7 +9,7 @@ const ContactsPage = () => {
     <main className="main main--contacts pt-32">
       <div className="container mx-auto">
         <section className="mx-10 mb-14 mt-2 rounded-2xl bg-white p-14 shadow-md">
-          <div className="flex flex-col gap-16">
+          <div className="flex flex-col gap-8">
             <div className="title mx-auto max-w-2xl">
               <div className="flex flex-col items-center">
                 <span className="badge-secondary badge badge-lg mb-3">Контакти</span>
