@@ -3,8 +3,13 @@ import { BiPhoneCall, BiEnvelope, BiMap } from 'react-icons/bi'
 import Faq from '../../../components/Faq'
 import Team from '../../../components/Team'
 import ContactForm from '../../../components/Forms/ContactForm'
+// import { AuthRequiredError } from '@/lib/exceptions'
 
-const ContactsPage = () => {
+// const session = null
+
+export default function ContactsPage() {
+  // if (!session) throw new AuthRequiredError()
+
   return (
     <main className="main main--contacts pt-32">
       <div className="container mx-auto">
@@ -90,5 +95,3 @@ const ContactsPage = () => {
     </main>
   )
 }
-
-export default ContactsPage
