@@ -3,12 +3,8 @@ import { ServiceProps } from '@/@types'
 
 import { baseUrl } from '@/utils'
 
-const fetchServices = async (req?: Request): Promise<ServiceProps> => {
-  const res = await fetch(`${baseUrl}/api/services`, {
-    next: {
-      revalidate: 60,
-    },
-  })
+const fetchServices = async (): Promise<ServiceProps> => {
+  const res = await fetch(`${baseUrl}/api/services`)
   // await new Promise((res) => setTimeout(res, 10000))
 
   if (!res.ok) {
