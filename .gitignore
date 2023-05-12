@@ -36,3 +36,22 @@ yarn-error.log*
 next-env.d.ts
 
 temp/
+
+vendor/
+tmp/
+dist/
+.idea
+tmp-resolvers
+package-lock.json
+flow-typed
+yarn.lock
+javascript/**/migrations/
+typescript/**/migrations/
+misc/**/migrations/
+databases/**/migrations/
+experimental/**/*.db
+.next
+.vscode/
+.nuxt
+dev.db
+*.env*
