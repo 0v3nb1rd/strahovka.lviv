@@ -1,41 +1,29 @@
+'use client'
+
+import ContentLoader from 'react-content-loader'
+
 export default function Skeleton({ ...rest }) {
   return (
-    <li {...rest} role="status" className="flex h-full flex-col gap-14 rounded-2xl bg-white px-8 py-10">
-      <div className="mb-4 flex h-48 items-center justify-center rounded bg-gray-300 dark:bg-gray-700">
-        <svg
-          className="h-12 w-12 text-gray-200 dark:text-gray-600"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-          fill="currentColor"
-          viewBox="0 0 640 512"
-        >
-          <path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z" />
-        </svg>
-      </div>
-      <div className="mb-4 h-2.5 w-48 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-      <div className="mb-2.5 h-2 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-      <div className="mb-2.5 h-2 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-      <div className="h-2 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-      <div className="mt-4 flex items-center space-x-3">
-        <svg
-          className="h-14 w-14 text-gray-200 dark:text-gray-700"
-          aria-hidden="true"
-          fill="currentColor"
-          viewBox="0 0 20 20"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
-            clip-rule="evenodd"
-          ></path>
-        </svg>
-        <div>
-          <div className="mb-2 h-2.5 w-32 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-          <div className="h-2 w-48 rounded-full bg-gray-200 dark:bg-gray-700"></div>
-        </div>
-      </div>
-      <span className="sr-only">Loading...</span>
-    </li>
+    <ContentLoader
+      speed={2}
+      width="100%"
+      height="100%"
+      viewBox="0 0 412 622"
+      backgroundColor="#cfe8f7"
+      foregroundColor="#ecebeb"
+      {...rest}
+    >
+      <rect x="47%" y="40" rx="4" ry="4" transform="translate(-50)" width="140" height="24" />
+
+      <rect x="35%" y="90" rx="4" ry="4" transform="translate(-50)" width="230" height="30" />
+      <rect x="40%" y="130" rx="4" ry="4" transform="translate(-50)" width="190" height="30" />
+
+      <rect x="60" y="190" rx="4" ry="4" width="70%" height="18" />
+      <rect x="50" y="215" rx="4" ry="4" width="75%" height="18" />
+      <rect x="55" y="240" rx="4" ry="4" width="72%" height="18" />
+      <rect x="120" y="265" rx="4" ry="4" width="40%" height="18" />
+
+      <rect x="32" y="340" transform="translate(-50%,-50%)" width="348" height="240" rx="16" />
+    </ContentLoader>
   )
 }
