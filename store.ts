@@ -1,7 +1,7 @@
 export const serviceData = [
   {
     id: '1',
-    category_en: 'Car Insurance',
+    category: 'Car Insurance',
     category_ua: 'Автострахування',
     date: '20.12.2022',
     title: 'Страхування автомобілів',
@@ -15,7 +15,7 @@ export const serviceData = [
   },
   {
     id: '2',
-    category_en: 'Life',
+    category: 'Life',
     category_ua: 'Життя',
     date: '20.12.2022',
     title: 'Страхування Здоров’я',
@@ -28,7 +28,7 @@ export const serviceData = [
   },
   {
     id: '3',
-    category_en: 'Property',
+    category: 'Property',
     category_ua: 'Майно',
     date: '20.12.2022',
     title: 'Страхування майна',
@@ -42,7 +42,7 @@ export const serviceData = [
   },
   {
     id: '4',
-    category_en: 'Travel',
+    category: 'Travel',
     category_ua: 'Подорожі',
     date: '20.12.2022',
     title: 'Страхування туриста',
@@ -56,7 +56,7 @@ export const serviceData = [
   },
   {
     id: '5',
-    category_en: 'Business',
+    category: 'Business',
     category_ua: 'Бізнис',
     date: '20.12.2022',
     title: 'Страхування бізнесу',
@@ -70,7 +70,7 @@ export const serviceData = [
   },
   {
     id: '6',
-    category_en: 'Responsibility',
+    category: 'Responsibility',
     category_ua: 'Відповідальність',
     date: '20.12.2022',
     title: 'Страхування відповідальності',
@@ -84,7 +84,7 @@ export const serviceData = [
   },
   {
     id: '7',
-    category_en: 'Animal',
+    category: 'Animal',
     category_ua: 'Тварини',
     date: '20.12.2022',
     title: 'Страхування домашніх тварин',

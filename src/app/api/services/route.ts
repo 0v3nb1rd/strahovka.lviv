@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 
 import serviceData from './serviceData.json'
 
-export const GET = async (req: Request) => {
+export async function GET(req: Request) {
   const { searchParams } = new URL(req.url)
   const slug = searchParams.get('slug')
 

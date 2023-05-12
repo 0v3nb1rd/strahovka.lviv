@@ -1,6 +1,6 @@
 export type AllServices = {
   id: string
-  category_en: string
+  category: string
   category_ua: string
   date: string
   title: string

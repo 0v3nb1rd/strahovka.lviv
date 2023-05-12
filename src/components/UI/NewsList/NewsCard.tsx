@@ -10,7 +10,7 @@ type likesType = {
   liked: boolean
 }
 interface NewsCardProps {
-  category_en?: string
+  category: string
   category_ua?: string
   date: string
   title: string

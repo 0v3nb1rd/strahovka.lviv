@@ -1,98 +1,80 @@
 [
 	{
-		"id": "1",
-		"category_en": "news",
+		"category": "news",
 		"category_ua": "Новини",
-		"date": "20.12.2022",
-		"views": 3,
 		"title": "В Україні в 2016 році потрібно ввести медстрахування всіх громадян - прем'єр",
+		"title_ua": "В Україні в 2016 році потрібно ввести медстрахування всіх громадян - прем'єр",
 		"slug": "v-ukrayini-v-2016-rotsi-potribno-vvesti-medstrakhuvannya-vsikh-gromadyan-premier",
-		"description": "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
-		"imageUrl": "/photos/news/img_1.jpg",
-		"reviews": 5,
-		"likes": {
-			"amount": 3,
-			"liked": true
-		}
+		"short_text": "",
+		"full_text": "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
+		"thumbnail_url": "/photos/news/img_1.jpg",
+		"image_url": "/photos/news/img_1.jpg",
+		"like_count": 3,
+		"views": 23
 	},
 	{
-		"id": "2",
-		"category_en": "news",
+		"category": "news",
 		"category_ua": "Новини",
-		"date": "07.10.2022",
-		"views": 0,
 		"title": "Автомобілістам росії доведеться замінити всі поліси ОСАЦВ з 1 липня 2016 року",
+		"title_ua": "Автомобілістам росії доведеться замінити всі поліси ОСАЦВ з 1 липня 2016 року",
 		"slug": "avtomobilistam-rosiyi-dovedetsya-zaminiti-vsi-polisi-osatsv-z-1-lipnya-2016-roku",
-		"description": "lorem ipsum dolor sit amet, <br/> consectetur <b>adip</b>",
-		"imageUrl": "/photos/news/img_2.jpg",
-		"reviews": 0,
-		"likes": {
-			"amount": 0,
-			"liked": false
-		}
+		"short_text": "",
+		"full_text": "lorem ipsum dolor sit amet, <br/> consectetur <b>adip</b>",
+		"thumbnail_url": "/photos/news/img_2.jpg",
+		"image_url": "/photos/news/img_2.jpg",
+		"like_count": 3,
+		"views": 2
 	},
 	{
-		"id": "3",
-		"category_en": "news",
+		"category": "news",
 		"category_ua": "Новини",
-		"date": "04.04.2022",
-		"views": 0,
 		"title": "Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄС",
+		"title_ua": "Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄС",
 		"slug": "limiti-po-osatsv-v-ukrayini-budut-privedeni-do-standartiv-ies",
-		"description": "lorem ipsum dolor sit amet, consectetur adip",
-		"imageUrl": "/photos/news/img_3.jpg",
-		"reviews": 0,
-		"likes": {
-			"amount": 0,
-			"liked": false
-		}
+		"short_text": "",
+		"full_text": "lorem ipsum dolor sit amet, consectetur adip",
+		"thumbnail_url": "/photos/news/img_3.jpg",
+		"image_url": "/photos/news/img_3.jpg",
+		"like_count": 0,
+		"views": 1
 	},
 	{
-		"id": "4",
-		"category_en": "news",
+		"category": "news",
 		"category_ua": "Новини",
-		"date": "18.02.2022",
-		"views": 1,
 		"title": "Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄСC",
+		"title_ua": "Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄСC",
 		"slug": "iti-po-osatsv-v-ukrayini-budut-privedeni-do-standartiv-iesc",
-		"description": "lorem ipsum dolor sit amet, consectetur adip",
-		"imageUrl": "/photos/news/img_4.jpg",
-		"reviews": 0,
-		"likes": {
-			"amount": 0,
-			"liked": false
-		}
+		"short_text": "",
+		"full_text": "lorem ipsum dolor sit amet, consectetur adip",
+		"thumbnail_url": "/photos/news/img_4.jpg",
+		"image_url": "/photos/news/img_4.jpg",
+		"like_count": 0,
+		"views": 0
 	},
 	{
-		"id": "5",
-		"category_en": "news",
+		"category": "news",
 		"category_ua": "Новини",
-		"date": "10.12.2022",
-		"views": 3,
 		"title": "В Україні в 2016 році потрібно ввести медстрахування всіх громадян - прем'єрр",
+		"title_ua": "В Україні в 2016 році потрібно ввести медстрахування всіх громадян - прем'єрр",
 		"slug": "v-ukrayini-v-2016-rotsi-potribno-vvesti-medstrakhuvannya-vsikh-gromadyan-premierr",
-		"description": "lorem ipsum dolor sit amet, consectetur adip",
-		"imageUrl": "/photos/news/img_1.jpg",
-		"reviews": 5,
-		"likes": {
-			"amount": 3,
-			"liked": true
-		}
+		"short_text": "",
+		"full_text": "lorem ipsum dolor sit amet, consectetur adip",
+		"thumbnail_url": "/photos/news/img_1.jpg",
+		"image_url": "/photos/news/img_1.jpg",
+		"like_count": 0,
+		"views": 0
 	},
 	{
-		"id": "6",
-		"category_en": "tips",
+		"category": "tips",
 		"category_ua": "Поради",
-		"date": "08.01.2022",
-		"views": 0,
 		"title": "В Україні в 2016 році потрібно ввести медстрахування всіх громадян - прем'єрр",
-		"slug": "v-ukrayini-v-2016-rotsi-potribno-vvesti-medstrakhuvannya-vsikh-gromadyan-premierr",
-		"description": "lorem ipsum dolor sit amet, consectetur adip",
-		"imageUrl": "/photos/news/img_1.jpg",
-		"reviews": 0,
-		"likes": {
-			"amount": 0,
-			"liked": false
-		}
+		"title_ua": "В Україні в 2016 році потрібно ввести медстрахування всіх громадян - прем'єрр",
+		"slug": "v-ukrayini-v-2016-rotsi-potribno-vvesti-medstrakhuvannya-vsikh-gromadyan-premierr-2",
+		"short_text": "",
+		"full_text": "lorem ipsum dolor sit amet, consectetur adip",
+		"thumbnail_url": "/photos/news/img_1.jpg",
+		"image_url": "/photos/news/img_1.jpg",
+		"like_count": 0,
+		"views": 0
 	}
 ]

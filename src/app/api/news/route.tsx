@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 
 import newsData from './data.json'
 
-export const GET = async (req: Request) => {
+export async function GET(req: Request) {
   return NextResponse.json(newsData)
 }
 

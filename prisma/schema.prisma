@@ -10,15 +10,48 @@ datasource db {
   url      = env("NEXT_DATABASE_URL")
 }
 
+model Service_category {
+	id Int @default(autoincrement()) @id
+	title String
+	title_ua String?
+	category String?
+	category_ua String?
+	short_text String?
+	full_text     String?
+	slug String @unique
+	icon_url String?
+	thumbnail_url String?
+	image_url String?
+	created_at DateTime? @default(now())
+	service Service[]
+}
 model Service {
 	id Int @default(autoincrement()) @id
 	title String
+	title_ua String?
+	short_text String? 
+	full_text String?
+	icon_url String? 
+	thumbnail_url String? 
+	image_url String?
+	slug String @unique
+	services_category_id Int
+	services_category Service_category @relation(fields: [services_category_id], references: [id])
+}
+
+// News Model:
+model News {
+	id Int @default(autoincrement()) @id
+	title String
+	title_ua String?
 	category String?
-	category_en String?
+	category_ua String?
 	short_text String?
 	full_text String?
+	icon_url String?
+	thumbnail_url String?
+	image_url String?
 	slug String @unique
-	thumbnail_url String
-	image_url String
-	date DateTime?
+	like_count Int
+	views Int
 }

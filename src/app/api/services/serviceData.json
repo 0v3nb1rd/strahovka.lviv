@@ -1,36 +1,31 @@
 {
 	"top": [
 		{
-			"id": "1",
-			"title": "Автоцивілка",
-			"desc": "Безпека вашого авто та грошей.",
+			"title": "Autocivilka",
+			"title_ua": "Автоцивілка",
+			"short_text": "Безпека вашого авто та грошей.",
 			"icon_url": "/icons/man-driving.svg",
-			"thumbnail_url": "",
-			"image_url": ""
+			"slug": "autocivilka"
 		},
 		{
-			"id": "2",
-			"title": "Зелена карта",
-			"desc": "Комфортні подорожі за кордоном.",
+			"title": "Green card",
+			"title_ua": "Зелена карта",
+			"short_text": "Комфортні подорожі за кордоном.",
 			"icon_url": "/icons/car-new.svg",
-			"thumbnail_url": "",
-			"image_url": ""
+			"slug": "green-card"
 		},
 		{
-			"id": "3",
-			"title": "КАСКО",
-			"desc": "Захистіть свій автомобіль від будь-яких небезпек.",
+			"title": "KASKO",
+			"title_ua": "КАСКО",
+			"short_text": "Захистіть свій автомобіль від будь-яких небезпек.",
 			"icon_url": "/icons/insurance-user.svg",
-			"thumbnail_url": "",
-			"image_url": ""
+			"slug": "kasko"
 		}
 	],
 	"all": [
 		{
-			"id": "1",
-			"category_en": "Car Insurance",
+			"category": "Car Insurance",
 			"category_ua": "Автострахування",
-			"date": "20.12.2022",
 			"title": "Страхування автомобілів",
 			"slug": "car-insurance",
 			"short_text": "Статистичні дані кажуть нам, що навіть водії з великим досвідом також часом потрапляють у різні негативні пригоди на дорогах.",
@@ -39,10 +34,8 @@
 			"image_url": "/photos/services/photo/car_insurance.jpg"
 		},
 		{
-			"id": "2",
-			"category_en": "Life",
+			"category": "Life",
 			"category_ua": "Життя",
-			"date": "20.12.2022",
 			"title": "Страхування Здоров’я",
 			"slug": "life-insurance",
 			"short_text": "Сьогодні майже всі знають про можливість медичного страхування.",
@@ -51,10 +44,8 @@
 			"image_url": "/photos/services/photo/life_insurance.jpg"
 		},
 		{
-			"id": "3",
-			"category_en": "Property",
+			"category": "Property",
 			"category_ua": "Майно",
-			"date": "20.12.2022",
 			"title": "Страхування майна",
 			"slug": "property-insurance",
 			"short_text": "Всi знають, як багато енергії, сил та засобів ми зазвичай вкладаємо в облаштування домашнього вогнища.",
@@ -63,10 +54,8 @@
 			"image_url": "/photos/services/photo/home_insurance_2.jpg"
 		},
 		{
-			"id": "4",
-			"category_en": "Travel",
+			"category": "Travel",
 			"category_ua": "Подорожі",
-			"date": "20.12.2022",
 			"title": "Страхування туриста",
 			"slug": "tourist-insurance",
 			"short_text": "Відпустка, поїздки, подорожі — заповітна мрія будь-якої людини, адже цієї події ми чекаємо протягом довгих робочих буднів.",
@@ -75,10 +64,8 @@
 			"image_url": "/photos/services/photo/travel_insurance.jpg"
 		},
 		{
-			"id": "5",
-			"category_en": "Business",
+			"category": "Business",
 			"category_ua": "Бізнис",
-			"date": "20.12.2022",
 			"title": "Страхування бізнесу",
 			"slug": "business-insurance",
 			"short_text": "Статистичні дані кажуть нам, що навіть водії з великим досвідом також часом потрапляють у різні негативні пригоди на дорогах.",
@@ -87,10 +74,8 @@
 			"image_url": "/photos/services/photo/buisiness_insurance.jpg"
 		},
 		{
-			"id": "6",
-			"category_en": "Responsibility",
+			"category": "Responsibility",
 			"category_ua": "Відповідальність",
-			"date": "20.12.2022",
 			"title": "Страхування відповідальності",
 			"slug": "responsibility-insurance",
 			"short_text": "Що Ви відповіли б на запитання: хто така безвідповідальна людина? Багато хто скаже — це той, хто не хоче брати на себе відповідальність.",
@@ -99,10 +84,8 @@
 			"image_url": "/photos/services/photo/resp_insurance.jpg"
 		},
 		{
-			"id": "7",
-			"category_en": "Animal",
+			"category": "Animal",
 			"category_ua": "Тварини",
-			"date": "20.12.2022",
 			"title": "Страхування домашніх тварин",
 			"slug": "animal-insurance",
 			"short_text": "У багатьох з нас є друзі, які на відміну від більшості наших приятелів мають вуса, лапи та хвіст.",
