@@ -23,7 +23,7 @@ export default function Skeleton({ ...rest }) {
       <rect x="55" y="240" rx="4" ry="4" width="72%" height="18" />
       <rect x="120" y="265" rx="4" ry="4" width="40%" height="18" />
 
-      <rect x="32" y="340" transform="translate(-50%,-50%)" width="348" height="240" rx="16" />
+      <rect x="32" y="340" width="348" height="240" rx="16" />
     </ContentLoader>
   )
 }
