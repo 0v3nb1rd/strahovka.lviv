@@ -1,24 +1,18 @@
+import { PrismaClient } from '@prisma/client'
+
 import Service from './Service'
-import { ServiceProps } from '@/@types'
 
-import { baseUrl } from '@/utils'
+const prisma = new PrismaClient()
 
-const fetchServices = async (): Promise<ServiceProps> => {
-  const res = await fetch(`${baseUrl}/api/services`)
-  // await new Promise((res) => setTimeout(res, 10000))
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data on: ' + 'service')
-  }
-
-  const servicesData = await res.json()
-  return servicesData
+const fetchServices = async () => {
+  const res = await prisma.service_category.findMany()
+  return res
 }
 
 export default async function Services() {
   const items = await fetchServices()
 
-  return items.all.map((service: any) => (
+  return items.map((service: any) => (
     <li key={service.id}>
       <Service
         title={service.title}
