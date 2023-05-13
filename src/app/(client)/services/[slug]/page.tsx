@@ -1,47 +1,44 @@
-import { baseUrl } from '../../../../utils'
+import { PrismaClient, Service_category } from '@prisma/client'
+
 import Image from 'next/image'
 
-import type { AllServices, ParamsSlug } from '@/@types'
-
-const fetchServiceBySlug = async (slug: string): Promise<AllServices> => {
-  const res = await fetch(`${baseUrl}/api/services?slug=${slug}`, {
-    next: {
-      revalidate: 60,
-    },
-  })
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data on: ')
-  }
-
-  const servicesData = await res.json()
-  return servicesData
+interface Props {
+  params: { slug: string }
 }
 
-export default async function NewPage({ params: { slug } }: ParamsSlug) {
-  const service = await fetchServiceBySlug(slug)
+const prisma = new PrismaClient()
+
+const fetchServiceBySlug = async (slug: string): Promise<Service_category | null> => {
+  const res = await prisma.service_category.findFirst({ where: { slug: slug } })
+
+  // ToDo should add arror page & remove possibility return null
+  return res
+}
+
+export default async function NewPage({ params }: Props) {
+  const service = await fetchServiceBySlug(params.slug)
 
   return (
     <section className="mx-10 rounded-2xl bg-white p-14 pb-20 shadow-md">
       <div className="flex flex-col gap-8">
         <div className="title mx-auto max-w-2xl">
           <div className="flex flex-col items-center">
-            <span className="badge-secondary badge badge-lg mb-3">{service.category_ua}</span>
+            <span className="badge-secondary badge badge-lg mb-3">{service?.category_ua}</span>
             <h1 className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
-              {service.title}
+              {service?.title}
             </h1>
           </div>
         </div>
 
         <div className="relative h-[480px] overflow-hidden rounded-2xl">
-          <Image src={service.image_url} className="object-cover" fill alt={service.title} />
+          <Image src={`${service?.image_url}`} className="object-cover" fill alt={`${service?.title}`} />
         </div>
 
         <div
           className="mx-auto flex max-w-[840px] flex-col gap-4 text-lg font-semibold text-black/60"
-          // dangerouslySetInnerHTML={{ __html: service.full_text }}
+          dangerouslySetInnerHTML={{ __html: service?.full_text || '' }}
         >
-          <p className="pl-14 text-xl">Якщо Ви початківець, новачок у страхуванні:</p>
+          {/* <p className="pl-14 text-xl">Якщо Ви початківець, новачок у страхуванні:</p>
           <p className="pl-14 text-xl">
             … то ключами до успіху для Вас повинні стати слова: «Хочу», «Вірю», «Знаю» і «Вмію».
           </p>
@@ -68,7 +65,7 @@ export default async function NewPage({ params: { slug } }: ParamsSlug) {
               навичкам, допомагає організувати роботу.
             </li>
           </ul>
-          <b className="pl-14">Раді співпраці!</b>
+          <b className="pl-14">Раді співпраці!</b> */}
         </div>
       </div>
     </section>

@@ -1,26 +1,22 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, Service_category } from '@prisma/client'
 
 import Service from './Service'
 
 const prisma = new PrismaClient()
 
-const fetchServices = async () => {
+const fetchServices = async (): Promise<Service_category[]> => {
   const res = await prisma.service_category.findMany()
+
+  // ToDo should add arror page & remove possibility return null
   return res
 }
 
 export default async function Services() {
   const items = await fetchServices()
 
-  return items.map((service: any) => (
+  return items.map((service: Service_category) => (
     <li key={service.id}>
-      <Service
-        title={service.title}
-        category={service.category_ua}
-        description={service.short_text}
-        imgUrl={service.thumbnail_url}
-        slug={service.slug}
-      />
+      <Service service={service} />
     </li>
   ))
 }
