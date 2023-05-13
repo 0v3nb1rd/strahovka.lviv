@@ -27,7 +27,7 @@ export default function NewsCard({ data, maxLength }: Props) {
             </li>
             <li className="flex items-center gap-2">
               <BiTimeFive />
-              <span className="countdown text-base">{data?.created_at}</span>
+              <span className="countdown text-base">{data?.created_at?.toString()}</span>
             </li>
             <li className="ml-auto flex items-center gap-2">
               <BiShow fontSize={22} />
