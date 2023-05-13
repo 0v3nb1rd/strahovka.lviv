@@ -1,3 +1,5 @@
+// import { Service_category, Service, News } from '@prisma/client'
+
 export type AllServices = {
   id: string
   category: string

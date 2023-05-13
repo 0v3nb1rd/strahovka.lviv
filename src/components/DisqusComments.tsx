@@ -4,15 +4,15 @@ import { DiscussionEmbed } from 'disqus-react'
 
 type post = {
   id: string
-  title: string
+  title?: string
   slug?: string
 }
-interface PostProps {
+interface Props {
   post: post
   path?: string
 }
 
-export default function DisqusComments({ post, path }: PostProps) {
+export default function DisqusComments({ post, path }: Props) {
   const disqusShortname = 'strahovka-lviv'
 
   const disqusConfig = {

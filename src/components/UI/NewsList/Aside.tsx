@@ -1,11 +1,10 @@
 'use client'
 
 import { useSearchParams } from 'next/navigation'
-
 import Link from 'next/link'
 import { BiInfoCircle, BiHome, BiNews } from 'react-icons/bi'
 
-const Aside = (props: any) => {
+export default function Aside() {
   const searchParams = useSearchParams()
   const type = searchParams.get('type')
 
@@ -38,5 +37,3 @@ const Aside = (props: any) => {
     </aside>
   )
 }
-
-export default Aside

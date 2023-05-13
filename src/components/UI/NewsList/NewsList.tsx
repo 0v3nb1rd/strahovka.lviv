@@ -1,10 +1,16 @@
 import { Suspense } from 'react'
 import cn from 'classnames'
+import { News } from '@prisma/client'
 
 import NewsCard from './NewsCard'
 import SkeletonNews from '../../../app/(client)/news/loading'
 
-const NewsList: React.FC<any> = ({ newsData, maxLength = undefined }) => {
+interface Props {
+  newsData: News[]
+  maxLength?: number
+}
+
+export default function NewsList({ newsData, maxLength }: Props) {
   return (
     <ul
       className={cn('grid gap-6', {
@@ -15,15 +21,13 @@ const NewsList: React.FC<any> = ({ newsData, maxLength = undefined }) => {
         <SkeletonNews />
       </li> */}
 
-      {newsData?.slice(0, maxLength).map((data: any) => (
+      {newsData?.slice(0, maxLength).map((data: News) => (
         <li key={data.id}>
           <Suspense fallback={<SkeletonNews />}>
-            <NewsCard maxLength={maxLength} {...data} />
+            <NewsCard maxLength={maxLength} data={data} />
           </Suspense>
         </li>
       ))}
     </ul>
   )
 }
-
-export default NewsList

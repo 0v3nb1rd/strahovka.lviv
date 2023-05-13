@@ -54,4 +54,5 @@ model News {
 	slug String @unique
 	like_count Int
 	views Int
+	created_at DateTime? @default(now())
 }

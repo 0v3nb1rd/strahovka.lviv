@@ -167,9 +167,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="mt-16">
-            <NewsList maxLength={3} newsData={newsData} />
-          </div>
+          <div className="mt-16">{/* <NewsList maxLength={3} newsData={newsData} /> */}</div>
         </div>
       </section>
 

@@ -1,19 +1,17 @@
-import { Suspense } from 'react'
+import { PrismaClient, News } from '@prisma/client'
 
-import { baseUrl } from '@/utils'
 import NewsList from '@/components/UI/NewsList/NewsList'
 
-const fetchNews = async () => {
-  const res = await fetch(`${baseUrl}/api/news`)
-  // await new Promise((res) => setTimeout(res, 2000))
-  if (!res.ok) {
-    throw new Error('Failed to fetch data on: ')
-  }
-  const newsData = await res.json()
-  return newsData
+const prisma = new PrismaClient()
+
+const fetchNews = async (): Promise<News[]> => {
+  const res = await prisma.news.findMany()
+
+  // ToDo should add arror page & remove possibility return null
+  return res
 }
 
-const NewsPage = async (props: any) => {
+export default async function NewsPage(props: any) {
   const newsData = await fetchNews()
 
   const { type } = props.searchParams
@@ -34,5 +32,3 @@ const NewsPage = async (props: any) => {
 
   return <NewsList newsData={newsData} />
 }
-
-export default NewsPage
