@@ -1,6 +1,6 @@
 import { PrismaClient, News } from '@prisma/client'
 
-import NewsList from '@/components/UI/NewsList/NewsList'
+import NewsList from '@/components/NewsList/NewsList'
 
 const prisma = new PrismaClient()
 

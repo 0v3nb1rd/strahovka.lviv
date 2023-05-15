@@ -2,8 +2,8 @@
 
 import React, { useEffect, useRef, forwardRef } from 'react'
 
-import Form from '../UI/Form'
-import Badge from '../UI/Badge'
+import { Form } from '../UI'
+import Badge from '@/components/Badge'
 import Image from 'next/image'
 import Button from '../UI/Button'
 import Filed from '../Forms/Filed'

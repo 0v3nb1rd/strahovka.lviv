@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
-import Badge from './UI/Badge'
+import Badge from '@/components/Badge'
 
-const FeaturesSection = () => {
+export default function FeaturesSection() {
   return (
     <div className="overflow-hidden">
       <div className="container m-auto space-y-8 px-6 text-gray-500 md:px-12">
@@ -105,5 +105,3 @@ const FeaturesSection = () => {
     </div>
   )
 }
-
-export default FeaturesSection

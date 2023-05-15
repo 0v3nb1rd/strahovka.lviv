@@ -5,7 +5,7 @@ import banner from '@/assets/img/banner.jpg'
 import banner_1 from '@/assets/img/banner_1.jpg'
 import banner_2 from '@/assets/img/banner_2.jpg'
 
-const Banner = () => {
+export default function Banner() {
   return (
     <div className="banner ">
       {/* <Image src={banner} alt="main banner" priority /> */}
@@ -14,5 +14,3 @@ const Banner = () => {
     </div>
   )
 }
-
-export default Banner

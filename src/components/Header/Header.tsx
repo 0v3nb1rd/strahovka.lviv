@@ -7,8 +7,8 @@ import cn from 'classnames'
 import Logo from '../Logo'
 import Nav from '../Nav/Nav'
 
-import Burger from '../UI/Burger/Burger'
-import PhoneList from '../UI/PhoneList/PhoneList'
+import Burger from '@/components/Burger/Burger'
+import PhoneList from '@/components/PhoneList/PhoneList'
 
 const Header = forwardRef<HTMLElement>(() => {
   const [scrolled, setScrolled] = useState(false)

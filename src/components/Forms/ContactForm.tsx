@@ -1,8 +1,9 @@
-import Button from '../UI/Button'
-import Form from '../UI/Form'
+'use client'
+
+import { Form, Button } from '../UI'
 import Filed from './Filed'
 
-const ContactForm = () => {
+export default function ContactForm() {
   return (
     <Form className="w-[40%]">
       <div className="flex flex-col gap-6">
@@ -18,5 +19,3 @@ const ContactForm = () => {
     </Form>
   )
 }
-
-export default ContactForm

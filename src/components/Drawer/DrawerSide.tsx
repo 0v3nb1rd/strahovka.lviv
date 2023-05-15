@@ -1,8 +1,9 @@
 import Nav from '../Nav/Nav'
 import Logo from '../Logo'
-import PhoneList from '../UI/PhoneList/PhoneList'
 
-const DrawerSide = () => {
+import PhoneList from '@/components/PhoneList/PhoneList'
+
+export default function DrawerSide() {
   return (
     <div className="drawer-side">
       <label htmlFor="drawer-menu" className="drawer-overlay"></label>
@@ -16,5 +17,3 @@ const DrawerSide = () => {
     </div>
   )
 }
-
-export default DrawerSide

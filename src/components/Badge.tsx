@@ -1,4 +1,5 @@
 'use client'
+
 import cn from 'classnames'
 
 type typeVariant = 'primary' | 'secondary'
@@ -9,7 +10,7 @@ interface BadgeProps {
   children: React.ReactNode
 }
 
-const Badge: React.FC<BadgeProps> = ({ variant = 'primary', size = 'lg', linked, children }) => {
+export default function Badge({ variant = 'primary', size = 'lg', linked, children }: BadgeProps) {
   return (
     <span
       className={cn(
@@ -33,5 +34,3 @@ const Badge: React.FC<BadgeProps> = ({ variant = 'primary', size = 'lg', linked,
     </span>
   )
 }
-
-export default Badge

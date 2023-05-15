@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 
 import RelatedPosts from '@/components/RelatedNews'
-import Aside from '@/components/UI/NewsList/Aside'
+import Aside from '@/components/NewsList/Aside'
 
 import LoadingNews from './loading'
 
