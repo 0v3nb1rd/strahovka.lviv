@@ -1,8 +1,8 @@
 import { BiPhoneCall, BiEnvelope, BiMap } from 'react-icons/bi'
 
-import Faq from '../../../components/Faq'
-import Team from '../../../components/Team'
-import ContactForm from '../../../components/Forms/ContactForm'
+import Faq from '@/components/Faq'
+import Team from '@/components/Team'
+import ContactForm from '@/components/Forms/ContactForm'
 // import { AuthRequiredError } from '@/lib/exceptions'
 
 // const session = null

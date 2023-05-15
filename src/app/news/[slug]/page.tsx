@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/bi'
 import { PrismaClient, News } from '@prisma/client'
 
-import Badge from '../../../../components/UI/Badge'
+import Badge from '@/components/UI/Badge'
 import { baseUrl } from '@/utils'
 import DisqusComments from '@/components/DisqusComments'
 

@@ -1,8 +1,8 @@
 'use client'
 import Image from 'next/image'
+import Link from 'next/link'
 
 import errorMascot from '@/assets/icons/error.png'
-import Link from 'next/link'
 
 export default function Error({ error, reset }: { error: Error; reset: () => void }) {
   return (

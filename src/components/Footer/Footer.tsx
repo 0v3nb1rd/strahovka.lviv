@@ -1,5 +1,6 @@
-import Logo from '../Logo'
 import { DiCode } from 'react-icons/di'
+
+import Logo from '../Logo'
 
 export default function Footer() {
   return (
@@ -125,7 +126,7 @@ export default function Footer() {
           </div>
         </div>
         <p className="mt-8 flex items-center text-xs text-gray-800">
-          © 2023 Strahovka.lviv.ua{' '}
+          © 2023 Strahovka.lviv.ua
           <a
             className=" text-red-500 transition-all hover:scale-105 hover:text-red-700"
             href="https://0v3nb1rd.github.io/"

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+
 import Card from './Card'
 import Modal from '@/components/Modal/Modal'
 
@@ -9,21 +10,23 @@ const serviceData = {
     {
       id: '1',
       title: 'Автоцивілка',
-      slug: '',
       desc: 'Безпека вашого авто та грошей.',
       icon_url: '/icons/man-driving.svg',
+      slug: 'autocivilka',
     },
     {
       id: '2',
       title: 'Зелена карта',
       desc: 'Комфортні подорожі за кордоном.',
       icon_url: '/icons/car-new.svg',
+      slug: 'green-card',
     },
     {
       id: '3',
       title: 'КАСКО',
       desc: 'Захистіть свій автомобіль від будь-яких небезпек.',
       icon_url: '/icons/insurance-user.svg',
+      slug: 'kasko',
     },
   ],
 }

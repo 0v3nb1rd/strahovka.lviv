@@ -1,13 +1,8 @@
-import React from 'react'
 interface FormProps {
-	className?: string
-	children: React.ReactNode
+  className?: string
+  children: React.ReactNode
 }
 
-const Form : React.FC<FormProps> = (props) => {
-	return (
-		<form className={props.className} >{props.children}</form>
-	)
+export default function Form({ className, children }: FormProps) {
+  return <form className={className}>{children}</form>
 }
-
-export default Form
