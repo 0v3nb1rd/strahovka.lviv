@@ -1,13 +1,20 @@
 'use client'
 
-import React, { useEffect, useRef, forwardRef } from 'react'
+import React, { useEffect, useRef, forwardRef, useState } from 'react'
+import { useForm, Resolver } from 'react-hook-form'
 
 import { Form } from '../UI'
 import Badge from '@/components/Badge'
 import Image from 'next/image'
 import Button from '../UI/Button'
 import Filed from '../Forms/Filed'
+import { sendContactForm } from '@/lib/api'
 
+type FormValues = {
+  fullName?: string
+  phone?: string
+  message?: string
+}
 interface Props {
   checked?: boolean
   className?: string
@@ -21,13 +28,32 @@ interface Props {
 const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
   const { className, title, icon_url, variant, children, checked = false } = props
 
+  const [formData, setFormData] = useState([])
+
   const firstInputRef = useRef<HTMLInputElement>(null)
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<FormValues>({
+    mode: 'onChange',
+    // resolver: resolver,
+  })
 
   useEffect(() => {
     if (firstInputRef.current) {
       firstInputRef.current.focus()
     }
   }, [])
+
+  const onSubmit = async (data: any) => {
+    // alert(JSON.stringify(data))
+    // console.log(title, data)
+    const senderData = { title: title, ...data }
+    const res = await sendContactForm(senderData)
+    // console.log(res)
+  }
 
   return (
     <>
@@ -51,10 +77,10 @@ const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
                 <p className="mt-1 text-3xl font-semibold text-gray-600">{title}</p>
               </div>
 
-              <Form>
+              <Form onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-col gap-6">
-                  <Filed name="name" label="Ім'я" isRequired />
-                  <Filed name="phone" label="Телефон" isRequired />
+                  <Filed register={register} errors={errors?.fullName} fieldName="fullName" label="Ім'я" required />
+                  <Filed register={register} errors={errors?.phone} fieldName="phone" label="Телефон" required />
                 </div>
 
                 <Button type="submit" className="btn-secondary btn-block mt-8">

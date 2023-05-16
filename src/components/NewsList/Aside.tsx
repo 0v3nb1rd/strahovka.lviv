@@ -6,7 +6,8 @@ import { BiInfoCircle, BiHome, BiNews } from 'react-icons/bi'
 
 export default function Aside() {
   const searchParams = useSearchParams()
-  const type = searchParams.get('type')
+  const type = searchParams?.get('type')
+  // console.log(type)
 
   return (
     <aside className="sticky top-[5.5rem] h-full w-[240px]">
