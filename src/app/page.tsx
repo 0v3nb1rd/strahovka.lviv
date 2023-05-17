@@ -12,7 +12,7 @@ import NewsList from '@/components/NewsList/NewsList'
 import { News } from '@prisma/client'
 import { Suspense } from 'react'
 
-export async function fetchLastPost(count: number): Promise<News[]> {
+const fetchLastPost = async (count: number): Promise<News[]> => {
   const res = await prisma.news.findMany({
     take: count,
     orderBy: {
