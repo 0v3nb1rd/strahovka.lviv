@@ -18,10 +18,6 @@ export default function NewsList({ newsData, maxLength }: Props) {
         'sm:grid-cols-2 lg:grid-cols-3': maxLength === 3,
       })}
     >
-      {/* <li className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-white">
-        <SkeletonNews />
-      </li> */}
-
       {newsData?.slice(0, maxLength).map((data: News) => (
         <li key={data.id}>
           <Suspense fallback={<SkeletonNews />}>

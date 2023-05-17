@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image, { StaticImageData } from 'next/image'
 import cn from 'classnames'
 import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/bi'
 
@@ -50,7 +49,13 @@ export default function NewsCard({ data, maxLength }: Props) {
           'h-[360px]': !maxLength,
         })}
       >
-        <BlurImage src={`${data?.image_url}`} alt={data?.title} fill className="object-cover" />
+        <BlurImage
+          src={`${data?.image_url}`}
+          alt={data?.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
       </figure>
 
       {maxLength === undefined && (

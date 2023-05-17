@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import prisma from '@/lib/prisma'
 
 import Banner from '@/components/Banner'
 import CtaBlock from '@/components/CtaBlock'
@@ -8,85 +9,26 @@ import ServiceCards from '@/components/ServiceCards/ServiceCards'
 import Badge from '@/components/Badge'
 import NewsList from '@/components/NewsList/NewsList'
 
-import img_post_1 from '@/assets/img/img_1.jpg'
-import img_post_2 from '@/assets/img/img_2.jpg'
-import img_post_3 from '@/assets/img/img_3.jpg'
-import img_post_4 from '@/assets/img/img_4.jpg'
+import { News } from '@prisma/client'
+import { Suspense } from 'react'
 
-const newsData = [
-  {
-    category: 'Новини',
-    date: '20.12.2022',
-    views: 3,
-    title: "В Україні в 2016 році потрібно ввести медстрахування всіх громадян - прем'єр",
-    slug: 'v-ukrayini-v-2016-rotsi-potribno-vvesti-medstrakhuvannya-vsikh-gromadyan-premier',
-    description: 'lorem ipsum dolor sit amet, consectetur adip',
-    imageUrl: img_post_1,
-    reviews: 5,
-    likes: {
-      amount: 3,
-      liked: true,
+export async function fetchLastPost(count: number): Promise<News[]> {
+  const res = await prisma.news.findMany({
+    take: count,
+    orderBy: {
+      created_at: 'desc',
     },
-  },
-  {
-    category: 'Новини',
-    date: '07.10.2022',
-    views: 0,
-    title: 'Автомобілістам росії доведеться замінити всі поліси ОСАЦВ з 1 липня 2016 року',
-    slug: 'avtomobilistam-rosiyi-dovedetsya-zaminiti-vsi-polisi-osatsv-z-1-lipnya-2016-roku',
-    description: 'lorem ipsum dolor sit amet, consectetur adip',
-    imageUrl: img_post_2,
-    reviews: 0,
-    likes: {
-      amount: 0,
-      liked: false,
-    },
-  },
-  {
-    category: 'Новини',
-    date: '04.04.2022',
-    views: 0,
-    title: 'Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄС',
-    slug: 'limiti-po-osatsv-v-ukrayini-budut-privedeni-do-standartiv-ies',
-    description: 'lorem ipsum dolor sit amet, consectetur adip',
-    imageUrl: img_post_3,
-    reviews: 0,
-    likes: {
-      amount: 0,
-      liked: false,
-    },
-  },
-  {
-    category: 'Новини',
-    date: '18.02.2022',
-    views: 1,
-    title: 'Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄСC',
-    slug: 'iti-po-osatsv-v-ukrayini-budut-privedeni-do-standartiv-iesc',
-    description: 'lorem ipsum dolor sit amet, consectetur adip',
-    imageUrl: img_post_4,
-    reviews: 0,
-    likes: {
-      amount: 0,
-      liked: false,
-    },
-  },
-  {
-    category: 'Новини',
-    date: '10.12.2022',
-    views: 3,
-    title: "В Україні в 2016 році потрібно ввести медстрахування всіх громадян - прем'єрр",
-    slug: 'v-ukrayini-v-2016-rotsi-potribno-vvesti-medstrakhuvannya-vsikh-gromadyan-premierr',
-    description: 'lorem ipsum dolor sit amet, consectetur adip',
-    imageUrl: img_post_1,
-    reviews: 5,
-    likes: {
-      amount: 3,
-      liked: true,
-    },
-  },
-]
+  })
+  return res
+}
 
-export default function HomePage() {
+const loader = `<div className="loader">
+    <div className="spinner"></div>
+  </div>`
+
+export default async function HomePage() {
+  const lastPosts = await fetchLastPost(3)
+
   return (
     <main className="main pt-32">
       <section>
@@ -167,7 +109,11 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="mt-16">{/* <NewsList maxLength={3} newsData={newsData} /> */}</div>
+          <div className="mt-16">
+            <Suspense fallback={loader}>
+              <NewsList maxLength={3} newsData={lastPosts} />
+            </Suspense>
+          </div>
         </div>
       </section>
 
