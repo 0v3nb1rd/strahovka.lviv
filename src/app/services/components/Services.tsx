@@ -1,8 +1,7 @@
-import { PrismaClient, Service_category } from '@prisma/client'
+import { Service_category } from '@prisma/client'
+import prisma from '@/lib/prisma'
 
 import Service from './Service'
-
-const prisma = new PrismaClient()
 
 const fetchServices = async (): Promise<Service_category[]> => {
   const res = await prisma.service_category.findMany()
