@@ -1,9 +1,11 @@
 'use client'
 
-import { useForm, Resolver } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import { Form, Button } from '../UI'
 import Filed from './Filed'
+import { contactSchema } from '@/lib/validation/schema'
 
 type FormValues = {
   fullName?: string
@@ -12,20 +14,6 @@ type FormValues = {
   message?: string
 }
 
-// const resolver: Resolver<FormValues> = async (values) => {
-//   return {
-//     values: values.fullName ? values : {},
-//     errors: !values.fullName
-//       ? {
-//           fullName: {
-//             type: 'required',
-//             message: "це поле обов'язкове!",
-//           },
-//         }
-//       : {},
-//   }
-// }
-
 export default function ContactForm() {
   const {
     register,
@@ -33,13 +21,7 @@ export default function ContactForm() {
     formState: { errors, isValid },
   } = useForm<FormValues>({
     mode: 'onChange',
-    // resolver: resolver,
-    defaultValues: {
-      fullName: '',
-      phone: '',
-      email: '',
-      message: '',
-    },
+    resolver: yupResolver(contactSchema)
   })
 
   const onSubmit = (data: any) => {
@@ -51,7 +33,6 @@ export default function ContactForm() {
         <Filed register={register} errors={errors?.fullName} fieldName="fullName" label="Ваше ім'я" required />
         <Filed
           register={register}
-          inputType="number"
           errors={errors?.phone}
           fieldName="phone"
           label="Телефон"

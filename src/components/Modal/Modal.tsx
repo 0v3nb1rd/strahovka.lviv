@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useEffect, useRef, forwardRef, useState } from 'react'
-import { useForm, Resolver } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import { Form } from '../UI'
 import Badge from '@/components/Badge'
@@ -9,6 +10,7 @@ import Image from 'next/image'
 import Button from '../UI/Button'
 import Filed from '../Forms/Filed'
 import { sendContactForm } from '@/lib/api'
+import { orderSchema } from '@/lib/validation/schema'
 
 type FormValues = {
   fullName?: string
@@ -25,6 +27,7 @@ interface Props {
   children?: React.ReactNode
 }
 
+
 const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
   const { className, title, icon_url, variant, children, checked = false } = props
 
@@ -38,7 +41,7 @@ const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
     formState: { errors, isValid },
   } = useForm<FormValues>({
     mode: 'onChange',
-    // resolver: resolver,
+    resolver: yupResolver(orderSchema),
   })
 
   useEffect(() => {

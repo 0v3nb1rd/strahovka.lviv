@@ -39,10 +39,7 @@ export default function Filed({
 						${errors ? 'border-error' : 'focus:border-accent'}
 					`}
           placeholder=" "
-          {...register(fieldName, {
-            required: "обов'язкове поле",
-            minLength: { value: 5, message: `мінімум ${5} символів` },
-          })}
+          {...register(fieldName)}
         ></textarea>
       ) : (
         <input
@@ -51,11 +48,7 @@ export default function Filed({
 						${errors ? 'border-error' : 'focus:border-accent'}
 					`}
           placeholder={placeholder}
-          {...register(fieldName, {
-            required: "обов'язкове поле",
-            minLength: { value: 5, message: `мінімум ${5} символів` },
-            // inputType === "email"
-          })}
+          {...register(fieldName)}
         />
       )}
 

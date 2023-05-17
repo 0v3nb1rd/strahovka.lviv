@@ -10,6 +10,7 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@hookform/resolvers": "^3.1.0",
 		"@prisma/client": "^4.14.0",
 		"bootstrap-icons": "^1.10.5",
 		"classnames": "^2.3.2",
@@ -22,7 +23,8 @@
 		"react-dom": "18.2.0",
 		"react-hook-form": "^7.43.9",
 		"react-icons": "^4.8.1-snapshot.1",
-		"uuid": "^9.0.0"
+		"uuid": "^9.0.0",
+		"yup": "^1.1.1"
 	},
 	"devDependencies": {
 		"@types/node": "20.1.3",
