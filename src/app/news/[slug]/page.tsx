@@ -40,7 +40,9 @@ export default async function NewPage({ params }: Props) {
             </li>
             <li className="flex items-center gap-2">
               <BiTimeFive />
-              <span className="countdown text-base">{newsItem?.created_at?.toString()}</span>
+              <span className="countdown text-base">
+                {newsItem?.created_at?.toLocaleString('uk-UA', { year: '2-digit', month: '2-digit', day: '2-digit' })}
+              </span>
             </li>
             <li className="ml-auto flex items-center gap-2">
               <BiShow fontSize={22} />
