@@ -2,8 +2,8 @@ import { Suspense } from 'react'
 
 import RelatedPosts from '@/components/RelatedNews'
 import Aside from '@/components/NewsList/Aside'
-
-import LoadingNews from './loading'
+import LoadingNews from './components/LoadingNews'
+import LoadingTopNews from './components/LoadingTopNews'
 
 export const metadata = {
   title: 'Новини | Strahovka.lviv',
@@ -22,8 +22,15 @@ const NewsLayout = async (props: any) => {
             <Suspense fallback={<LoadingNews />}>{props.children}</Suspense>
           </section>
 
-          {/* @ts-expect-error Server Component */}
-          <RelatedPosts maxLength={3} />
+          <section className="sticky top-[5.5rem] h-full w-[320px]">
+            <div className="mb-6 overflow-hidden rounded-2xl bg-white p-5">
+              <h2 className="text-lg font-bold">Популярні статті:</h2>
+              <Suspense fallback={<LoadingTopNews />}>
+                {/* @ts-expect-error Server Component */}
+                <RelatedPosts maxLength={3} />
+              </Suspense>
+            </div>
+          </section>
 
           {/* {props.modal} */}
         </div>

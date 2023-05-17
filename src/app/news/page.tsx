@@ -1,5 +1,6 @@
-import { PrismaClient, News } from '@prisma/client'
+import { News } from '@prisma/client'
 
+import prisma from '@/lib/prisma'
 import NewsList from '@/components/NewsList/NewsList'
 
 type SearchParams = {
@@ -8,8 +9,6 @@ type SearchParams = {
 interface Props {
   searchParams: SearchParams
 }
-
-const prisma = new PrismaClient()
 
 const fetchALLNews = async (): Promise<News[]> => {
   const res = await prisma.news.findMany()
@@ -36,20 +35,12 @@ export default async function NewsPage(props: Props) {
   }
 
   if (type === 'news') {
-    // const filteredNews = newsData.filter((newsItem: any) => {
-    //   return newsItem.category_en.toLowerCase().includes(type.toLowerCase())
-    // })
     const newsData = await fetchNewsByType('news')
     return <NewsList newsData={newsData} />
   }
 
   if (type === 'tips') {
-    // const filteredTips = newsData.filter((newsItem: any) => {
-    //   return newsItem.category_en.toLowerCase().includes(type.toLowerCase())
-    // })
     const newsData = await fetchNewsByType('tips')
     return <NewsList newsData={newsData} />
   }
-
-  // return <NewsList newsData={newsData} />
 }

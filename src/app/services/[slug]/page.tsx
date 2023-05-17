@@ -4,6 +4,7 @@ import prisma from '@/lib/prisma'
 
 import Image from 'next/image'
 import Link from 'next/link'
+import BlurImage from '@/components/Blur-image'
 
 interface Props {
   params: { slug: string }
@@ -46,7 +47,8 @@ export default async function NewPage({ params }: Props) {
         </div>
 
         <div className="relative h-[480px] overflow-hidden rounded-2xl">
-          <Image src={`${service?.image_url}`} className="object-cover" fill alt={`${service?.title}`} />
+          {/* <Image src={`${service?.image_url}`} className="object-cover" fill alt={`${service?.title}`} /> */}
+          <BlurImage src={`${service?.image_url}`} className="object-cover" alt={`${service?.title}`} fill />
         </div>
 
         <div

@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { BiPhoneCall, BiEnvelope, BiMap } from 'react-icons/bi'
 
 import img_cooperation from '@/assets/photos/cooperation.jpg'
+import BlurImage from '@/components/Blur-image'
 
 const CooperationPage = () => {
   return (
@@ -12,7 +13,7 @@ const CooperationPage = () => {
           <div className="flex flex-col gap-8">
             <div className="title mx-auto max-w-2xl">
               <div className="flex flex-col items-center">
-                <span className="badge-secondary badge badge-lg mb-3">Співпраця</span>
+                <span className="badge badge-secondary badge-lg mb-3">Співпраця</span>
                 <h1 className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
                   Стати страховим агентом
                 </h1>
@@ -24,7 +25,8 @@ const CooperationPage = () => {
             </div>
 
             <div className="relative h-[480px] overflow-hidden rounded-2xl">
-              <Image className="object-cover" src={img_cooperation} fill alt="image cooperation" />
+              {/* <Image className="object-cover" src={img_cooperation} fill alt="image cooperation" /> */}
+              <BlurImage src={img_cooperation} className="object-cover" alt="image cooperation" fill />
             </div>
 
             <div className="mx-auto flex max-w-[840px] flex-col gap-4 text-lg">

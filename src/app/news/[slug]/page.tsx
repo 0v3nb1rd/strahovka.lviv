@@ -1,18 +1,18 @@
 import Image from 'next/image'
 import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/bi'
-import { PrismaClient, News } from '@prisma/client'
+import { News } from '@prisma/client'
 
+import prisma from '@/lib/prisma'
 import Badge from '@/components/Badge'
 import { baseUrl } from '@/utils'
 import DisqusComments from '@/components/DisqusComments'
+import BlurImage from '@/components/Blur-image'
 
 interface Props {
   params: {
     slug: string
   }
 }
-
-const prisma = new PrismaClient()
 
 const fetchNewsItem = async (slug: string): Promise<News | null> => {
   const res = await prisma.news.findUnique({
@@ -27,10 +27,6 @@ const fetchNewsItem = async (slug: string): Promise<News | null> => {
 
 export default async function NewPage({ params }: Props) {
   const newsItem = await fetchNewsItem(params.slug)
-
-  // const { id, category_ua, date, title, views, description, imageUrl, reviews, likes, maxLength }: any = newsData.find(
-  //   (x: any) => x.slug === params.slug
-  // )
 
   return (
     <div className="flex flex-col">
@@ -58,7 +54,7 @@ export default async function NewPage({ params }: Props) {
         </div>
 
         <figure className="relative mt-auto h-[360px] w-full">
-          <Image src={`${newsItem?.image_url}`} alt={`${newsItem?.title}`} fill className="object-cover" />
+          <BlurImage src={`${newsItem?.image_url}`} alt={`${newsItem?.title}`} fill className="object-cover" />
         </figure>
 
         <p className="description px-5 py-4" dangerouslySetInnerHTML={{ __html: newsItem?.full_text || '' }} />

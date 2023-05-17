@@ -5,6 +5,7 @@ import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } f
 
 import Badge from '../Badge'
 import { News } from '@prisma/client'
+import BlurImage from '../Blur-image'
 
 interface Props {
   data: News
@@ -27,7 +28,9 @@ export default function NewsCard({ data, maxLength }: Props) {
             </li>
             <li className="flex items-center gap-2">
               <BiTimeFive />
-              <span className="countdown text-base">{data?.created_at?.toString()}</span>
+              <span className="countdown text-base">
+                {data?.created_at?.toLocaleString('uk-UA', { year: '2-digit', month: '2-digit', day: '2-digit' })}
+              </span>
             </li>
             <li className="ml-auto flex items-center gap-2">
               <BiShow fontSize={22} />
@@ -47,7 +50,7 @@ export default function NewsCard({ data, maxLength }: Props) {
           'h-[360px]': !maxLength,
         })}
       >
-        <Image src={`${data?.image_url}`} alt={data?.title} fill className="object-cover" />
+        <BlurImage src={`${data?.image_url}`} alt={data?.title} fill className="object-cover" />
       </figure>
 
       {maxLength === undefined && (

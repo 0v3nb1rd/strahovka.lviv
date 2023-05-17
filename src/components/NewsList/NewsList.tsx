@@ -4,7 +4,7 @@ import { News } from '@prisma/client'
 
 import NewsCard from './NewsCard'
 
-import SkeletonNews from '@/app/news/loading'
+import SkeletonNews from '@/app/news/components/LoadingTopNews'
 
 interface Props {
   newsData: News[]
