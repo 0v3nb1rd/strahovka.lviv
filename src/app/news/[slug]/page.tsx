@@ -8,13 +8,15 @@ import { baseUrl } from '@/utils'
 import DisqusComments from '@/components/DisqusComments'
 import BlurImage from '@/components/Blur-image'
 
+import { FooterBlock, HeaderBlock } from '@/components/NewsList'
+
 interface Props {
   params: {
     slug: string
   }
 }
 
-const fetchNewsItem = async (slug: string): Promise<News | null> => {
+const fetchNewsData = async (slug: string): Promise<News | null> => {
   const res = await prisma.news.findUnique({
     where: {
       slug: slug,
@@ -26,66 +28,37 @@ const fetchNewsItem = async (slug: string): Promise<News | null> => {
 }
 
 export default async function NewPage({ params }: Props) {
-  const newsItem = await fetchNewsItem(params.slug)
+  const data = await fetchNewsData(params.slug)
 
   return (
     <div className="flex flex-col">
       <div className="relative mb-6 flex h-full flex-col overflow-hidden rounded-2xl bg-white">
         <div className="px-5 py-4">
-          <ul className="header mb-3 flex gap-6">
-            <li className="">
-              <div>
-                <Badge variant="primary">{newsItem?.category_ua}</Badge>
-              </div>
-            </li>
-            <li className="flex items-center gap-2">
-              <BiTimeFive />
-              <span className="countdown text-base">
-                {newsItem?.created_at?.toLocaleString('uk-UA', { year: '2-digit', month: '2-digit', day: '2-digit' })}
-              </span>
-            </li>
-            <li className="ml-auto flex items-center gap-2">
-              <BiShow fontSize={22} />
-              <span className="countdown w-5 text-base">
-                <span style={{ '--value': newsItem?.views } as React.CSSProperties}></span>
-              </span>
-            </li>
-          </ul>
+          <HeaderBlock
+            date={data?.created_at}
+            category={data?.category_ua}
+            id={data?.id}
+            views={data?.views}
+            isFullPage
+          />
 
-          <h2 className="line-clamp-3 text-2xl font-medium">{newsItem?.title}</h2>
+          <h2 className="line-clamp-3 text-2xl font-medium">{data?.title}</h2>
         </div>
 
         <figure className="relative mt-auto h-[360px] w-full">
-          <BlurImage src={`${newsItem?.image_url}`} alt={`${newsItem?.title}`} fill className="object-cover" />
+          <BlurImage src={`${data?.image_url}`} alt={`${data?.title}`} fill className="object-cover" />
         </figure>
 
-        <p className="description px-5 py-4" dangerouslySetInnerHTML={{ __html: newsItem?.full_text || '' }} />
-
-        <div className="flex gap-10 px-5 py-4">
-          <button className="group flex items-center gap-2 transition">
-            <BiMessageAltDetail fontSize={22} className="transition group-hover:scale-110" />
-            <span className="countdown w-5 text-base">
-              <span style={{ '--value': 0 } as React.CSSProperties}></span>
-            </span>
-          </button>
-          <button className="group">
-            <BiBookmark fontSize={22} className="transition group-hover:scale-110" />
-          </button>
-          <button className="group">
-            <BiShare fontSize={22} className="transition group-hover:scale-110" />
-          </button>
-          <button className="group ml-auto flex items-center gap-2">
-            <BiLike fontSize={22} className={`transition group-hover:scale-110 ${true ? 'text-red-500' : ''}`} />
-            <span className="countdown w-5 text-base">
-              <span style={{ '--value': newsItem?.like_count } as React.CSSProperties}></span>
-            </span>
-          </button>
+        <div className="description px-5 py-4">
+          <div id="content" dangerouslySetInnerHTML={{ __html: data?.full_text || '' }} />
         </div>
+
+        <FooterBlock id={data?.id} likes={data?.like_count} />
       </div>
 
       <div className="relative mb-6 flex h-full flex-col overflow-hidden rounded-2xl bg-white">
         <div className="p-5">
-          <DisqusComments post={{ id: '1', title: newsItem?.title }} path={`${baseUrl}/news/${params.slug}`} />
+          <DisqusComments post={{ id: '1', title: data?.title }} path={`${baseUrl}/news/${params.slug}`} />
           <p>Comments Block: </p>
         </div>
       </div>

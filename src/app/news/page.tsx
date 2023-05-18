@@ -11,7 +11,9 @@ interface Props {
 }
 
 const fetchALLNews = async (): Promise<News[]> => {
-  const res = await prisma.news.findMany()
+  const res = await prisma.news.findMany({
+    orderBy: { created_at: 'desc' },
+  })
 
   // ToDo should add error page & remove possibility return null
   return res
@@ -20,6 +22,7 @@ const fetchALLNews = async (): Promise<News[]> => {
 const fetchNewsByType = async (type: string): Promise<News[]> => {
   const res = await prisma.news.findMany({
     where: { category: type },
+    orderBy: { created_at: 'desc' },
   })
 
   // ToDo should add error page & remove possibility return null
