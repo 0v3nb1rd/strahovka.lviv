@@ -30,7 +30,9 @@ const NewsLayout = async (props: any) => {
                 {/* @ts-expect-error Server Component */}
                 <RelatedPosts maxLength={3} />
               </Suspense>
-              {/* <FacebookPage /> */}
+            </div>
+            <div className="mx-2">
+              <FacebookPage />
             </div>
           </section>
 

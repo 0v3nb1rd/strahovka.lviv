@@ -1,9 +1,7 @@
 import Link from 'next/link'
 import cn from 'classnames'
-import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/bi'
 import { News } from '@prisma/client'
 
-import Badge from '../Badge'
 import BlurImage from '../Blur-image'
 
 import HeaderBlock from './HeaderBlock'
