@@ -5,21 +5,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['picsum.photos', 'facebook.com'],
-  },
-  async headers() {
-    return [
-      {
-        // Sets security headers for all routes
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN',
-          },
-        ],
-      },
-    ]
+    domains: ['picsum.photos'],
   },
   // i18n: {
   //   localeDetection: false,

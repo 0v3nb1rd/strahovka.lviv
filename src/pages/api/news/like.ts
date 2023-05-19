@@ -30,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const newData = await prisma.news.update({
         where: { id: data.id },
         data: {
-          like_count: { [data.action]: 1 },
+          like_count: { increment: 1 },
         },
       })
       return res.status(200).json({ like_count: newData.like_count })
