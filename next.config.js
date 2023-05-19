@@ -5,8 +5,8 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['picsum.photos'],
-  },
+    domains: ['picsum.photos', 'facebook.com'],
+  }
   // i18n: {
   //   localeDetection: false,
   //   locales: ['uk', 'en'],
