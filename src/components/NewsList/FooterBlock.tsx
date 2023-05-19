@@ -19,15 +19,23 @@ export default function HeaderBlock({ id, likes }: Props) {
   const handleLikes = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
 
-    setLikesCount(likesCount + 1)
-
-    await fetch('/api/news/like', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id }),
-    })
-
-    setIsLiked(true)
+    if (!isLiked) {
+      setLikesCount(likesCount + 1)
+      setIsLiked(true)
+      await fetch('/api/news/like', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, action: 'increment' }),
+      })
+    } else {
+      setLikesCount(likesCount - 1)
+      setIsLiked(false)
+      await fetch('/api/news/like', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, action: 'decrement' }),
+      })
+    }
   }
 
   return (

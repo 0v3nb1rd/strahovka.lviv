@@ -4,6 +4,7 @@ import RelatedPosts from '@/components/RelatedNews'
 import Aside from '@/components/NewsList/Aside'
 import LoadingNews from './components/LoadingNews'
 import LoadingTopNews from './components/LoadingTopNews'
+import FacebookPage from '@/components/FacebookPage'
 
 export const metadata = {
   title: 'Новини | Strahovka.lviv',
@@ -29,6 +30,7 @@ const NewsLayout = async (props: any) => {
                 {/* @ts-expect-error Server Component */}
                 <RelatedPosts maxLength={3} />
               </Suspense>
+              {/* <FacebookPage /> */}
             </div>
           </section>
 
