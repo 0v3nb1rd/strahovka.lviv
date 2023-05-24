@@ -24,39 +24,36 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (data.action === 'form_service') {
       try {
-        const tg = await useTelegramBot(
-          `<i>послуга</i>: ${data.title}\n\<i>імя</i>: ${data.fullName}\n\<i>тел</i>: ${data.phone}`
-        )
+        const [resTg, resMail] = await Promise.all([
+          useTelegramBot(`<i>послуга</i>: ${data.title}\n\<i>імя</i>: ${data.fullName}\n\<i>тел</i>: ${data.phone}`),
+          transporter.sendMail({
+            ...mailOptions,
+            subject: 'Заявка на ' + data.title,
+            html: `
+						<h2>послуга - ${data.title}</h2>
+						<div style="font-size:18px;">
+							<p><i>імя</i>: ${data.fullName}</p>
+							<p><i>тел</i>: <a href="tel:${data.phone}">${data.phone}</a></p>
+						</div>
+        		`,
+          }),
+        ])
 
-        const mail = await transporter.sendMail({
-          ...mailOptions,
-          subject: 'Заявка на ' + data.title,
-          // text: 'This is a test string',
-          html: `
-        	<h2>послуга - ${data.title}</h2>
-        	<div style="font-size:18px;">
-        		<p><i>імя</i>: ${data.fullName}</p>
-        		<p><i>тел</i>: <a href="tel:${data.phone}">${data.phone}</a></p>
-        	</div>
-        	`,
-        })
-
-        return res.status(200).json({ mail, tg })
+        return res.status(200).json({ resTg, resMail })
       } catch (err) {
         console.log(err)
       }
     }
     if (data.action === 'form_contacts') {
       try {
-        const tg = await useTelegramBot(
-          `<b>${data.title}</b>\n\<i>імя</i>: ${data.fullName}\n\<i>тел</i>: ${data.phone}\n\<i>email</i>: ${data.email}\n\<i>текст</i>: ${data.message}`
-        )
-
-        const mail = await transporter.sendMail({
-          ...mailOptions,
-          subject: data.title,
-          // text: 'This is a test string',
-          html: `
+        const [resTg, resMail] = await Promise.all([
+          useTelegramBot(
+            `<b>${data.title}</b>\n\<i>імя</i>: ${data.fullName}\n\<i>тел</i>: ${data.phone}\n\<i>email</i>: ${data.email}\n\<i>текст</i>: ${data.message}`
+          ),
+          transporter.sendMail({
+            ...mailOptions,
+            subject: data.title,
+            html: `
 					<h2>${data.title}</h2>
 					<div style="font-size:18px;">
 						<p><i>імя</i>: ${data.fullName}</p>
@@ -65,9 +62,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 						<p><i>текст</i>: ${data.message}</p>
 					</div>
 					`,
-        })
+          }),
+        ])
 
-        return res.status(200).json({ mail, tg })
+        return res.status(200).json({ resTg, resMail })
       } catch (err) {
         console.log(err)
       }
