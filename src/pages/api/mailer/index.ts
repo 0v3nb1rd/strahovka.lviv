@@ -24,22 +24,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     if (data.action === 'form_service') {
       try {
-        await transporter.sendMail({
-          ...mailOptions,
-          subject: 'Заявка на ' + data.title,
-          // text: 'This is a test string',
-          html: `
-					<h2>послуга - ${data.title}</h2>
-					<div style="font-size:18px;">
-						<p><i>імя</i>: ${data.fullName}</p>
-						<p><i>тел</i>: <a href="tel:${data.phone}">${data.phone}</a></p>
-					</div>
-					`,
-        })
-
         const tg = await useTelegramBot(
           `<i>послуга</i>: ${data.title}\n\<i>імя</i>: ${data.fullName}\n\<i>тел</i>: ${data.phone}`
         )
+
+        // await transporter.sendMail({
+        //   ...mailOptions,
+        //   subject: 'Заявка на ' + data.title,
+        //   // text: 'This is a test string',
+        //   html: `
+        // 	<h2>послуга - ${data.title}</h2>
+        // 	<div style="font-size:18px;">
+        // 		<p><i>імя</i>: ${data.fullName}</p>
+        // 		<p><i>тел</i>: <a href="tel:${data.phone}">${data.phone}</a></p>
+        // 	</div>
+        // 	`,
+        // })
 
         return res.status(200).json({ success: 'mail success', tg })
       } catch (err) {
