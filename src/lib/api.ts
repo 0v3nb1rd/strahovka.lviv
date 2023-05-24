@@ -1,5 +1,5 @@
 export const sendContactForm = async (data: any) => {
-  const res = await fetch('/api', {
+  const res = await fetch('/api/mailer', {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {

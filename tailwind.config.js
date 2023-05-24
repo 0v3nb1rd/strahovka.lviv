@@ -42,7 +42,6 @@ module.exports = {
           primary: '#31A3DD',
           // 'primary-outline': 'FC2B2B',
           // "primary-focus": "#2B7A99",
-          // "primary-content": "#ffffff",
           // "primary-content": "#cfffa8",
           // "primary-focus": "red",
           secondary: '#fee440',
