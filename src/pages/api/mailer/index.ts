@@ -28,27 +28,31 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           `<i>послуга</i>: ${data.title}\n\<i>імя</i>: ${data.fullName}\n\<i>тел</i>: ${data.phone}`
         )
 
-        // await transporter.sendMail({
-        //   ...mailOptions,
-        //   subject: 'Заявка на ' + data.title,
-        //   // text: 'This is a test string',
-        //   html: `
-        // 	<h2>послуга - ${data.title}</h2>
-        // 	<div style="font-size:18px;">
-        // 		<p><i>імя</i>: ${data.fullName}</p>
-        // 		<p><i>тел</i>: <a href="tel:${data.phone}">${data.phone}</a></p>
-        // 	</div>
-        // 	`,
-        // })
+        const mail = await transporter.sendMail({
+          ...mailOptions,
+          subject: 'Заявка на ' + data.title,
+          // text: 'This is a test string',
+          html: `
+        	<h2>послуга - ${data.title}</h2>
+        	<div style="font-size:18px;">
+        		<p><i>імя</i>: ${data.fullName}</p>
+        		<p><i>тел</i>: <a href="tel:${data.phone}">${data.phone}</a></p>
+        	</div>
+        	`,
+        })
 
-        return res.status(200).json({ success: 'mail success', tg })
+        return res.status(200).json({ mail, tg })
       } catch (err) {
         console.log(err)
       }
     }
     if (data.action === 'form_contacts') {
       try {
-        await transporter.sendMail({
+        const tg = await useTelegramBot(
+          `<b>${data.title}</b>\n\<i>імя</i>: ${data.fullName}\n\<i>тел</i>: ${data.phone}\n\<i>email</i>: ${data.email}\n\<i>текст</i>: ${data.message}`
+        )
+
+        const mail = await transporter.sendMail({
           ...mailOptions,
           subject: data.title,
           // text: 'This is a test string',
@@ -63,11 +67,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 					`,
         })
 
-        const tg = await useTelegramBot(
-          `<b>${data.title}</b>\n\<i>імя</i>: ${data.fullName}\n\<i>тел</i>: ${data.phone}\n\<i>email</i>: ${data.email}\n\<i>текст</i>: ${data.message}`
-        )
-
-        return res.status(200).json({ success: 'mail success', tg })
+        return res.status(200).json({ mail, tg })
       } catch (err) {
         console.log(err)
       }
