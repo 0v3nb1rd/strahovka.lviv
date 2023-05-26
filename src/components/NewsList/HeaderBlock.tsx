@@ -43,7 +43,7 @@ export default function HeaderBlock({ id, date, views, category, isFullPage }: P
       <li className="flex items-center gap-2">
         <BiTimeFive />
         <span className="countdown text-base">
-          {date?.toLocaleString('uk-UA', { year: '2-digit', month: '2-digit', day: '2-digit' })}
+          {date?.toLocaleString('uk-UA', { year: 'numeric', month: '2-digit', day: '2-digit' })}
         </span>
       </li>
       <li className="ml-auto flex items-center gap-2">
