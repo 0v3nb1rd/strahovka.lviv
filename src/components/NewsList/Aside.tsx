@@ -1,40 +1,45 @@
 'use client'
 
-import { useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
+import { useRouter } from 'next/router'
+
 import Link from 'next/link'
 import { BiInfoCircle, BiHome, BiNews } from 'react-icons/bi'
 
+import { blogRoute } from '@/routes'
+
 export default function Aside() {
-  const searchParams = useSearchParams()
-  const type = searchParams?.get('type')
-  // console.log(type)
+  const pathname = usePathname()
 
   return (
     <aside className="sticky top-[5.5rem] h-full w-[240px]">
-      <div className="mb-6 flex flex-col gap-2">
-        <Link
-          href="/news/"
-          className={`btn-ghost btn-block btn justify-start gap-2 text-base normal-case ${!type ? 'btn-active' : ''}`}
-        >
-          <BiHome fontSize={24} /> Усі статті
-        </Link>
-        <Link
-          href="/news/?type=news"
-          className={`btn-ghost btn-block btn justify-start gap-2 text-base normal-case ${
-            type === 'news' ? 'btn-active' : ''
-          }`}
-        >
-          <BiNews fontSize={24} /> Новини
-        </Link>
-        <Link
-          href="/news/?type=tips"
-          className={`btn-ghost btn-block btn justify-start gap-2 text-base normal-case ${
-            type === 'tips' ? 'btn-active' : ''
-          }`}
-        >
-          <BiInfoCircle fontSize={24} /> Поради
-        </Link>
-      </div>
+      <ul className="mb-6 flex flex-col gap-2">
+        <li>
+          <Link
+            href="/blog"
+            className={`btn-ghost btn-block btn justify-start gap-2 text-base normal-case ${
+              pathname === '/blog/' ? 'btn-active' : ''
+            }`}
+          >
+            <BiHome fontSize={24} />
+            Усі статті
+          </Link>
+        </li>
+
+        {blogRoute.map((route) => (
+          <li key={route.id}>
+            <Link
+              href={route.path}
+              className={`btn-ghost btn-block btn justify-start gap-2 text-base normal-case ${
+                pathname?.includes(route.path) ? 'btn-active' : ''
+              }`}
+            >
+              {<route.icon fontSize={24} />}
+              {route.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </aside>
   )
 }

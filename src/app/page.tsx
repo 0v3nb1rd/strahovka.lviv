@@ -104,8 +104,8 @@ export default async function HomePage() {
                 Тут ви можете ознайомитись з новинами, <br className="lg:block" /> та порадами
               </h2>
             </div>
-            <Link href="/news" className="btn">
-              Усі новини
+            <Link href="/blog" className="btn">
+              Усі статті
             </Link>
           </div>
 

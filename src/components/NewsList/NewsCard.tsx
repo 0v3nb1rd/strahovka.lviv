@@ -15,7 +15,7 @@ interface Props {
 export default function NewsCard({ data, maxLength }: Props) {
   return (
     <Link
-      href={`/news/${data?.slug}`}
+      href={`/blog/${data?.category}/${data?.slug}`}
       className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow transition-all delay-75 duration-100 hover:shadow-xl"
     >
       <div className="px-5 py-4">
