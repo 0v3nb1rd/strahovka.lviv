@@ -9,11 +9,11 @@ import ServiceCards from '@/components/ServiceCards/ServiceCards'
 import Badge from '@/components/Badge'
 import NewsList from '@/components/NewsList/NewsList'
 
-import { News } from '@prisma/client'
+import { Post } from '@prisma/client'
 import { Suspense } from 'react'
 
-const fetchLastPost = async (count: number): Promise<News[]> => {
-  const res = await prisma.news.findMany({
+const fetchLastPost = async (count: number): Promise<Post[]> => {
+  const res = await prisma.post.findMany({
     take: count,
     orderBy: {
       created_at: 'desc',

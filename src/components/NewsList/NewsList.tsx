@@ -1,13 +1,13 @@
 import { Suspense } from 'react'
 import cn from 'classnames'
-import { News } from '@prisma/client'
+import { Post } from '@prisma/client'
 
 import NewsCard from './NewsCard'
 
-import SkeletonNews from '@/app/_news/components/LoadingTopNews'
+import SkeletonNews from '@/app/blog/components/LoadingTopNews'
 
 interface Props {
-  newsData: News[]
+  newsData: Post[]
   maxLength?: number
 }
 
@@ -18,7 +18,7 @@ export default function NewsList({ newsData, maxLength }: Props) {
         'sm:grid-cols-2 lg:grid-cols-3': maxLength === 3,
       })}
     >
-      {newsData?.slice(0, maxLength).map((data: News) => (
+      {newsData?.slice(0, maxLength).map((data: Post) => (
         <li key={data.id}>
           <Suspense fallback={<SkeletonNews />}>
             <NewsCard maxLength={maxLength} data={data} />

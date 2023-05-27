@@ -4,6 +4,7 @@ import DrawerSide from '@/components/Drawer/DrawerSide'
 // import Modal from '@/components/Modal/Modal'
 
 import '@/app/globals.scss'
+import Providers from '@/components/Providers'
 // import ModalForm from '@/components/Forms/ModalForm'
 // import Logo from '@/components/Logo'
 // import Badge from '@/components/UI/Badge'
@@ -23,18 +24,18 @@ export default function RootLayout(props: propType) {
   return (
     <html lang="ua">
       <body>
-        <div className="drawer absolute">
-          <input id="drawer-menu" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content">
-            <Header />
-            {props.children}
-            <Footer />
-          </div>
+        <Providers>
+          <div className="drawer absolute">
+            <input id="drawer-menu" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content">
+              <Header />
+              {props.children}
+              <Footer />
+            </div>
 
-          <DrawerSide />
-        </div>
-        {/* {props.modal} */}
-        {/* <Modal variant="sm" title="Зелена карта" /> */}
+            <DrawerSide />
+          </div>
+        </Providers>
       </body>
     </html>
   )

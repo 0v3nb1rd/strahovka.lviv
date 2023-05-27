@@ -1,4 +1,4 @@
-import { News } from '@prisma/client'
+import { Post } from '@prisma/client'
 import Link from 'next/link'
 
 import BlurImage from '../Blur-image'
@@ -8,8 +8,8 @@ interface Props {
   maxLength?: number
 }
 
-const fetchTopNews = async (): Promise<News[]> => {
-  const res = await prisma.news.findMany({
+const fetchTopNews = async (): Promise<Post[]> => {
+  const res = await prisma.post.findMany({
     take: 3,
     orderBy: {
       like_count: 'desc',
@@ -25,7 +25,7 @@ export default async function RelatedPosts({ maxLength }: Props) {
 
   return (
     <ul>
-      {newsData?.slice(0, maxLength).map((data: News) => (
+      {newsData?.slice(0, maxLength).map((data: Post) => (
         <li key={data.id}>
           <Link
             href={`/blog/${data?.category}/${data?.slug}`}

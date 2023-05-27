@@ -9,6 +9,7 @@ import Nav from '../Nav/Nav'
 
 import Burger from '@/components/Burger/Burger'
 import PhoneList from '@/components/PhoneList/PhoneList'
+import SignButton from '../SignButton'
 
 const Header = forwardRef<HTMLElement>(() => {
   const [scrolled, setScrolled] = useState(false)
@@ -200,6 +201,7 @@ const Header = forwardRef<HTMLElement>(() => {
           </div>
         </nav>
       </div>
+      <SignButton />
     </header>
   )
 })

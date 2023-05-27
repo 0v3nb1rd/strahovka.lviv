@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/bi'
-import { News } from '@prisma/client'
+import { Post } from '@prisma/client'
 
 import prisma from '@/lib/prisma'
 import { baseUrl } from '@/utils'
@@ -15,8 +15,8 @@ interface Props {
   }
 }
 
-const fetchNewsData = async (slug: string): Promise<News | null> => {
-  const res = await prisma.news.findUnique({
+const fetchNewsData = async (slug: string): Promise<Post | null> => {
+  const res = await prisma.post.findUnique({
     where: {
       slug: slug,
     },

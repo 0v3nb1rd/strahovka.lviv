@@ -1,4 +1,4 @@
-import { News } from '@prisma/client'
+import { Post } from '@prisma/client'
 
 import prisma from '@/lib/prisma'
 import NewsList from '@/components/NewsList/NewsList'
@@ -9,8 +9,8 @@ interface Props {
   }
 }
 
-const fetchNewsByType = async (type: string): Promise<News[]> => {
-  const res = await prisma.news.findMany({
+const fetchNewsByType = async (type: string): Promise<Post[]> => {
+  const res = await prisma.post.findMany({
     where: { category: type },
     orderBy: { created_at: 'desc' },
   })

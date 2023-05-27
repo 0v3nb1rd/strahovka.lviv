@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import cn from 'classnames'
-import { News } from '@prisma/client'
+import { Post } from '@prisma/client'
 
 import BlurImage from '../Blur-image'
 
@@ -8,7 +8,7 @@ import HeaderBlock from './HeaderBlock'
 import FooterBlock from './FooterBlock'
 
 interface Props {
-  data: News
+  data: Post
   maxLength?: number
 }
 
