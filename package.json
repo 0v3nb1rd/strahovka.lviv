@@ -12,6 +12,8 @@
 	"dependencies": {
 		"@hookform/resolvers": "^3.1.0",
 		"@prisma/client": "^4.14.0",
+		"@types/bcrypt": "^5.0.0",
+		"bcrypt": "^5.1.0",
 		"bootstrap-icons": "^1.10.5",
 		"classnames": "^2.3.2",
 		"daisyui": "^2.51.6",

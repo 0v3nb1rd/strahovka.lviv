@@ -9,8 +9,8 @@
 		"full_text": "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
 		"thumbnail_url": "/photos/news/img_1.jpg",
 		"image_url": "/photos/news/img_1.jpg",
-		"like_count": 3,
-		"views": 23
+		"like_count": 0,
+		"views": 0
 	},
 	{
 		"category": "news",
@@ -22,8 +22,8 @@
 		"full_text": "lorem ipsum dolor sit amet, <br/> consectetur <b>adip</b>",
 		"thumbnail_url": "/photos/news/img_2.jpg",
 		"image_url": "/photos/news/img_2.jpg",
-		"like_count": 3,
-		"views": 2
+		"like_count": 0,
+		"views": 0
 	},
 	{
 		"category": "news",
@@ -36,7 +36,7 @@
 		"thumbnail_url": "/photos/news/img_3.jpg",
 		"image_url": "/photos/news/img_3.jpg",
 		"like_count": 0,
-		"views": 1
+		"views": 0
 	},
 	{
 		"category": "news",

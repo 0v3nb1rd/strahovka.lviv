@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+import bcrypt from 'bcrypt'
 
 import serviceData from './serviceData.json'
 import newsData from './newsData.json'
@@ -44,6 +45,14 @@ async function main() {
   //   },
   // })
 
+  await prisma.user.create({
+    data: {
+      name: 'admin',
+      email: 'nazzarik@gmail.com',
+      password: await bcrypt.hash('password', 10),
+    },
+  })
+
   await prisma.service_category.createMany({
     data: serviceData.all,
   })
@@ -87,7 +96,7 @@ async function main() {
     ],
   })
 
-  const news = await prisma.news.createMany({
+  const news = await prisma.post.createMany({
     data: newsData,
   })
 

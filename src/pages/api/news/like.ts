@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const data = await req.body
 
     try {
-      const newData = await prisma.news.update({
+      const newData = await prisma.post.update({
         where: { id: data.id },
         data: {
           like_count: { [data.action]: 1 },

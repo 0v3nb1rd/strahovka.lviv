@@ -11,6 +11,13 @@ datasource db {
 	shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
+model User {
+	id Int @id @default(autoincrement())
+	email String @unique
+	name String?
+	password String
+	posts Post[]
+}
 model Service_category {
 	id Int @default(autoincrement()) @id
 	title String
@@ -35,13 +42,14 @@ model Service {
 	icon_url String? 
 	thumbnail_url String? 
 	image_url String?
+	created_at DateTime? @default(now())
 	slug String @unique
 	services_category_id Int
 	services_category Service_category @relation(fields: [services_category_id], references: [id])
 }
 
 // News Model:
-model News {
+model Post {
 	id Int @default(autoincrement()) @id
 	title String
 	title_ua String?
@@ -56,4 +64,6 @@ model News {
 	like_count Int
 	views Int
 	created_at DateTime? @default(now())
+	author User @relation(fields: [author_id], references: [id])
+	author_id Int
 }
