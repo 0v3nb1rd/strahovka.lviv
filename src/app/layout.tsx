@@ -1,13 +1,8 @@
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import DrawerSide from '@/components/Drawer/DrawerSide'
-// import Modal from '@/components/Modal/Modal'
-
-import '@/app/globals.scss'
 import Providers from '@/components/Providers'
-// import ModalForm from '@/components/Forms/ModalForm'
-// import Logo from '@/components/Logo'
-// import Badge from '@/components/UI/Badge'
+import '@/app/globals.scss'
 
 type propType = {
   children: React.ReactNode
