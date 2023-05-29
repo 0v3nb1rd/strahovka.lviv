@@ -19,18 +19,18 @@ export default function RootLayout(props: propType) {
   return (
     <html lang="ua">
       <body>
-        <Providers>
-          <div className="drawer absolute">
-            <input id="drawer-menu" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content">
-              <Header />
-              {props.children}
-              <Footer />
-            </div>
-
-            <DrawerSide />
+        {/* <Providers> */}
+        <div className="drawer absolute">
+          <input id="drawer-menu" type="checkbox" className="drawer-toggle" />
+          <div className="drawer-content">
+            <Header />
+            {props.children}
+            <Footer />
           </div>
-        </Providers>
+
+          <DrawerSide />
+        </div>
+        {/* </Providers> */}
       </body>
     </html>
   )

@@ -3,8 +3,7 @@ import cn from 'classnames'
 import { Post } from '@prisma/client'
 
 import NewsCard from './NewsCard'
-
-import SkeletonNews from '@/app/blog/components/LoadingTopNews'
+import SkeletonNews from '@/app/(site)/blog/components/LoadingTopNews'
 
 interface Props {
   newsData: Post[]

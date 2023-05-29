@@ -2,7 +2,7 @@
 
 import ContentLoader from 'react-content-loader'
 
-export default function Skeleton({ ...rest }) {
+export function Skeleton({ ...rest }) {
   return (
     <ContentLoader
       speed={2}
