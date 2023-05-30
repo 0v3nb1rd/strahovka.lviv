@@ -1,62 +1,24 @@
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcrypt'
 
-import serviceData from './serviceData.json'
-import newsData from './newsData.json'
+import serviceData from '../prisma/serviceData.json'
+import newsData from '../prisma/newsData.json'
 
 const prisma = new PrismaClient()
 
 async function main() {
-  // const alice = await prisma.user.upsert({
-  //   where: { email: 'alice@prisma.io' },
-  //   update: {},
-  //   create: {
-  //     email: 'alice@prisma.io',
-  //     name: 'Alice',
-  //     posts: {
-  //       create: {
-  //         title: 'Check out Prisma with Next.js',
-  //         content: 'https://www.prisma.io/nextjs',
-  //         published: true,
-  //       },
-  //     },
-  //   },
-  // })
-  // const bob = await prisma.user.upsert({
-  //   where: { email: 'bob@prisma.io' },
-  //   update: {},
-  //   create: {
-  //     email: 'bob@prisma.io',
-  //     name: 'Bob',
-  //     posts: {
-  //       create: [
-  //         {
-  //           title: 'Follow Prisma on Twitter',
-  //           content: 'https://twitter.com/prisma',
-  //           published: true,
-  //         },
-  //         {
-  //           title: 'Follow Nexus on Twitter',
-  //           content: 'https://twitter.com/nexusgql',
-  //           published: true,
-  //         },
-  //       ],
-  //     },
-  //   },
-  // })
+  // Removing old data:
+  await prisma.user.deleteMany()
+  await prisma.service.deleteMany()
+  await prisma.service_category.deleteMany()
+  await prisma.post.deleteMany()
 
-  await prisma.user.create({
-    data: {
-      name: 'admin',
-      email: 'nazzarik@gmail.com',
-      password: await bcrypt.hash('password', 10),
-    },
-  })
-
+  // Create Service_category:
   await prisma.service_category.createMany({
     data: serviceData.all,
   })
 
+  // Create relationship with service:
   const service_category = await prisma.service_category.findMany()
 
   const CarInsurance = service_category.find((itm) => itm.slug === 'car-insurance')?.id || 1
@@ -67,6 +29,7 @@ async function main() {
   const ResponsibilityInsurance = service_category.find((itm) => itm.slug === 'responsibility-insurance')?.id || 1
   const AnimalInsurance = service_category.find((itm) => itm.slug === 'animal-insurance')?.id || 1
 
+  // Create Service:
   const services = await prisma.service.createMany({
     data: [
       {
@@ -96,11 +59,105 @@ async function main() {
     ],
   })
 
-  const news = await prisma.post.createMany({
-    data: newsData,
+  // Create relationship with user:
+  const user = await prisma.user.findMany()
+  const Dev = user.find((itm) => itm.role === 'dev')?.id || 1
+  const Admin = user.find((itm) => itm.role === 'admin')?.id || 1
+
+  // Create Post:
+  const post = await prisma.post.createMany({
+    // data: newsData,
+    data: [
+      {
+        category: 'news',
+        category_ua: 'Новини',
+        title: "В Україні в 2016 році потрібно ввести медстрахування всіх громадян - прем'єр",
+        title_ua: "В Україні в 2016 році потрібно ввести медстрахування всіх громадян - прем'єр",
+        slug: 'v-ukrayini-v-2016-rotsi-potribno-vvesti-medstrakhuvannya-vsikh-gromadyan-premier',
+        short_text: '',
+        full_text:
+          "<q className='quote'><p>На сайте Всемирной организации здравоохранения <a href='https://web.archive.org/web/20220731213557/' rel='nofollow noreferrer noopener' target='_blank'>указано</a>, что синдром Гийена-Барре — это редкое состояние, при котором иммунная система человека поражает собственные периферические нервы. Тяжелые случаи синдрома способны привести к полному параличу и несут потенциальную угрозу для жизни. Несмотря на это, большинство людей полностью выздоравливает даже в самых тяжёлых ситуациях, отмечает ВОЗ.</p></q>",
+        thumbnail_url: '/photos/news/img_1.jpg',
+        image_url: '/photos/news/img_1.jpg',
+        like_count: 0,
+        views: 0,
+        author_id: Dev,
+      },
+      {
+        category: 'news',
+        category_ua: 'Новини',
+        title: 'Автомобілістам росії доведеться замінити всі поліси ОСАЦВ з 1 липня 2016 року',
+        title_ua: 'Автомобілістам росії доведеться замінити всі поліси ОСАЦВ з 1 липня 2016 року',
+        slug: 'avtomobilistam-rosiyi-dovedetsya-zaminiti-vsi-polisi-osatsv-z-1-lipnya-2016-roku',
+        short_text: '',
+        full_text: 'lorem ipsum dolor sit amet, <br/> consectetur <b>adip</b>',
+        thumbnail_url: '/photos/news/img_2.jpg',
+        image_url: '/photos/news/img_2.jpg',
+        like_count: 0,
+        views: 0,
+        author_id: Dev,
+      },
+      {
+        category: 'news',
+        category_ua: 'Новини',
+        title: 'Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄС',
+        title_ua: 'Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄС',
+        slug: 'limiti-po-osatsv-v-ukrayini-budut-privedeni-do-standartiv-ies',
+        short_text: '',
+        full_text: 'lorem ipsum dolor sit amet, consectetur adip',
+        thumbnail_url: '/photos/news/img_3.jpg',
+        image_url: '/photos/news/img_3.jpg',
+        like_count: 0,
+        views: 0,
+        author_id: Dev,
+      },
+      {
+        category: 'news',
+        category_ua: 'Новини',
+        title: 'Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄСC',
+        title_ua: 'Ліміти по ОСАЦВ в Україні будуть приведені до стандартів ЄСC',
+        slug: 'iti-po-osatsv-v-ukrayini-budut-privedeni-do-standartiv-iesc',
+        short_text: '',
+        full_text: 'lorem ipsum dolor sit amet, consectetur adip',
+        thumbnail_url: '/photos/news/img_4.jpg',
+        image_url: '/photos/news/img_4.jpg',
+        like_count: 0,
+        views: 0,
+        author_id: Dev,
+      },
+      {
+        category: 'news',
+        category_ua: 'Новини',
+        title: "В Україні в 2016 році потрібно ввести медстрахування всіх громадян - прем'єрр",
+        title_ua: "В Україні в 2016 році потрібно ввести медстрахування всіх громадян - прем'єрр",
+        slug: 'v-ukrayini-v-2016-rotsi-potribno-vvesti-medstrakhuvannya-vsikh-gromadyan-premierr',
+        short_text: '',
+        full_text: 'lorem ipsum dolor sit amet, consectetur adip',
+        thumbnail_url: '/photos/news/img_1.jpg',
+        image_url: '/photos/news/img_1.jpg',
+        like_count: 0,
+        views: 0,
+        author_id: Dev,
+      },
+      {
+        category: 'tips',
+        category_ua: 'Поради',
+        title: 'Автоцивілка отримає новий рівень захисту QR-код',
+        title_ua: 'Автоцивілка отримає новий рівень захисту QR-код',
+        slug: 'avtocivilka-otrimaye-novij-rivenь-zahistu-qr-kod',
+        short_text: '',
+        full_text:
+          'Президія МТСБУ вирішила ввести в обіг новий поліс автоцивільної відповідальності, який буде містити спеціальний елемент захисту від підробок — QR-код.',
+        thumbnail_url: '/photos/news/img_5.jpg',
+        image_url: '/photos/news/img_5.jpg',
+        like_count: 0,
+        views: 0,
+        author_id: Dev,
+      },
+    ],
   })
 
-  console.log({ services, news })
+  console.log({ user, services, post })
 }
 
 main()
