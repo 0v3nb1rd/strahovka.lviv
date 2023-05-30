@@ -1,29 +1,32 @@
-import { Service_category } from '@prisma/client'
+import { Post } from '@prisma/client'
 import prisma from '@/lib/prisma'
 
-import { ServiceList } from '@/components/Services'
+import NewsList from '@/components/NewsList/NewsList'
 
-const fetchServices = async (): Promise<Service_category[]> => {
-  const res = await prisma.service_category.findMany()
+const fetchALLNews = async (): Promise<Post[]> => {
+  const res = await prisma.post.findMany({
+    orderBy: { created_at: 'desc' },
+  })
 
   // ToDo should add error page & remove possibility return null
   return res
 }
 
-export default async function ServicePage() {
-  const serviceData = await fetchServices()
+export default async function NewsPage() {
+  const newsData = await fetchALLNews()
 
   return (
     <section className="p-4">
       <div className="container">
         <div className="title">
           <h1 className="mr-4 inline-flex text-lg font-bold">News page</h1>
-          length: {serviceData.length}
+          length: {newsData.length}
         </div>
+
         <div className="flex w-full flex-col">
           <div className="divider"></div>
         </div>
-        <ServiceList isAdm serviceData={serviceData} />
+        <NewsList newsData={newsData} />
       </div>
     </section>
   )

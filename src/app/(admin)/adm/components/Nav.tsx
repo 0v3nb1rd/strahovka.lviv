@@ -4,7 +4,7 @@ const adminRoutes = [
   {
     id: 1,
     label: 'News',
-    to: '/adm/news',
+    to: '/adm/blog',
   },
   {
     id: 2,

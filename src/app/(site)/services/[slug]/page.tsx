@@ -22,20 +22,22 @@ export default async function NewPage({ params }: Props) {
 
   return (
     <section className="relative mx-10 rounded-2xl bg-white p-14 pb-20 shadow-md">
-      <Link
-        href="/services"
-        className="btn-outline btn-circle btn absolute right-4 top-4 text-primary hover:border-transparent hover:bg-primary"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+      <div className="tooltip tooltip-right  absolute right-4 top-4" data-tip="назад">
+        <Link
+          href="/services"
+          className="btn-outline btn-circle btn text-primary hover:border-transparent hover:bg-primary"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </Link>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </Link>
+      </div>
       <div className="flex flex-col gap-8">
         <div className="title mx-auto max-w-2xl">
           <div className="flex flex-col items-center">

@@ -1,16 +1,16 @@
 import { Service_category } from '@prisma/client'
-
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 
 interface Props {
   service: Service_category
+  isAdm?: boolean
 }
 
-export default function Service({ service }: Props) {
+export default function Service({ service, isAdm = false }: Props) {
   return (
     <Link
-      href={`/services/${service.slug}/`}
+      href={`${isAdm ? 'adm' : ''}/services/${service.slug}/`}
       className="flex h-full flex-col gap-14 rounded-2xl bg-white px-8 py-10 shadow-md transition-all delay-75 duration-100 hover:-translate-y-1 hover:shadow-xl"
     >
       <div className="title mx-auto max-w-2xl">
