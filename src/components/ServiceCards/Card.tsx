@@ -4,11 +4,14 @@ import Image from 'next/image'
 import type { MainServices } from '@/@types'
 import { Service } from '@prisma/client'
 
-interface MainServicesProps extends Service {
+interface ServicesProps extends Service {
+  onClick?: any
+}
+interface MainServicesProps extends MainServices {
   onClick?: any
 }
 
-export default function Card({ title_ua, short_text, icon_url, onClick }: MainServicesProps) {
+export default function Card({ title_ua, short_text, icon_url, onClick }: ServicesProps | MainServicesProps) {
   return (
     <label
       onClick={() => onClick({ title_ua, short_text, icon_url })}

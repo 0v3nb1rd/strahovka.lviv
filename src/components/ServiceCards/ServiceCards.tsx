@@ -9,21 +9,24 @@ import { Service } from '@prisma/client'
 const serviceData = {
   top: [
     {
-      id: '1',
+      id: 1,
+      title: 'Autocivilka',
       title_ua: 'Автоцивілка',
       short_text: 'Безпека вашого авто та грошей.',
       icon_url: '/icons/man-driving.svg',
       slug: 'autocivilka',
     },
     {
-      id: '2',
+      id: 2,
+      title: 'Green card',
       title_ua: 'Зелена карта',
       short_text: 'Комфортні подорожі за кордоном.',
       icon_url: '/icons/car-new.svg',
       slug: 'green-card',
     },
     {
-      id: '3',
+      id: 3,
+      title: 'KASKO',
       title_ua: 'КАСКО',
       short_text: 'Захистіть свій автомобіль від будь-яких небезпек.',
       icon_url: '/icons/insurance-user.svg',
