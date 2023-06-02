@@ -13,9 +13,9 @@ export type AllServices = {
   image_url: string
 }
 export type MainServices = {
-  id?: string
-  title?: string
-  desc?: string
+  id: number
+  title_ua?: string
+  short_text?: string
   icon_url?: string
 }
 /**
