@@ -56,7 +56,7 @@ export default async function HomePage() {
               </p>
               <div className="mt-8 flex items-center justify-center">
                 <div className="ml-2 flex items-center justify-center">
-                  <button className="btn-outline btn">Замовити автоцивілку</button>
+                  <Link href='/services/car-insurance#service' scroll={false} className="btn-outline btn">Замовити автоцивілку</Link>
                 </div>
               </div>
             </div>
@@ -84,7 +84,7 @@ export default async function HomePage() {
               </p>
               <div className="mt-8 flex items-center justify-center">
                 <div className="ml-2 flex items-center justify-center">
-                  <button className="btn-outline btn">Замовити Зелену карту</button>
+									<Link href='/services/car-insurance#service' scroll={false} className="btn-outline btn">Замовити Зелену карту</Link>
                 </div>
               </div>
             </div>
@@ -133,7 +133,7 @@ export default async function HomePage() {
               </p>
               <div className="mt-8 flex items-center justify-center">
                 <div className="ml-2 flex items-center justify-center">
-                  <button className="btn-outline btn">Замовити КАСКО</button>
+									<Link href='/services/car-insurance#service' scroll={false} className="btn-outline btn">Замовити КАСКО</Link>
                 </div>
               </div>
             </div>

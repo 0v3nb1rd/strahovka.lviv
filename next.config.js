@@ -8,7 +8,7 @@ const nextConfig = {
     domains: ['picsum.photos', 'facebook.com'],
   },
   trailingSlash: true,
-  swcMinify: false,
+  // swcMinify: false,
   // i18n: {
   //   localeDetection: false,
   //   locales: ['uk', 'en'],

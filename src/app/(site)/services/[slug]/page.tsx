@@ -82,10 +82,10 @@ export default async function NewPage({ params }: Props) {
 
         {service.length > 0 && (
           <>
-            <div className="divider ">
+            <div className="divider">
               <img src="/icons/service.svg" className=" h-10 w-10" />
             </div>
-            <div>
+            <div id='service'>
               <h2 className="text-center text-2xl font-bold text-gray-600 md:text-3xl">
                 {service_cat?.title} замовити:
               </h2>
