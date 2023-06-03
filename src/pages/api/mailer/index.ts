@@ -18,11 +18,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'POST') {
     const data: ServiceProps = await req.body
 
-    if (!data.title || !data.fullName || !data.phone) {
-      return res.status(400).json({ message: 'Invalid input data' })
-    }
-
     if (data.action === 'form_service') {
+      if (!data.title || !data.fullName || !data.phone) {
+        return res.status(400).json({ message: 'Invalid input data' })
+      }
+
       try {
         const [resTg, resMail] = await Promise.all([
           useTelegramBot(`<i>послуга</i>: ${data.title}\n\<i>імя</i>: ${data.fullName}\n\<i>тел</i>: ${data.phone}`),
@@ -45,6 +45,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
     }
     if (data.action === 'form_contacts') {
+      if (!data.title || !data.fullName || !data.phone) {
+        return res.status(400).json({ message: 'Invalid input data' })
+      }
+
       try {
         const [resTg, resMail] = await Promise.all([
           useTelegramBot(
@@ -62,6 +66,31 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 						<p><i>текст</i>: ${data.message}</p>
 					</div>
 					`,
+          }),
+        ])
+
+        return res.status(200).json({ resTg, resMail })
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    if (data.action === 'form_subscribe') {
+      if (!data.email) {
+        return res.status(400).json({ message: 'Invalid input data' })
+      }
+
+      try {
+        const [resTg, resMail] = await Promise.all([
+          useTelegramBot(`<b>${data.title}</b>\n\<i>email</i>: ${data.email}`),
+          transporter.sendMail({
+            ...mailOptions,
+            subject: data.title,
+            html: `
+      		<h2>${data.title}</h2>
+      		<div style="font-size:18px;">
+      			<p><i>email</i>: <a href="mailto:${data.email}">${data.email}</a></p>
+      		</div>
+      		`,
           }),
         ])
 

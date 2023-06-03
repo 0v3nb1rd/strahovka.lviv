@@ -2,7 +2,7 @@ import Link from 'next/link'
 import prisma from '@/lib/prisma'
 
 import Banner from '@/components/Banner'
-import CtaBlock from '@/components/CtaBlock'
+import CtaBlock from '@/components/Forms/CtaBlock'
 import FeaturesSection from '@/components/Features'
 import PromoSection from '@/components/PromoSection'
 import ServiceCards from '@/components/ServiceCards/ServiceCards'
@@ -56,7 +56,9 @@ export default async function HomePage() {
               </p>
               <div className="mt-8 flex items-center justify-center">
                 <div className="ml-2 flex items-center justify-center">
-                  <Link href='/services/car-insurance#service' scroll={false} className="btn-outline btn">Замовити автоцивілку</Link>
+                  <Link href="/services/car-insurance#service" scroll={false} className="btn-outline btn">
+                    Замовити автоцивілку
+                  </Link>
                 </div>
               </div>
             </div>
@@ -84,7 +86,9 @@ export default async function HomePage() {
               </p>
               <div className="mt-8 flex items-center justify-center">
                 <div className="ml-2 flex items-center justify-center">
-									<Link href='/services/car-insurance#service' scroll={false} className="btn-outline btn">Замовити Зелену карту</Link>
+                  <Link href="/services/car-insurance#service" scroll={false} className="btn-outline btn">
+                    Замовити Зелену карту
+                  </Link>
                 </div>
               </div>
             </div>
@@ -133,7 +137,9 @@ export default async function HomePage() {
               </p>
               <div className="mt-8 flex items-center justify-center">
                 <div className="ml-2 flex items-center justify-center">
-									<Link href='/services/car-insurance#service' scroll={false} className="btn-outline btn">Замовити КАСКО</Link>
+                  <Link href="/services/car-insurance#service" scroll={false} className="btn-outline btn">
+                    Замовити КАСКО
+                  </Link>
                 </div>
               </div>
             </div>

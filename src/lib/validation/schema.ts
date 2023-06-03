@@ -28,3 +28,9 @@ export const contactSchema = yup
     message: yup.string().required("Обов'язкове поле"),
   })
   .required()
+
+export const subscribeSchema = yup
+  .object({
+    email: yup.string().email('некоректний email').required("Обов'язкове поле"),
+  })
+  .required()
