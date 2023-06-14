@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import siteConfig from '@/config/site'
 
-const Logo = ({ className }: { className?: string }) => {
+export const Logo = ({ className }: { className?: string }) => {
   return (
     <Link
       href="/"
@@ -16,5 +16,3 @@ const Logo = ({ className }: { className?: string }) => {
     </Link>
   )
 }
-
-export default Logo

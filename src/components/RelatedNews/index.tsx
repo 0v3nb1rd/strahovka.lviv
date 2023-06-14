@@ -20,7 +20,7 @@ const fetchTopNews = async (): Promise<Post[]> => {
   return res
 }
 
-export default async function RelatedPosts({ maxLength }: Props) {
+const RelatedPosts = async ({ maxLength }: Props) => {
   const newsData = await fetchTopNews()
 
   return (
@@ -46,3 +46,5 @@ export default async function RelatedPosts({ maxLength }: Props) {
     </ul>
   )
 }
+
+export default RelatedPosts

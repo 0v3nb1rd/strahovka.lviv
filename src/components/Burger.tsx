@@ -1,6 +1,4 @@
-import React from 'react'
-
-const Burger = ({ ...rest }) => {
+export const Burger = ({ ...rest }) => {
   return (
     <div {...rest}>
       <label htmlFor="drawer-menu" className="btn-ghost btn-square btn">
@@ -16,5 +14,3 @@ const Burger = ({ ...rest }) => {
     </div>
   )
 }
-
-export default Burger

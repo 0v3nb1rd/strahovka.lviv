@@ -1,16 +1,16 @@
 'use client'
 
-import { useEffect, useState, forwardRef, useRef } from 'react'
+import { useEffect, useState, forwardRef } from 'react'
 
 import cn from 'classnames'
 
-import Logo from '../Logo'
-import Nav from '../Nav/Nav'
+import { Logo } from '../Logo'
+import Nav from '../Nav'
+import { Burger } from '../Burger'
 
-import Burger from '@/components/Burger/Burger'
-import PhoneList from '@/components/PhoneList/PhoneList'
-import SignButton from '../SignButton'
-import Lang from './Lang'
+import PhoneList from '@/components/PhoneList'
+
+import { Lang } from './Lang'
 
 const Header = forwardRef<HTMLElement>(() => {
   const [scrolled, setScrolled] = useState(false)

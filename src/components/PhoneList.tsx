@@ -3,7 +3,7 @@ import Image from 'next/image'
 import logo_ks from '@/assets/img/ks.svg'
 import logo_life from '@/assets/img/lifecell_logo.svg'
 
-export default function PhoneList({ ...rest }) {
+export const PhoneList = ({ ...rest }) => {
   return (
     <div {...rest}>
       <a className="link-hover flex items-center gap-2  font-medium" href="tel:380687678898">
@@ -17,3 +17,5 @@ export default function PhoneList({ ...rest }) {
     </div>
   )
 }
+
+export default PhoneList

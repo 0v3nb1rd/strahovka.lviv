@@ -1,4 +1,4 @@
-export default function Lang() {
+export const Lang = () => {
   return (
     <label className="swap swap-flip mr-4 text-3xl">
       <input type="checkbox" />

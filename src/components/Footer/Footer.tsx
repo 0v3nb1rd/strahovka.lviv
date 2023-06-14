@@ -1,9 +1,9 @@
 import { DiCode } from 'react-icons/di'
 
-import Logo from '../Logo'
+import { Logo } from '../Logo'
 import siteConfig from '@/config/site'
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className="mt-auto bg-gradient-to-r from-neutral-100/40 via-white/80 to-neutral-100/40">
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
@@ -135,3 +135,5 @@ export default function Footer() {
     </footer>
   )
 }
+
+export default Footer
