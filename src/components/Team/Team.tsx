@@ -1,20 +1,21 @@
-import Image from 'next/image'
+import siteConfig from '@/config/site'
 
-import person1 from '@/assets/photos/person1.jpg'
-import person2 from '@/assets/photos/person2.png'
-import person3 from '@/assets/photos/person3.png'
+import { TeamElement } from './TeamElement'
 
-const Team = () => {
+export const Team = () => {
   return (
     <div>
       <div className="w-full px-10 pt-10">
         <div className="container mx-auto">
-          <div
+          <ul
             role="list"
             aria-label="Behind the scenes People "
             className="flex-wrap items-center sm:flex sm:justify-around md:flex md:justify-around lg:flex lg:justify-around xl:justify-between"
           >
-            <div
+            {siteConfig.ourTeam.map((itm) => (
+              <TeamElement key={itm.name} {...itm} />
+            ))}
+            {/* <li
               role="listitem"
               className="relative mb-32 mt-16 sm:mb-24 sm:w-3/4 md:w-2/5 lg:w-2/5 xl:w-1/3 xl:max-w-sm"
             >
@@ -93,8 +94,8 @@ const Team = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               role="listitem"
               className="relative mb-32 mt-16 sm:mb-24 sm:w-3/4 md:w-2/5 lg:mx-3 lg:w-2/5 xl:w-1/3 xl:max-w-sm"
             >
@@ -173,8 +174,8 @@ const Team = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div
+            </li>
+            <li
               role="listitem"
               className="relative mb-32 mt-16 sm:mb-24 sm:w-3/4 md:w-2/5 lg:w-2/5 xl:w-1/3 xl:max-w-sm"
             >
@@ -253,12 +254,10 @@ const Team = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </li> */}
+          </ul>
         </div>
       </div>
     </div>
   )
 }
-
-export default Team
