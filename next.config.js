@@ -5,7 +5,7 @@ const nextConfig = {
   //   appDir: true,
   // },
   images: {
-    domains: ['picsum.photos', 'facebook.com'],
+    domains: ['picsum.photos', 'www.notion.so', 'facebook.com'],
   },
   trailingSlash: true,
   swcMinify: false,
