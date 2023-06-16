@@ -1,10 +1,11 @@
 import { BiInfoCircle, BiNews } from 'react-icons/bi'
+import { IconType } from 'react-icons/lib'
 
 interface Props {
   id: string
   label: string
   path: string
-  icon?: any
+  icon?: IconType
 }
 
 export const mainRoute: Props[] = [
