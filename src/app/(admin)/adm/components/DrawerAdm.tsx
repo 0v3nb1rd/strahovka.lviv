@@ -1,10 +1,10 @@
 import { Nav } from './Nav'
-// import Logo from '../Logo'
+// import {Logo} from '../Logo'
 
-import PhoneList from '@/components/PhoneList/PhoneList'
+import PhoneList from '@/components/PhoneList'
 import SignButton from './SignButton'
 
-export function DrawerAdm() {
+export const DrawerAdm = () => {
   return (
     <div className="drawer-side">
       <label htmlFor="drawer-adm" className="drawer-overlay"></label>

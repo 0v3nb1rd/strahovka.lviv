@@ -1,6 +1,4 @@
-import { Service, Service_category } from '@prisma/client'
-
-import prisma from '@/lib/prisma'
+import { getRelatedService, getServiceCatBySlug } from '@/lib/_actions/services'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -13,35 +11,14 @@ interface Props {
   params: { slug: string }
 }
 
-const loader = `<div className="loader">
+const loader = `
+	<div className="loader">
     <div className="spinner"></div>
   </div>`
 
-const fetchServiceCatBySlug = async (slug: string): Promise<Service_category | null> => {
-  const res = await prisma.service_category.findFirst({
-    where: { slug: slug },
-  })
-
-  // ToDo should add error page & remove possibility return null
-  return res
-}
-const fetchRelatedService = async (service_cat_id: number): Promise<Service[]> => {
-  const res = await prisma.service.findMany({
-    include: {
-      services_category: true,
-    },
-    where: {
-      services_category_id: service_cat_id,
-    },
-  })
-
-  // ToDo should add error page & remove possibility return null
-  return res
-}
-
 export default async function NewPage({ params }: Props) {
-  const service_cat = await fetchServiceCatBySlug(params.slug)
-  const service = await fetchRelatedService(service_cat?.id || 1)
+  const { serviceCat } = await getServiceCatBySlug(params.slug)
+  const { service } = await getRelatedService(serviceCat?.id || 1)
 
   return (
     <section className="relative mx-10 rounded-2xl bg-white p-14 pb-20 shadow-md">
@@ -64,30 +41,30 @@ export default async function NewPage({ params }: Props) {
       <div className="flex flex-col gap-8">
         <div className="title mx-auto max-w-2xl">
           <div className="flex flex-col items-center">
-            <span className="badge-secondary badge badge-lg mb-3">{service_cat?.category_ua}</span>
+            <span className="badge-secondary badge badge-lg mb-3">{serviceCat?.category_ua}</span>
             <h1 className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
-              {service_cat?.title}
+              {serviceCat?.title}
             </h1>
           </div>
         </div>
 
         <div className="relative h-[480px] overflow-hidden rounded-2xl">
-          <BlurImage src={`${service_cat?.image_url}`} className="object-cover" alt={`${service_cat?.title}`} fill />
+          <BlurImage src={`${serviceCat?.image_url}`} className="object-cover" alt={`${serviceCat?.title}`} fill />
         </div>
 
         <div
           className="mx-auto flex max-w-[840px] flex-col gap-4 text-lg font-semibold text-black/60"
-          dangerouslySetInnerHTML={{ __html: service_cat?.full_text || '' }}
+          dangerouslySetInnerHTML={{ __html: serviceCat?.full_text || '' }}
         />
 
-        {service.length > 0 && (
+        {Boolean(service?.length) && (
           <>
             <div className="divider">
               <img src="/icons/service.svg" className=" h-10 w-10" />
             </div>
-            <div id='service'>
+            <div id="service">
               <h2 className="text-center text-2xl font-bold text-gray-600 md:text-3xl">
-                {service_cat?.title} замовити:
+                {serviceCat?.title} замовити:
               </h2>
             </div>
 

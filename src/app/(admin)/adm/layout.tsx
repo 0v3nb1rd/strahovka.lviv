@@ -1,6 +1,6 @@
 import Providers from '@/components/Providers'
 import { DrawerAdm } from './components'
-import '@/app/globals.scss'
+import '@/styles/globals.scss'
 
 type propType = {
   children: React.ReactNode

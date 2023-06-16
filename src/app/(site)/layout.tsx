@@ -1,8 +1,6 @@
-import Footer from '@/components/Footer/Footer'
-import Header from '@/components/Header/Header'
-import DrawerSide from '@/components/Drawer/DrawerSide'
-import Providers from '@/components/Providers'
-import '@/app/globals.scss'
+import { Header, Footer, Drawer } from '@/components'
+
+import '@/styles/globals.scss'
 
 type propType = {
   children: React.ReactNode
@@ -19,7 +17,6 @@ export default function RootLayout(props: propType) {
   return (
     <html lang="ua">
       <body>
-        {/* <Providers> */}
         <div className="drawer absolute">
           <input id="drawer-menu" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content">
@@ -28,9 +25,8 @@ export default function RootLayout(props: propType) {
             <Footer />
           </div>
 
-          <DrawerSide />
+          <Drawer />
         </div>
-        {/* </Providers> */}
       </body>
     </html>
   )
