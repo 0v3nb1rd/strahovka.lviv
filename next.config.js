@@ -5,7 +5,16 @@ const nextConfig = {
   //   appDir: true,
   // },
   images: {
-    domains: ['picsum.photos', 'www.notion.so', 'facebook.com'],
+		 remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+      },
+      {
+        protocol: 'https',
+        hostname: 'facebook.com',
+      },
+    ],
   },
   trailingSlash: true,
   swcMinify: false,
