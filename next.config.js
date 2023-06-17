@@ -5,7 +5,25 @@ const nextConfig = {
   //   appDir: true,
   // },
   images: {
-    domains: ['picsum.photos', 'www.notion.so', 'facebook.com'],
+    // domains: ['picsum.photos', 'www.notion.so', 's3.us-west-2.amazonaws.com', 'facebook.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.notion.so',
+      },
+      {
+        protocol: 'https',
+        hostname: 's3.us-west-2.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'facebook.com',
+      },
+    ],
   },
   trailingSlash: true,
   swcMinify: false,
@@ -14,6 +32,18 @@ const nextConfig = {
   //   locales: ['uk', 'en'],
   //   defaultLocale: 'uk',
   // },
+
+  // suppress keyv warning
+  webpack: (config, { webpack }) => {
+    config.plugins.push(
+      new webpack.ContextReplacementPlugin(/\/keyv\//, (data) => {
+        delete data.dependencies[0].critical
+        return data
+      })
+    )
+
+    return config
+  },
   async redirects() {
     return [
       //!------------------- 	Services 	------------------------//

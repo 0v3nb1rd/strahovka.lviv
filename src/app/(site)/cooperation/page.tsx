@@ -21,7 +21,6 @@ export default async function CooperationPage() {
             </div>
 
             <div className="relative h-[480px] overflow-hidden rounded-2xl">
-              {/* <Image className="object-cover" src={img_cooperation} fill alt="image cooperation" /> */}
               <BlurImage src={img_cooperation} className="object-cover" alt="image cooperation" fill />
             </div>
 

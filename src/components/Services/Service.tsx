@@ -1,9 +1,9 @@
-import { Service_category } from '@prisma/client'
+// import { Service_category } from '@prisma/client'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 
 interface Props {
-  service: Service_category
+  service: any
   isAdm?: boolean
 }
 
@@ -15,22 +15,22 @@ export default function Service({ service, isAdm = false }: Props) {
     >
       <div className="title mx-auto max-w-2xl">
         <div className="flex flex-col items-center">
-          <span className="badge-secondary badge badge-lg mb-3">{service.category_ua}</span>
+          <span className="badge-secondary badge badge-lg mb-3">{service.category}</span>
           <h1 className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
-            {service.title}
+            {service.name}
           </h1>
-          <p className="text-center text-lg font-semibold text-black/60">{service.short_text}</p>
+          <p className="text-center text-lg font-semibold text-black/60">{service.description}</p>
         </div>
       </div>
 
       <div className="relative mt-auto h-[240px] overflow-hidden rounded-2xl">
         <Image
           className="object-contain"
-          src={service.thumbnail_url as string}
+          src={service.icon}
           fill
-          sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+          // sizes="(max-width: 768px) 100vw,
+          //     (max-width: 1200px) 50vw,
+          //     33vw"
           alt="image cooperation"
         />
       </div>
