@@ -8,9 +8,10 @@ interface Props {
 }
 
 export default function Service({ service, isAdm = false }: Props) {
+	
   return (
     <Link
-      href={`${isAdm ? 'adm' : ''}/services/${service.slug}/`}
+      href={service.slug}
       className="flex h-full flex-col gap-14 rounded-2xl bg-white px-8 py-10 shadow-md transition-all delay-75 duration-100 hover:-translate-y-1 hover:shadow-xl"
     >
       <div className="title mx-auto max-w-2xl">
