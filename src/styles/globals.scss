@@ -15,8 +15,8 @@
 }
 
 html {
---scroll-behavior: smooth!important;
-scroll-behavior: smooth!important;
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
 }
 
 .banner {
@@ -82,4 +82,9 @@ ul.list-line {
 
 .btn-secondary[disabled] {
   background-color: hsl(var(--s) / var(--tw-bg-opacity));
+}
+
+.editor *[contentEditable='true']:focus,
+.editor *[contentEditable='true']:hover {
+  outline: 2px solid #1976d2;
 }

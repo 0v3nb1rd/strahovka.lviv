@@ -51,3 +51,15 @@ export async function updateServiceCat(id: number, data: any) {
     return { error }
   }
 }
+
+export async function updServiceTitle(id: number, html: string) {
+  try {
+    const serviceCat = await prisma.service_category.update({
+      where: { id },
+      data: { title: html },
+    })
+    return { serviceCat }
+  } catch (error) {
+    return { error }
+  }
+}

@@ -1,118 +1,64 @@
-'use client'
-
-import { useState, forwardRef } from 'react'
+import { useState, forwardRef, ReactNode, useRef, useEffect } from 'react'
 import { Editor } from '@tinymce/tinymce-react'
 
+import { getServiceCat } from '@/lib/_actions/services'
+import { revalidatePath } from 'next/cache'
+import { usePathname } from 'next/navigation'
+
 interface Props {
-  text?: string
-  ref: string
+  text: string
+  children?: ReactNode
 }
 
-// export function EditableServiceFooter({ text }: Props) {
-//   const TINY_SECRET = process.env.NEXT_PUBLIC_TINY_KEY
+export const EditTitle = forwardRef<HTMLHeadingElement, Props>((props, ref) => {
+  const TINY_SECRET = process.env.NEXT_PUBLIC_TINY_KEY!
+  const editorRef = useRef<any>('')
 
-//   const [value, setValue] = useState(text)
+  const [value, setValue] = useState('')
+  const [content, setContent] = useState('')
 
-//   return (
-//     <>
-//       <div className="mx-auto flex max-w-[840px] flex-col gap-4 text-lg font-semibold text-black/60">
-//         <Editor
-//           ref={ref}
-//           init={{
-//             menubar: false,
-//             tinydrive_upload_path: '/',
-//             skin: 'small',
-//             icons: 'small',
-//             // icons: 'bootstrap',
-//             plugins: [
-//               'tinydrive',
-//               'a11ychecker',
-//               'advlist',
-//               'autolink',
-//               'lists',
-//               'link',
-//               'image',
-//               'charmap',
-//               'anchor',
-//               'searchreplace',
-//               'visualblocks',
-//               'code',
-//               'fullscreen',
-//               'insertdatetime',
-//               'media',
-//               'table',
-//               'preview',
-//               'help',
-//               'wordcount',
-//             ],
-//             toolbar:
-//               'undo redo | blocks | ' +
-//               'bold italic forecolor | alignleft aligncenter ' +
-//               'alignright alignjustify | bullist numlist outdent indent | ' +
-//               'imagetools image media template link | ' +
-//               'removeformat code',
-//             // content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }', // all styles
-//           }}
-//           inline
-//           // toolbar={'undo redo | bold italic underline'}
-//           apiKey={TINY_SECRET}
-//           initialValue={text && text.trim()}
-//         />
-//       </div>
-//     </>
-//   )
-// }
+  const path = usePathname()
 
-export const EditTitle = forwardRef(function ({ text, ref }: Props) {
-  const TINY_SECRET = process.env.NEXT_PUBLIC_TINY_KEY
-  const [value, setValue] = useState(text)
+  const updService = async (html: string) => {
+    const res = await fetch('/api/edit/service', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: 9, html }),
+    })
+    const data = await res.json()
+  }
+  const onSubmit = () => {
+    if (editorRef.current) {
+      // console.log(editorRef.current.getContent())
+      updService(editorRef.current.getContent())
+    }
+  }
 
   return (
     <>
-      <div className="mx-auto flex max-w-[840px] flex-col gap-4 text-lg font-semibold text-black/60">
+      <div className=" relative mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
         <Editor
-          ref={ref}
+          apiKey={TINY_SECRET}
+          inline
+          // tagName="h1"
+          plugins={['quickbars']}
+          // scriptLoading={{ async: true}}
           init={{
             menubar: false,
-            tinydrive_upload_path: '/',
-            skin: 'small',
-            icons: 'small',
-            // icons: 'bootstrap',
-            plugins: [
-              'tinydrive',
-              'a11ychecker',
-              'advlist',
-              'autolink',
-              'lists',
-              'link',
-              'image',
-              'charmap',
-              'anchor',
-              'searchreplace',
-              'visualblocks',
-              'code',
-              'fullscreen',
-              'insertdatetime',
-              'media',
-              'table',
-              'preview',
-              'help',
-              'wordcount',
-            ],
-            toolbar:
-              'undo redo | blocks | ' +
-              'bold italic forecolor | alignleft aligncenter ' +
-              'alignright alignjustify | bullist numlist outdent indent | ' +
-              'imagetools image media template link | ' +
-              'removeformat code',
-            // content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }', // all styles
+            toolbar: false,
+            quickbars_insert_toolbar: 'undo redo',
+            quickbars_selection_toolbar: 'bold italic underline',
+            branding: false,
           }}
-          inline
-          // toolbar={'undo redo | bold italic underline'}
-          apiKey={TINY_SECRET}
-          initialValue={text && text.trim()}
+          initialValue={props?.text}
+          onInit={(e, editor) => {
+            editorRef.current = editor
+          }}
         />
       </div>
+      <button type="button" onClick={onSubmit} className="btn">
+        send
+      </button>
     </>
   )
 })

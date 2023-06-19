@@ -8,7 +8,6 @@ interface Props {
 }
 
 export default function Service({ service, isAdm = false }: Props) {
-	
   return (
     <Link
       href={service.slug}
@@ -17,9 +16,10 @@ export default function Service({ service, isAdm = false }: Props) {
       <div className="title mx-auto max-w-2xl">
         <div className="flex flex-col items-center">
           <span className="badge-secondary badge badge-lg mb-3">{service.category_ua}</span>
-          <h1 className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
-            {service.title}
-          </h1>
+          <h1
+            className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight"
+            dangerouslySetInnerHTML={{ __html: service?.title }}
+          />
           <p className="text-center text-lg font-semibold text-black/60">{service.short_text}</p>
         </div>
       </div>

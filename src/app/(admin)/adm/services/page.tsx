@@ -1,6 +1,8 @@
 import { ServiceList } from '@/components/Services'
 import { getServiceCat } from '@/lib/_actions/services'
 
+export const dynamic = 'force-dynamic'
+
 export default async function ServicePage() {
   const { serviceCat } = await getServiceCat()
 

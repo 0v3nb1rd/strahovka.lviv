@@ -69,6 +69,7 @@ export const EditFullText = forwardRef(({ text }: Props, ref: any) => {
 
   return (
     <div className="mx-auto flex max-w-[840px] flex-col gap-4 text-lg font-semibold text-black/60">
+      {/* <h1 dangerouslySetInnerHTML={{ __html: content }} /> */}
       <Editor
         ref={ref}
         init={{
@@ -106,6 +107,7 @@ export const EditFullText = forwardRef(({ text }: Props, ref: any) => {
             'removeformat code',
           // content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }', // all styles
         }}
+        // onInit={(e,editor)}
         inline
         // toolbar={'undo redo | bold italic underline'}
         apiKey={TINY_SECRET}
