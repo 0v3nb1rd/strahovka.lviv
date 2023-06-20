@@ -20,10 +20,10 @@ export const EditorService = ({ serviceCat }: { serviceCat: Service_category }) 
     <form>
       <section className="editor relative mx-10 rounded-2xl bg-white p-14 pb-20 shadow-md">
         <div className="flex flex-col gap-8">
-          <div className="title mx-auto max-w-2xl">
+          <div className="title mx-auto w-[42rem] max-w-full">
             <div className="flex flex-col items-center">
               <span className="badge-secondary badge badge-lg mb-3">{serviceCat?.category_ua}</span>
-              <EditTitle text={serviceCat?.title} ref={refTitle} />
+              <EditTitle id={serviceCat?.id} text={serviceCat?.title} ref={refTitle} />
             </div>
           </div>
 

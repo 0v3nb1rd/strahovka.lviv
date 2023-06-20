@@ -39,9 +39,12 @@ export default async function NewPage({ params }: Props) {
         </Link>
       </div>
       <div className="flex flex-col gap-8">
-        <div className="title mx-auto max-w-2xl">
+        <div className="title mx-auto w-[42rem] max-w-full">
           <div className="flex flex-col items-center">
-            <span className="badge-secondary badge badge-lg mb-3">{serviceCat?.category_ua}</span>
+            <span
+              className="badge-secondary badge badge-lg mb-3"
+              dangerouslySetInnerHTML={{ __html: serviceCat?.category_ua || '' }}
+            />
             <h1
               className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight"
               dangerouslySetInnerHTML={{ __html: serviceCat?.title || '' }}

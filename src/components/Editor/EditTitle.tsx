@@ -6,6 +6,7 @@ import { revalidatePath } from 'next/cache'
 import { usePathname } from 'next/navigation'
 
 interface Props {
+  id: number
   text: string
   children?: ReactNode
 }
@@ -23,24 +24,23 @@ export const EditTitle = forwardRef<HTMLHeadingElement, Props>((props, ref) => {
     const res = await fetch('/api/edit/service', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: 9, html }),
+      body: JSON.stringify({ id: props.id, html }),
     })
     const data = await res.json()
   }
   const onSubmit = () => {
     if (editorRef.current) {
-      // console.log(editorRef.current.getContent())
       updService(editorRef.current.getContent())
     }
   }
 
   return (
     <>
-      <div className=" relative mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
+      <div className=" relative mb-2 w-full text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight">
         <Editor
           apiKey={TINY_SECRET}
           inline
-          // tagName="h1"
+          tagName="h1"
           plugins={['quickbars']}
           // scriptLoading={{ async: true}}
           init={{
