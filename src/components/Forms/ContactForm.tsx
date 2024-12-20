@@ -30,8 +30,9 @@ export default function ContactForm() {
   })
 
   const onSubmit = async (data: any) => {
-    const senderData = { ...data, title: 'Контакт форма', action: 'form_contacts' }
     setLoading(true)
+
+    const senderData = { ...data, title: 'Контакт форма', action: 'form_contacts' }
     const res = await sendContactForm(senderData)
 
     setLoading(false)
