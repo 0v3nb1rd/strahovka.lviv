@@ -46,7 +46,7 @@ export default async function HomePage() {
       <section className="my-20">
         <div className="container">
           <div className="md:px-12">
-            <div className="mx-auto w-full  rounded-2xl ">
+            <div className="mx-auto w-full rounded-2xl ">
               <img src="/icons/info-yellow.svg" className="m-auto mb-8 h-10 w-10" />
               <p className="m-auto w-full text-center text-lg text-gray-600 md:w-2/3 md:text-3xl">
                 <span className="text-4xl font-bold text-neutral">“</span>
@@ -73,10 +73,10 @@ export default async function HomePage() {
       <section className="my-20">
         <div className="container">
           <div className="divider ">
-            <img src="/icons/green-card.svg" className=" h-10 w-10" />
+            <img src="/icons/green-card.svg" className="h-10 w-10 " />
           </div>
           <div className="md:p-12">
-            <div className="mx-auto w-full  rounded-2xl ">
+            <div className="mx-auto w-full rounded-2xl ">
               <p className="m-auto w-full text-center text-lg text-gray-600 md:w-2/3 md:text-3xl">
                 <span className="text-4xl font-bold text-neutral">“</span>
                 <strong>Зелена карта</strong> — це поліс обов’язкового страхування цивільної відповідальності
@@ -124,10 +124,10 @@ export default async function HomePage() {
       <section className="my-20">
         <div className="container">
           <div className="divider ">
-            <img src="/icons/safety.svg" className=" h-10 w-10" />
+            <img src="/icons/safety.svg" className="h-10 w-10 " />
           </div>
           <div className="md:p-12">
-            <div className="mx-auto w-full  rounded-2xl ">
+            <div className="mx-auto w-full rounded-2xl ">
               <p className="m-auto w-full text-center text-lg text-gray-600 md:w-2/3 md:text-3xl">
                 <span className="text-4xl font-bold text-neutral">“</span>
                 Поліс <strong>КАСКО</strong> захищає Ваш автомобіль практично від будь-яких неприємностей, які можуть з

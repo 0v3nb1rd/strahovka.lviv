@@ -80,13 +80,13 @@ const Footer = () => {
             <div>
               <p className="font-medium">Послуги</p>
               <nav className="mt-4 flex flex-col space-y-2 text-sm leading-tight text-gray-500">
-                <a className="hover:opacity-75" href="./">
+                <a className="hover:opacity-75" href="/contacts">
                   Авто цивілка
                 </a>
-                <a className="hover:opacity-75" href="./">
+                <a className="hover:opacity-75" href="/contacts">
                   Зелена карта
                 </a>
-                <a className="hover:opacity-75" href="./">
+                <a className="hover:opacity-75" href="/contacts">
                   КАСКО
                 </a>
               </nav>
@@ -95,13 +95,13 @@ const Footer = () => {
             <div>
               <p className="font-medium">Співпраця</p>
               <nav className="mt-4 flex flex-col space-y-2 text-sm text-gray-500">
-                <a className="hover:opacity-75" href="./">
+                <a className="hover:opacity-75" href="/cooperation">
                   Співпраця
                 </a>
-                <a className="hover:opacity-75" href="./">
+                <a className="hover:opacity-75" href="/cooperation">
                   Вакансії
                 </a>
-                <a className="hover:opacity-75" href="./">
+                <a className="hover:opacity-75" href="/cooperation">
                   інше
                 </a>
               </nav>
@@ -125,7 +125,7 @@ const Footer = () => {
         <p className="mt-8 flex items-center text-xs text-gray-800">
           {siteConfig.copyright}
           <a
-            className=" text-red-500 transition-all hover:scale-105 hover:text-red-700"
+            className="text-red-500 transition-all hover:scale-105 hover:text-red-700"
             href="https://0v3nb1rd.github.io/"
           >
             <DiCode className="inline-block text-2xl " />

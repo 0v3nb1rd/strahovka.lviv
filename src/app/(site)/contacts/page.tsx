@@ -3,6 +3,9 @@ import { BiPhoneCall, BiEnvelope, BiMap } from 'react-icons/bi'
 import Faq from '@/components/Faq'
 import { Team } from '@/components'
 import ContactForm from '@/components/Forms/ContactForm'
+import siteConfig from '@/config/site'
+import { phoneMask } from '@/helpers'
+
 // import { AuthRequiredError } from '@/lib/exceptions'
 
 // const session = null
@@ -37,8 +40,13 @@ export default function ContactsPage() {
                     </div>
                     <span className="flex flex-col">
                       <span className="font-medium text-black/40">Телефон:</span>
-                      <a className=" font-bold leading-6">+38(068)767 88 98</a>
-                      <a className=" font-bold leading-6">+38(093)655 58 99</a>
+
+                      <a className="font-bold leading-6" href={`tel:${siteConfig.contacts.phones[0]}`}>
+                        +38 {phoneMask(siteConfig.contacts.phones[0])}
+                      </a>
+                      {/* <a className="font-bold leading-6" href={`tel:${siteConfig.contacts.phones[1]}`}>
+                        +38(093)655 58 99
+                      </a> */}
                     </span>
                   </div>
                 </li>
@@ -50,7 +58,9 @@ export default function ContactsPage() {
                     </div>
                     <span className="flex flex-col">
                       <span className="font-medium text-black/40">Email:</span>
-                      <a className="text-lg font-bold leading-6">strahovka.lviv.ua@gmail.com</a>
+                      <a className="text-lg font-bold leading-6" href={`mailto:${siteConfig.contacts.email}`}>
+                        {siteConfig.contacts.email}
+                      </a>
                     </span>
                   </div>
                 </li>
@@ -62,9 +72,10 @@ export default function ContactsPage() {
                     </div>
                     <span className="flex flex-col">
                       <span className="text-lg font-medium text-black/40">Адрес:</span>
-                      <span className="text-lg font-bold leading-6">
-                        м.Львів, 79000 <br /> пр.Шевченка
-                      </span>
+                      <span
+                        className="text-lg font-bold leading-6"
+                        dangerouslySetInnerHTML={{ __html: siteConfig.contacts.address.replace(/\n/g, '<br />') }}
+                      ></span>
                     </span>
                   </div>
                 </li>
@@ -82,7 +93,7 @@ export default function ContactsPage() {
         <div className="container mx-auto flex justify-center ">
           <div className="flex flex-col items-center">
             <span className="badge-secondary badge badge-lg mb-3">Наша Команда</span>
-            <h2 className=" w-5/6 pb-6 text-center text-3xl font-extrabold text-gray-800 sm:w-4/6 xl:text-4xl">
+            <h2 className="w-5/6 pb-6 text-center text-3xl font-extrabold text-gray-800 sm:w-4/6 xl:text-4xl">
               Талановиті люди за лаштунками організації
             </h2>
           </div>

@@ -27,20 +27,30 @@ export interface ISiteConfig {
     youtube: string
   }
   copyright: string
-  ourTeam: TTeam[]
+	ourTeam: TTeam[]
+	contacts: {
+		phones: string[]
+		email: string
+		address: string
+	}
 }
 
 const siteConfig: ISiteConfig = {
   siteName: 'STRAHOVKA',
-  logo_src: '/logo.svg',
-  description: '',
+  logo_src: '/logo_old.svg',
+	description: '',
+	contacts: {
+		phones: ['+380687678898'],
+		email: 'strahovka.lviv.ua@gmail.com',
+		address: 'м.Пустомити, 79100 \n Львівська обл.',
+	},
   socialLinks: {
     facebook: 'https://www.facebook.com/offroadfwd',
     twitter: 'https://twitter.com/home',
     instagram: 'https://www.instagram.com/offroadfwd/',
     youtube: 'https://www.youtube.com/channel/UCVvMfGGYlCFiP9gDvOiESEw',
   },
-  copyright: '© 2023 Strahovka.lviv.ua',
+  copyright: '© 2025 strahovka.lviv.ua',
   ourTeam: [
     {
       name: 'Володимир',

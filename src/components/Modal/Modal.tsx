@@ -15,6 +15,7 @@ import { orderSchema } from '@/lib/validation/schema'
 export interface ServiceFormValues {
   fullName?: string
   phone?: string
+  message?: string
 }
 interface Props {
   checked?: boolean
@@ -86,6 +87,13 @@ const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
                 <div className="flex flex-col gap-6">
                   <Filed register={register} errors={errors?.fullName} fieldName="fullName" label="Ім'я" required />
                   <Filed register={register} errors={errors?.phone} fieldName="phone" label="Телефон" required />
+                  <Filed
+                    register={register}
+                    errors={errors?.message}
+                    fieldName="message"
+                    textarea
+                    label="Ваше повідомлення"
+                  />
                 </div>
 
                 <Button
