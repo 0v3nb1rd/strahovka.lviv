@@ -26,7 +26,7 @@ export default function Aside() {
           </Link>
         </li>
 
-        {blogRoute.map((route) => (
+        {blogRoute.map((route: any) => (
           <li key={route.id}>
             <Link
               href={route.path}

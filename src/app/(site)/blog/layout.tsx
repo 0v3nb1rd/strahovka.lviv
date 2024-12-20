@@ -27,7 +27,6 @@ const NewsLayout = async (props: any) => {
             <div className="mb-6 overflow-hidden rounded-2xl bg-white p-5">
               <h2 className="text-lg font-bold">Популярні статті:</h2>
               <Suspense fallback={<LoadingTopNews />}>
-                {/* @ts-expect-error Server Component */}
                 <RelatedPosts maxLength={3} />
               </Suspense>
             </div>

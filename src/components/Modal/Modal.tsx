@@ -42,7 +42,7 @@ const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
     formState: { errors, isValid },
   } = useForm<ServiceFormValues>({
     mode: 'onChange',
-    resolver: yupResolver(orderSchema),
+    resolver: yupResolver<ServiceFormValues>(orderSchema),
   })
 
   useEffect(() => {

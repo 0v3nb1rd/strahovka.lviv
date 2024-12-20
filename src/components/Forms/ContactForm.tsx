@@ -26,7 +26,7 @@ export default function ContactForm() {
     formState: { errors, isValid },
   } = useForm<FormValues>({
     mode: 'onChange',
-    resolver: yupResolver(contactSchema),
+    resolver: yupResolver<FormValues>(contactSchema),
   })
 
   const onSubmit = async (data: any) => {
