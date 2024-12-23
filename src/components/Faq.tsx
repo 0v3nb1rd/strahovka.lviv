@@ -1,14 +1,14 @@
 const Faq = () => {
   return (
-    <div className="mx-10 ">
+    <div className="sm:mx-10">
       <div className="rounded-2xl bg-white p-4 py-14 pb-20 shadow-md">
         <span className="badge badge-warning mx-auto mb-3 block">FAQ</span>
-        <p className="mx-auto text-center text-3xl font-extrabold text-gray-800 sm:w-[50%] xl:text-4xl">
+        <p className="mx-auto text-center text-3xl font-extrabold text-gray-800 md:w-[50%] xl:text-4xl">
           Тут ви можете ознайомитись з частими питаннями
         </p>
 
-        <div className="mt-8 grid grid-cols-1 gap-4 px-2 md:grid-cols-2 xl:gap-12 xl:px-12">
-          <div className="mt-8 flex space-x-8">
+        <div className="mt-8 grid grid-cols-1 gap-4 px-2 lg:grid-cols-2 xl:gap-12 xl:px-12">
+          <div className="mt-8 flex flex-col gap-4 sm:space-x-8">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,7 @@ const Faq = () => {
             </div>
           </div>
 
-          <div className="mt-8 flex space-x-8">
+          <div className="mt-8 flex flex-col gap-4 sm:space-x-8">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@ const Faq = () => {
             </div>
           </div>
 
-          <div className="mt-8 flex space-x-8">
+          <div className="mt-8 flex flex-col gap-4 sm:space-x-8">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +112,7 @@ const Faq = () => {
             </div>
           </div>
 
-          <div className="mt-8 flex space-x-8">
+          <div className="mt-8 flex flex-col gap-4 sm:space-x-8">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -146,7 +146,7 @@ const Faq = () => {
             </div>
           </div>
 
-          <div className="mt-8 flex space-x-8">
+          <div className="mt-8 flex flex-col gap-4 sm:space-x-8">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -180,7 +180,7 @@ const Faq = () => {
             </div>
           </div>
 
-          <div className="mt-8 flex space-x-8">
+          <div className="mt-8 flex flex-col gap-4 sm:space-x-8">
             <div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

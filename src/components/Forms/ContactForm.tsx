@@ -16,7 +16,7 @@ type FormValues = {
   message?: string
 }
 
-export default function ContactForm() {
+export default function ContactForm({ className, ...rest }: { className?: string }) {
   const [loading, setLoading] = useState(false)
 
   const {
@@ -41,7 +41,7 @@ export default function ContactForm() {
     // alert(JSON.stringify(data))
   }
   return (
-    <Form onSubmit={handleSubmit(onSubmit)} className="w-[40%]">
+    <Form onSubmit={handleSubmit(onSubmit)} className={className}>
       <div className="flex flex-col gap-6">
         <Filed register={register} errors={errors?.fullName} fieldName="fullName" label="Ваше ім'я" required />
         <Filed register={register} errors={errors?.phone} fieldName="phone" label="Телефон" required />

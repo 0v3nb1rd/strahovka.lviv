@@ -63,7 +63,7 @@ export default function ServiceCards({ service }: { service?: Service[] }) {
   if (service) {
     return (
       <div>
-        <ul className="flex items-center justify-center gap-4">
+        <ul className="flex flex-wrap items-center justify-center gap-4">
           {service.map((card) => (
             <li key={card.id}>
               <Card {...card} onClick={(obj: any) => handleClick(obj)} />
@@ -77,7 +77,7 @@ export default function ServiceCards({ service }: { service?: Service[] }) {
   }
   return (
     <div>
-      <ul className="flex items-center justify-center gap-4">
+      <ul className="flex-wrap max-lg:flex-col flex lg:items-center justify-center gap-2 lg:gap-4">
         {serviceData.top.map((card) => (
           <li key={card.id}>
             <Card {...card} onClick={(obj: any) => handleClick(obj)} />

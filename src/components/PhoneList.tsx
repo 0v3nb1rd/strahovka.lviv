@@ -5,7 +5,7 @@ import { phoneMask } from '@/helpers'
 import logo_ks from '@/assets/img/ks.svg'
 import logo_life from '@/assets/img/lifecell_logo.svg'
 
-export const PhoneList = ({ ...rest }) => {
+export const PhoneList = ({ className = '', ...rest }: { className?: string }) => {
   
   return (
     <div>
@@ -19,7 +19,7 @@ export const PhoneList = ({ ...rest }) => {
       </a> */}
 
       {siteConfig.contacts.phones.map((phone, index) => (
-        <a key={index} className="link-hover flex items-center gap-2 font-medium" href={`tel:${phone}`}>
+        <a key={index} className={`link-hover flex items-center gap-2 font-medium`} href={`tel:${phone}`}>
           <Image src={ index === 0 ? logo_ks : logo_life } width={22} height={22} className="h-[22px] w-[22px]" alt="kyivStar logo" />
           <span>{phoneMask(phone)}</span>
         </a>

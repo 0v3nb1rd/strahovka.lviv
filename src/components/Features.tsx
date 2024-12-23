@@ -13,7 +13,7 @@ export default function FeaturesSection() {
           </h2>
         </div>
 
-        <div className="mt-16 grid divide-x divide-y overflow-hidden rounded-2xl border sm:grid-cols-2 lg:grid-cols-3 lg:divide-y-0 xl:grid-cols-4">
+        <div className="mt-16 grid divide-x divide-y overflow-hidden rounded-2xl border sm:grid-cols-2 lg:divide-y-0 xl:grid-cols-4">
           <div className="group relative bg-white transition hover:z-[1] hover:shadow-2xl">
             <div className="relative space-y-8 p-8">
               <Image src="/icons/security.svg" className="w-10" width="512" height="512" alt="burger illustration" />

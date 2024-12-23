@@ -12,7 +12,7 @@ const Drawer = () => {
 
         <Nav className="flex flex-col gap-4 text-white" />
 
-        <PhoneList className="mx-auto mb-6 mt-auto text-lg" />
+        {/*<PhoneList className="mx-auto my-6 mt-auto text-lg" />*/}
       </nav>
     </div>
   )

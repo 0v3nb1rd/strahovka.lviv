@@ -4,7 +4,7 @@ import type { TTeam } from '@/config/site'
 
 export const TeamElement = ({ ...props }: TTeam) => {
   return (
-    <li role="listitem" className="relative mb-32 mt-16 sm:mb-24 sm:w-3/4 md:w-2/5 lg:w-2/5 xl:w-1/3 xl:max-w-sm">
+    <li role="listitem" className="relative lg:mb-32 md:mb-16 mb-14 mt-16 mb-18 sm:w-3/4 md:w-2/5 lg:w-2/5 xl:w-1/3 xl:max-w-sm">
       <div className="overflow-hidden rounded-2xl bg-white shadow-md">
         <div className="absolute -mt-20 flex w-full justify-center">
           <div className="relative h-32 w-32 overflow-hidden rounded-full shadow-sm">

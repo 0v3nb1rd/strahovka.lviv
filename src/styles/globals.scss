@@ -26,6 +26,7 @@ html {
   }
   & > img {
     @apply object-cover object-[0_60%];
+    @apply object-center;
   }
 }
 
@@ -90,8 +91,8 @@ ul.list-line {
 }
 
 .logo__text {
-  color: #ffffff;
-  background: #ffffff;
+  //color: #ffffff;
+  //background: #ffffff;
   text-shadow: 2px 2px 0 #1f2937, 2px -2px 0 #1f2937, -2px 2px 0 #1f2937, -2px -2px 0 #1f2937, 2px 0px 0 #1f2937,
     0px 2px 0 #1f2937, -2px 0px 0 #1f2937, 0px -2px 0 #1f2937;
   color: #ffffff;

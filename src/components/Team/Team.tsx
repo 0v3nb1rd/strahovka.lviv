@@ -5,7 +5,7 @@ import { TeamElement } from './TeamElement'
 const Team = () => {
   return (
     <div>
-      <div className="w-full px-10 pt-10">
+      <div className="w-full px-4 sm:px-10 pt-10">
         <div className="container mx-auto">
           <ul
             role="list"

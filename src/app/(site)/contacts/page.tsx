@@ -17,7 +17,7 @@ export default function ContactsPage() {
   return (
     <main className="main main--contacts pt-32">
       <div className="container mx-auto">
-        <section className="mx-10 mb-14 mt-2 rounded-2xl bg-white p-14 shadow-md">
+        <section className="sm:mx-10 mb-14 mt-2 rounded-2xl bg-white p-6 sm:p-14 shadow-md">
           <div className="flex flex-col gap-8">
             <div className="title mx-auto max-w-2xl">
               <div className="flex flex-col items-center">
@@ -32,11 +32,11 @@ export default function ContactsPage() {
               </div>
             </div>
 
-            <div className="flex justify-around">
-              <ul className="title flex w-[40%] flex-col gap-12">
+            <div className="flex flex-col-reverse xl:flex-row justify-around">
+              <ul className="title flex xl:w-[40%] w-full flex-col gap-6 md:gap-12">
                 <li>
                   <div className="flex items-center gap-6">
-                    <div className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl  bg-primary text-white shadow-2xl shadow-primary/50">
+                    <div className="flex w-12 h-12 md:h-[72px] md:w-[72px] items-center justify-center rounded-2xl  bg-primary text-white shadow-2xl shadow-primary/50">
                       <BiPhoneCall fontSize={34} />
                     </div>
                     <span className="flex flex-col">
@@ -56,12 +56,12 @@ export default function ContactsPage() {
 
                 <li>
                   <div className="flex items-center gap-6">
-                    <div className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-[#80ed99] shadow-2xl shadow-[#80ed99]/80">
+                    <div className="flex w-12 h-12 md:h-[72px] md:w-[72px] items-center justify-center rounded-2xl bg-[#80ed99] shadow-2xl shadow-[#80ed99]/80">
                       <BiEnvelope fontSize={34} />
                     </div>
                     <span className="flex flex-col">
                       <span className="font-medium text-black/40">Email:</span>
-                      <a className="text-lg font-bold leading-6" href={`mailto:${siteConfig.contacts.email}`}>
+                      <a className="font-bold leading-6" href={`mailto:${siteConfig.contacts.email}`}>
                         {siteConfig.contacts.email}
                       </a>
                     </span>
@@ -70,13 +70,13 @@ export default function ContactsPage() {
 
                 <li>
                   <div className="flex items-center gap-6">
-                    <div className="flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-secondary shadow-2xl shadow-secondary/50 ">
+                    <div className="flex w-12 h-12 md:h-[72px] md:w-[72px] items-center justify-center rounded-2xl bg-secondary shadow-2xl shadow-secondary/50 ">
                       <BiMap fontSize={34} />
                     </div>
                     <span className="flex flex-col">
                       <span className="text-lg font-medium text-black/40">Адрес:</span>
                       <span
-                        className="text-lg font-bold leading-6"
+                        className="font-bold leading-6"
                         dangerouslySetInnerHTML={{ __html: siteConfig.contacts.address.replace(/\n/g, '<br />') }}
                       ></span>
                     </span>
@@ -84,7 +84,7 @@ export default function ContactsPage() {
                 </li>
               </ul>
 
-              <ContactForm />
+              <ContactForm className='xl:w-[40%] w-full mb-16 xl:mb-0' />
             </div>
           </div>
         </section>

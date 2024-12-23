@@ -38,7 +38,7 @@ const Header = forwardRef<HTMLElement>(() => {
         <nav className="my-4 flex items-center justify-between rounded-2xl bg-white px-2 py-1 text-base  backdrop-blur-lg transition-all">
           <Burger className="flex-none xl:hidden" />
 
-          <Logo />
+          <Logo isHeader />
 
           <Nav className="hidden items-center gap-4 xl:flex" />
 
