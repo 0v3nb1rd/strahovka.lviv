@@ -40,7 +40,7 @@ const siteConfig: ISiteConfig = {
   logo_src: '/logo_old.svg',
 	description: '',
 	contacts: {
-		phones: ['+380687678898'],
+    phones: ['+380687678898', '+380637441289'],
 		email: 'strahovka.lviv.ua@gmail.com',
 		address: 'м.Пустомити, 79100 \n Львівська обл.',
 	},

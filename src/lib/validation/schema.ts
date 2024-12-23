@@ -11,10 +11,8 @@ export const orderSchema = yup
       .string()
       .min(10, 'закороткий номер телефону')
       .phone('UA', 'Некоректний номер телефону')
-			.required("Обов'язкове поле"),
-			// if is not empty add min 10 symbols
-		message: yup.string()
-    // age: yup.number().positive().integer().required(),
+      .required("Обов'язкове поле"),
+    message: yup.string()
   })
   .required()
 

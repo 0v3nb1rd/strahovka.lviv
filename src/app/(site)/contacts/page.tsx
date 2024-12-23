@@ -1,4 +1,5 @@
 import { BiPhoneCall, BiEnvelope, BiMap } from 'react-icons/bi'
+import PhoneList from '@/components/PhoneList'
 
 import Faq from '@/components/Faq'
 import { Team } from '@/components'
@@ -41,12 +42,14 @@ export default function ContactsPage() {
                     <span className="flex flex-col">
                       <span className="font-medium text-black/40">Телефон:</span>
 
-                      <a className="font-bold leading-6" href={`tel:${siteConfig.contacts.phones[0]}`}>
+                      {/* <a className="font-bold leading-6" href={`tel:${siteConfig.contacts.phones[0]}`}>
                         +38 {phoneMask(siteConfig.contacts.phones[0])}
                       </a>
-                      {/* <a className="font-bold leading-6" href={`tel:${siteConfig.contacts.phones[1]}`}>
+                      <a className="font-bold leading-6" href={`tel:${siteConfig.contacts.phones[1]}`}>
                         +38(093)655 58 99
                       </a> */}
+
+                      <PhoneList />
                     </span>
                   </div>
                 </li>
