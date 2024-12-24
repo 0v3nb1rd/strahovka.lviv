@@ -16,15 +16,15 @@ const NewsLayout = async (props: any) => {
   return (
     <main className="main main--news pt-32">
       <div className="container mx-auto">
-        <div className="flex justify-between">
-          <Aside />
+        <div className="flex flex-wrap justify-between max-lg:flex-col">
+          <Aside className="w-full max-md:mx-4 lg:w-[240px]" />
 
-          <section className="mx-3 w-[640px] pb-6">
+          <section className="mx-0 w-full pb-6 lg:mx-3 lg:w-[calc(100%-320px)] xl:mx-0 2xl:w-[640px]">
             <Suspense fallback={<LoadingNews />}>{props.children}</Suspense>
           </section>
 
-          <section className="sticky top-[5.5rem] mb-6 h-full w-[320px]">
-            <div className="mb-6 overflow-hidden rounded-2xl bg-white p-5">
+          <section className="top-[5.5rem] mb-6 h-full max-w-3xl justify-end max-2xl:ml-auto max-2xl:flex max-md:w-full max-md:flex-col max-md:items-center max-sm:m-0 xl:sticky 2xl:w-[320px]">
+            <div className="z-10 mb-6 overflow-hidden rounded-2xl bg-white p-5">
               <h2 className="text-lg font-bold">Популярні статті:</h2>
               <Suspense fallback={<LoadingTopNews />}>
                 <RelatedPosts maxLength={3} />

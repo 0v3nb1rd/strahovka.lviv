@@ -8,12 +8,12 @@ import { BiInfoCircle, BiHome, BiNews } from 'react-icons/bi'
 
 import { blogRoute } from '@/routes'
 
-export default function Aside() {
+export default function Aside({ className, ...rest }: { className?: string }) {
   const pathname = usePathname()
 
   return (
-    <aside className="sticky top-[5.5rem] h-full w-[240px]">
-      <ul className="mb-6 flex flex-col gap-2">
+    <aside className={`sticky top-[5.5rem] h-full ${className}`}>
+      <ul className="mb-6 flex flex-wrap gap-2 lg:flex-col">
         <li>
           <Link
             href="/blog"
