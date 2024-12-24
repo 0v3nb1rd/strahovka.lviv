@@ -6,7 +6,7 @@ import siteConfig from '@/config/site'
 const Footer = () => {
   return (
     <footer className="mt-auto bg-gradient-to-r from-neutral-100/40 via-white/80 to-neutral-100/40">
-      <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-screen-xl px-4 py-6 sm:px-6 md:py-16 lg:px-8">
         <div className="grid grid-cols-1 items-baseline gap-8 lg:grid-cols-3">
           <div>
             <Logo />

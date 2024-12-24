@@ -1,8 +1,8 @@
 const Faq = () => {
   return (
-    <div className="sm:mx-10">
+    <div className="md:mx-10">
       <div className="rounded-2xl bg-white p-4 py-14 pb-20 shadow-md">
-        <span className="badge badge-warning mx-auto mb-3 block">FAQ</span>
+        <span className="badge-warning badge mx-auto mb-3 block">FAQ</span>
         <p className="mx-auto text-center text-3xl font-extrabold text-gray-800 md:w-[50%] xl:text-4xl">
           Тут ви можете ознайомитись з частими питаннями
         </p>

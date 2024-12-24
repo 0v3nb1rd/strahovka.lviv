@@ -17,7 +17,7 @@ export default function ContactsPage() {
   return (
     <main className="main main--contacts pt-32">
       <div className="container mx-auto">
-        <section className="sm:mx-10 mb-14 mt-2 rounded-2xl bg-white p-6 sm:p-14 shadow-md">
+        <section className="mb-14 mt-2 rounded-2xl bg-white p-6 shadow-md sm:p-14 md:mx-10">
           <div className="flex flex-col gap-8">
             <div className="title mx-auto max-w-2xl">
               <div className="flex flex-col items-center">
@@ -32,11 +32,11 @@ export default function ContactsPage() {
               </div>
             </div>
 
-            <div className="flex flex-col-reverse xl:flex-row justify-around">
-              <ul className="title flex xl:w-[40%] w-full flex-col gap-6 md:gap-12">
+            <div className="flex flex-col-reverse justify-around xl:flex-row">
+              <ul className="title flex w-full flex-col gap-6 md:gap-12 xl:w-[40%]">
                 <li>
                   <div className="flex items-center gap-6">
-                    <div className="flex w-12 h-12 md:h-[72px] md:w-[72px] items-center justify-center rounded-2xl  bg-primary text-white shadow-2xl shadow-primary/50">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white  shadow-2xl shadow-primary/50 md:h-[72px] md:w-[72px]">
                       <BiPhoneCall fontSize={34} />
                     </div>
                     <span className="flex flex-col">
@@ -56,7 +56,7 @@ export default function ContactsPage() {
 
                 <li>
                   <div className="flex items-center gap-6">
-                    <div className="flex w-12 h-12 md:h-[72px] md:w-[72px] items-center justify-center rounded-2xl bg-[#80ed99] shadow-2xl shadow-[#80ed99]/80">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#80ed99] shadow-2xl shadow-[#80ed99]/80 md:h-[72px] md:w-[72px]">
                       <BiEnvelope fontSize={34} />
                     </div>
                     <span className="flex flex-col">
@@ -70,7 +70,7 @@ export default function ContactsPage() {
 
                 <li>
                   <div className="flex items-center gap-6">
-                    <div className="flex w-12 h-12 md:h-[72px] md:w-[72px] items-center justify-center rounded-2xl bg-secondary shadow-2xl shadow-secondary/50 ">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-secondary shadow-2xl shadow-secondary/50 md:h-[72px] md:w-[72px] ">
                       <BiMap fontSize={34} />
                     </div>
                     <span className="flex flex-col">
@@ -84,7 +84,7 @@ export default function ContactsPage() {
                 </li>
               </ul>
 
-              <ContactForm className='xl:w-[40%] w-full mb-16 xl:mb-0' />
+              <ContactForm className="mb-16 w-full xl:mb-0 xl:w-[40%]" />
             </div>
           </div>
         </section>

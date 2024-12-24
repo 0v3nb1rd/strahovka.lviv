@@ -5,7 +5,7 @@ export default async function CooperationPage() {
   return (
     <main className="main main--cooperation pt-32">
       <div className="container mx-auto">
-        <section className="mx-10 mb-14 mt-2 rounded-2xl bg-white p-14 pb-20 shadow-md">
+        <section className="mb-6 mt-2 rounded-2xl bg-white p-6 shadow-md sm:mb-14 sm:p-14 sm:pb-20 md:mx-10">
           <div className="flex flex-col gap-8">
             <div className="title mx-auto max-w-2xl">
               <div className="flex flex-col items-center">
@@ -20,17 +20,17 @@ export default async function CooperationPage() {
               </div>
             </div>
 
-            <div className="relative h-[480px] overflow-hidden rounded-2xl">
+            <div className="relative h-52 overflow-hidden rounded-2xl sm:h-64 md:h-[480px]">
               {/* <Image className="object-cover" src={img_cooperation} fill alt="image cooperation" /> */}
               <BlurImage src={img_cooperation} className="object-cover" alt="image cooperation" fill />
             </div>
 
-            <div className="mx-auto flex max-w-[840px] flex-col gap-4 text-lg">
-              <p className="pl-14 text-xl">Якщо Ви початківець, новачок у страхуванні:</p>
-              <p className="pl-14 text-xl">
+            <div className="mx-auto flex max-w-[840px] flex-col gap-4 text-base sm:text-lg">
+              <p className="sm:pl-14">Якщо Ви початківець, новачок у страхуванні:</p>
+              <p className="sm:pl-14">
                 … то ключами до успіху для Вас повинні стати слова: «Хочу», «Вірю», «Знаю» і «Вмію».
               </p>
-              <p className="pl-14 text-xl">У свою чергу, ми пропонуємо Вам:</p>
+              <p className="sm:pl-14">У свою чергу, ми пропонуємо Вам:</p>
               <ul className="list-line">
                 <li>
                   «Школу страхування» У ній кожен, хто бажає знайти себе у страхуванні, зможе пройти курс навчання і
@@ -54,7 +54,7 @@ export default async function CooperationPage() {
                   навчає практичним навичкам, допомагає організувати роботу.
                 </li>
               </ul>
-              <b className="pl-14">Раді співпраці!</b>
+              <b className="sm:pl-14">Раді співпраці!</b>
             </div>
           </div>
         </section>

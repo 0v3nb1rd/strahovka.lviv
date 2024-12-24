@@ -48,9 +48,9 @@ header.scrolled {
 ul.list-line {
   @apply text-left;
   > li {
-    @apply relative mb-2 pl-14;
+    @apply relative mb-2 pl-8 sm:pl-14;
     &::before {
-      @apply absolute left-0 top-3.5 h-[2px] w-[35px] bg-black/50 content-[''];
+      @apply absolute left-0 top-3.5 h-[2px] w-[20px] bg-black/50 content-[''] sm:w-[35px];
     }
     &.accent {
       @apply text-accent;

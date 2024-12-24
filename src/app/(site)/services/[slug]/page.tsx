@@ -21,8 +21,8 @@ export default async function NewPage({ params }: Props) {
   const { service } = await getRelatedService(serviceCat?.id || 1)
 
   return (
-    <section className="relative mx-10 rounded-2xl bg-white p-14 pb-20 shadow-md">
-      <div className="tooltip tooltip-right  absolute right-4 top-4" data-tip="назад">
+    <section className="relative rounded-2xl bg-white p-14 pb-20 shadow-md md:mx-10">
+      <div className="tooltip absolute right-4 top-4 md:tooltip-right" data-tip="назад">
         <Link
           href="/services"
           className="btn-outline btn-circle btn text-primary hover:border-transparent hover:bg-primary"
@@ -52,7 +52,7 @@ export default async function NewPage({ params }: Props) {
           </div>
         </div>
 
-        <div className="relative h-[480px] overflow-hidden rounded-2xl">
+        <div className="relative h-52 overflow-hidden  rounded-2xl sm:h-64 md:h-[480px]">
           <BlurImage src={`${serviceCat?.image_url}`} className="object-cover" alt={`${serviceCat?.title}`} fill />
         </div>
 
@@ -64,7 +64,7 @@ export default async function NewPage({ params }: Props) {
         {Boolean(service?.length) && (
           <>
             <div className="divider">
-              <img src="/icons/service.svg" className=" h-10 w-10" />
+              <img src="/icons/service.svg" className="h-10 w-10 " />
             </div>
             <div id="service">
               <h2 className="text-center text-2xl font-bold text-gray-600 md:text-3xl">

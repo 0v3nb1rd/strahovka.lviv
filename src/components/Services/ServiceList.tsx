@@ -18,7 +18,7 @@ export function ServiceList({ serviceCat, isAdm }: Props) {
   ))
 
   return (
-    <ul className="grid grid-cols-3 gap-8">
+    <ul className="grid gap-4 md:grid-cols-2 lg:gap-8 xl:grid-cols-3">
       {serviceCat?.map((service: Service_category) => (
         <li key={service.id}>
           <Suspense fallback={skeleton}>
