@@ -1,6 +1,8 @@
 'use client'
 
 import React, { useEffect, useRef, forwardRef, useState } from 'react'
+
+import ReCAPTCHA from 'react-google-recaptcha'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
@@ -32,8 +34,10 @@ const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
 
   const [formData, setFormData] = useState([])
   const [loading, setLoading] = useState(false)
+  const [captcha, setCaptcha] = useState<string | null>()
 
   const firstInputRef = useRef<HTMLInputElement>(null)
+  const recaptchaRef = useRef<ReCAPTCHA>(null)
 
   const {
     register,
@@ -51,12 +55,20 @@ const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
     }
   }, [])
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: ServiceFormValues) => {
+    if (!captcha) {
+      console.error('Please verify that you are not a robot')
+      return
+    }
+
     setLoading(true)
     // alert(JSON.stringify(data))
-    // console.log(title, data)
     const senderData = { ...data, title, action: 'form_service' }
+    // console.log(senderData)
     const res = await sendContactForm(senderData)
+
+    recaptchaRef.current?.reset()
+    setCaptcha(null)
     setLoading(false)
     reset()
   }
@@ -95,6 +107,15 @@ const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
                     label="Ваше повідомлення"
                   />
                 </div>
+
+                <ReCAPTCHA
+                  sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY!}
+                  size="normal"
+                  className={`mt-4 `}
+                  onChange={setCaptcha}
+                  onExpired={() => setCaptcha(null)}
+                  ref={recaptchaRef}
+                />
 
                 <Button
                   disabled={!isValid || loading}

@@ -1,12 +1,14 @@
 'use client'
 
+import { useState, useRef } from 'react'
+
+import ReCAPTCHA from 'react-google-recaptcha'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 
 import { Form, Button } from '../UI'
 import Filed from './Filed'
 import { contactSchema } from '@/lib/validation/schema'
-import { useState } from 'react'
 import { sendContactForm } from '@/lib/api'
 
 type FormValues = {
@@ -18,6 +20,9 @@ type FormValues = {
 
 export default function ContactForm({ className, ...rest }: { className?: string }) {
   const [loading, setLoading] = useState(false)
+  const [captcha, setCaptcha] = useState<string | null>()
+
+  const recaptchaRef = useRef<ReCAPTCHA>(null)
 
   const {
     register,
@@ -29,12 +34,19 @@ export default function ContactForm({ className, ...rest }: { className?: string
     resolver: yupResolver<FormValues>(contactSchema),
   })
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: FormValues) => {
+    if (!captcha) {
+      console.error('Please verify that you are not a robot')
+      return
+    }
+
     setLoading(true)
 
     const senderData = { ...data, title: 'Контакт форма', action: 'form_contacts' }
     const res = await sendContactForm(senderData)
 
+    recaptchaRef.current?.reset()
+    setCaptcha(null)
     setLoading(false)
     reset()
 
@@ -55,6 +67,15 @@ export default function ContactForm({ className, ...rest }: { className?: string
           required
         />
       </div>
+
+      <ReCAPTCHA
+        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY!}
+        size="normal"
+        className="mt-4"
+        onChange={setCaptcha}
+        onExpired={() => setCaptcha(null)}
+        ref={recaptchaRef}
+      />
 
       <Button disabled={!isValid || loading} className={`btn-secondary btn-wide mt-8 ${loading ? 'loading' : ''}`}>
         Відправити
