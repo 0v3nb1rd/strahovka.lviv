@@ -1,24 +1,132 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Strahovka.lviv - Insurance Website
+
+A modern, bilingual (Ukrainian/English) insurance website built with Next.js, featuring a clean and professional design. The website provides information about insurance services, news updates, and allows users to interact through comments and social media integration.
+
+![Strahovka.lviv Screenshot](public/images/screenshot.png)
+
+## Features
+
+- 🌐 Bilingual support (Ukrainian/English)
+- 🔒 Secure authentication with NextAuth.js
+- 📱 Responsive design with Tailwind CSS and DaisyUI
+- 📝 Rich text editor (TinyMCE) for content management
+- 📧 Email notifications
+- 🤖 Telegram bot integration
+- 📊 Google Analytics integration
+- 💬 Disqus comments system
+- 🔍 SEO optimized
+- 🛡️ Form protection with Google reCAPTCHA
+- 📱 Mobile-first approach
+
+## Tech Stack
+
+- **Framework:** Next.js 14
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS, DaisyUI
+- **Database:** PostgreSQL with Prisma ORM
+- **Authentication:** NextAuth.js
+- **Form Handling:** React Hook Form with Yup validation
+- **Content Editor:** TinyMCE
+- **Email:** Nodemailer
+- **Social Integration:** Facebook, Telegram Bot API
+
+## Prerequisites
+
+- Node.js 18.x or later
+- PostgreSQL database
+- Google reCAPTCHA credentials
+- TinyMCE API key
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/strahovka.lviv.git
+   cd strahovka.lviv
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Set up environment variables:
+   ```bash
+   cp env.example .env.local
+   ```
+   Fill in the required environment variables in `.env.local`:
+   ```
+   DATABASE_URL="postgresql://user:password@localhost:5432/strahovka"
+   NEXT_PUBLIC_RECAPTCHA_KEY="your-recaptcha-public-key"
+   RECAPTCHA_SECRET_KEY="your-recaptcha-secret-key"
+   NEXTAUTH_SECRET="your-nextauth-secret"
+   NEXT_PUBLIC_TINY_KEY="your-tinymce-key"
+   ```
+
+4. Set up the database:
+   ```bash
+   npx prisma generate
+   npx prisma db push
+   npx prisma db seed
+   ```
+
+5. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run debug` - Start development server with trace warnings
+
+## Project Structure
+
+```
+src/
+├── app/              # Next.js app directory
+├── components/       # Reusable components
+├── styles/          # Global styles
+├── utils/           # Utility functions
+├── hooks/           # Custom React hooks
+├── lib/             # Library configurations
+├── locales/         # i18n translations
+├── config/          # Configuration files
+├── assets/          # Static assets
+└── @types/          # TypeScript type definitions
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+## License
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Support
+
+For support, please contact [your-email@example.com](mailto:your-email@example.com)
+
+## Acknowledgments
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [DaisyUI](https://daisyui.com/)
+- [Prisma](https://www.prisma.io/)
 
 ## Learn More
 
