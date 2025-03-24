@@ -28,6 +28,7 @@ export default function Service({ service, isAdm = false }: Props) {
         <Image
           className="object-contain"
           src={service.thumbnail_url as string}
+          fill
           sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
