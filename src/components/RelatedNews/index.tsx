@@ -38,7 +38,7 @@ const RelatedPosts = async ({ maxLength }: Props) => {
               </h3>
             </div>
             <figure className="relative h-14 w-10 overflow-hidden rounded-lg transition  group-hover:shadow">
-              <BlurImage src={`${data?.image_url}`} alt={data?.title} fill className="object-cover" />
+              <BlurImage src={`${data?.image_url}`} alt={data?.title} fill sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw' className="object-cover" />
             </figure>
           </Link>
         </li>

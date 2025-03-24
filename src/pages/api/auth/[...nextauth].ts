@@ -3,6 +3,7 @@ import NextAuth from 'next-auth/next'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
 export const authOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       // The name to display on the sign in form (e.g. 'Sign in with...')
@@ -13,7 +14,7 @@ export const authOptions = {
       // You can pass any HTML attribute to the <input> tag through the object.
       credentials: {
         username: { label: 'Username', type: 'email', placeholder: 'email', required: true },
-        password: { label: 'Password', type: 'password', required: true  },
+        password: { label: 'Password', type: 'password', required: true },
       },
       async authorize(credentials, req) {
         // You need to provide your own logic here that takes the credentials

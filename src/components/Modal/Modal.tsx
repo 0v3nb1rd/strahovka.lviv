@@ -55,6 +55,13 @@ const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
     }
   }, [])
 
+  useEffect(() => {
+    if (!checked) {
+      recaptchaRef.current?.reset()
+      setCaptcha(null)
+    }
+  }, [checked])
+
   const onSubmit = async (data: ServiceFormValues) => {
     if (!captcha) {
       console.error('Please verify that you are not a robot')
@@ -90,7 +97,7 @@ const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
             <>
               <div className="mb-6 text-center">
                 <div className="my-2 flex h-12 justify-center">
-                  {icon_url && <Image src={`${icon_url}`} alt="hello" width={100} height={200} />}
+                  {icon_url && <Image src={`${icon_url}`} alt="hello" width="48" height="48" />}
                 </div>
                 <p className="mt-1 text-3xl font-semibold text-gray-600">{title}</p>
               </div>
@@ -111,7 +118,7 @@ const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
                 <ReCAPTCHA
                   sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY!}
                   size="normal"
-                  className={`mt-4 `}
+                  className="mt-4"
                   onChange={setCaptcha}
                   onExpired={() => setCaptcha(null)}
                   ref={recaptchaRef}

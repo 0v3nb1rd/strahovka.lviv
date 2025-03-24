@@ -70,7 +70,6 @@ export default function ServiceCards({ service }: { service?: Service[] }) {
             </li>
           ))}
         </ul>
-
         <Modal ref={modalRef} variant="sm" icon_url={modal.icon_url} title={modal.title} checked={modal.on} />
       </div>
     )
