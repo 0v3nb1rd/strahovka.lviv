@@ -38,6 +38,7 @@ export default async function NewPage({ params }: Props) {
           </svg>
         </Link>
       </div>
+
       <div className="flex flex-col gap-8">
         <div className="title mx-auto w-[42rem] max-w-full">
           <div className="flex flex-col items-center">
@@ -62,7 +63,7 @@ export default async function NewPage({ params }: Props) {
         />
 
         {Boolean(service?.length) && (
-          <>
+          <Suspense fallback={loader}>
             <div className="divider">
               <img src="/icons/service.svg" className="h-10 w-10 " />
             </div>
@@ -71,11 +72,8 @@ export default async function NewPage({ params }: Props) {
                 {serviceCat?.title} замовити:
               </h2>
             </div>
-
-            <Suspense fallback={loader}>
-              <ServiceCards service={service} />
-            </Suspense>
-          </>
+            <ServiceCards service={service} />
+          </Suspense>
         )}
       </div>
     </section>

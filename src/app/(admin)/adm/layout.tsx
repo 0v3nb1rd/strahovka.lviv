@@ -4,7 +4,6 @@ import '@/styles/globals.scss'
 
 type propType = {
   children: React.ReactNode
-  modal?: React.ReactNode
 }
 
 export const metadata = {

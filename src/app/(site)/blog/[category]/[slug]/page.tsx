@@ -45,7 +45,7 @@ export default async function NewPage({ params }: Props) {
         </div>
 
         <figure className="relative mt-auto h-[360px] w-full">
-          <BlurImage src={`${data?.image_url}`} alt={`${data?.title}`} fill className="object-cover" />
+          <BlurImage src={`${data?.image_url}`} alt={`${data?.title}`} fill sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw' className="object-cover" />
         </figure>
 
         <div className="description px-5 py-4">
