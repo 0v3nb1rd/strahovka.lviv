@@ -1,14 +1,14 @@
-import { getURL, removeTrailingSlash } from '@/utils'
+import { baseUrl, addTrailingSlash } from '@/utils'
 import type { MetadataRoute } from 'next'
 import prisma from '@/lib/prisma'
 
-const SITE_URL = getURL('/').slice(0, -1) // Remove trailing slash
+const SITE_URL = baseUrl;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes = ['', '/blog', '/blog/news', '/blog/tips', '/services', '/cooperation', '/contacts']
 
   const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((path) => ({
-    url: `${SITE_URL}${removeTrailingSlash(path)}`,
+    url: `${SITE_URL}${addTrailingSlash(path)}`,
     lastModified: new Date().toISOString(),
     changeFrequency: 'weekly' as const,
     priority: path === '' ? 1 : 0.7,
@@ -21,7 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     orderBy: { created_at: 'desc' },
   })
   const blogNewsEntries = blogNews.map((p) => ({
-    url: `${SITE_URL}/blog/news/${p.slug}`,
+    url: `${SITE_URL}${addTrailingSlash(`/blog/news/${p.slug}`)}`,
     lastModified: p.created_at ? new Date(p.created_at) : new Date(),
     changeFrequency: 'daily' as const,
     priority: 0.8,
@@ -33,7 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     orderBy: { created_at: 'desc' },
   })
   const blogTipsEntries = blogTips.map((p) => ({
-    url: `${SITE_URL}/blog/tips/${p.slug}`,
+    url: `${SITE_URL}${addTrailingSlash(`/blog/tips/${p.slug}`)}`,
     lastModified: p.created_at ? new Date(p.created_at) : new Date(),
     changeFrequency: 'daily' as const,
     priority: 0.8,

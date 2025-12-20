@@ -2,6 +2,10 @@ export const removeTrailingSlash = (str: string): string => {
   return str.endsWith('/') ? str.slice(0, -1) : str
 }
 
+export const addTrailingSlash = (str: string): string => {
+  return str.endsWith('/') ? str : str + '/'
+}
+
 const IS_SERVER = typeof window === 'undefined'
 export function getURL(path: string) {
   const baseURL = IS_SERVER ? (process.env.NEXT_PUBLIC_URL || 'http://localhost:3000') : window.location.origin
