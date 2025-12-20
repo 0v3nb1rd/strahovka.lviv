@@ -4,7 +4,7 @@ export const removeTrailingSlash = (str: string): string => {
 
 const IS_SERVER = typeof window === 'undefined'
 export function getURL(path: string) {
-  const baseURL = IS_SERVER ? process.env.NEXT_PUBLIC_URL! : window.location.origin
+  const baseURL = IS_SERVER ? (process.env.NEXT_PUBLIC_URL || 'http://localhost:3000') : window.location.origin
   return new URL(path, baseURL).toString()
 }
 

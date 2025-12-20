@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /api/
+Disallow: /_next/
+Disallow: /adm/
+
+# Sitemap
+Sitemap: https://strahovka.lviv.ua/sitemap.xml
