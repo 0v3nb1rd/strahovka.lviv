@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // experimental: {
-  //   appDir: true,
-  // },
+  swcMinify: true,
   images: {
     remotePatterns: [
       {
@@ -17,12 +15,31 @@ const nextConfig = {
     ],
   },
   trailingSlash: true,
-  swcMinify: false,
   // i18n: {
   //   localeDetection: false,
   //   locales: ['uk', 'en'],
   //   defaultLocale: 'uk',
   // },
+  async headers() {
+    return [
+      {
+        source: '/_next/static/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        source: '/favicons/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        source: '/icons/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=86400' }],
+      },
+      {
+        source: '/photos/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=86400' }],
+      },
+    ]
+  },
   async redirects() {
     return [
       //!------------------- 	Services 	------------------------//

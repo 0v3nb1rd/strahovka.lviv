@@ -1,10 +1,12 @@
+import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 
 import RelatedPosts from '@/components/RelatedNews'
 import Aside from '@/components/NewsList/Aside'
 import LoadingNews from './components/LoadingNews'
 import LoadingTopNews from './components/LoadingTopNews'
-import FacebookPage from '@/components/FacebookPage'
+
+const FacebookPage = dynamic(() => import('@/components/FacebookPage'), { ssr: false })
 
 export const metadata = {
   title: 'Новини | Strahovka.lviv',

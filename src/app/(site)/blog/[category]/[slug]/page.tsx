@@ -1,11 +1,11 @@
-import Image from 'next/image'
-import { BiLike, BiShare, BiMessageAltDetail, BiShow, BiBookmark, BiTimeFive } from 'react-icons/bi'
+import dynamic from 'next/dynamic'
 import { Post } from '@prisma/client'
 
 import prisma from '@/lib/prisma'
 import { baseUrl } from '@/utils'
-import DisqusComments from '@/components/DisqusComments'
 import BlurImage from '@/components/Blur-image'
+
+const DisqusComments = dynamic(() => import('@/components/DisqusComments'), { ssr: false })
 
 import { FooterBlock, HeaderBlock } from '@/components/NewsList'
 
