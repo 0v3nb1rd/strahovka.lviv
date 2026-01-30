@@ -126,7 +126,9 @@ const Footer = () => {
           {siteConfig.copyright}
           <a
             className="text-red-500 transition-all hover:scale-105 hover:text-red-700"
-            href="https://0v3nb1rd.github.io/"
+            href="https://ovbi.dev"
+            target="_blank"
+            rel="noreferrer"
           >
             <DiCode className="inline-block text-2xl " />
           </a>
