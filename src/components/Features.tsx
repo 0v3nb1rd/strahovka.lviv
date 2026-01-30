@@ -19,9 +19,9 @@ export default function FeaturesSection() {
               <Image src="/icons/security.svg" className="w-10" width="512" height="512" alt="burger illustration" />
 
               <div className="space-y-2">
-                <h5 className="text-xl font-medium text-gray-800 transition group-hover:text-yellow-600">
+                <h2 className="text-xl font-medium text-gray-800 transition group-hover:text-yellow-600">
                   Безпечність
-                </h5>
+                </h2>
                 <p className="text-sm text-gray-600">
                   Надаємо страхові поліси, що захищають від нещасних випадків на дорозі, включаючи матеріальні та
                   медичні витрати.

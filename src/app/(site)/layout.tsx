@@ -25,10 +25,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout(props: propType) {
   return (
-    <html lang={`ua`}>
+    <html lang={`uk`}>
       <body>
         <div className="drawer absolute">
-          <input id="drawer-menu" type="checkbox" className="drawer-toggle" />
+          <input
+            id="drawer-menu"
+            type="checkbox"
+            className="drawer-toggle"
+            aria-label="Відкрити або закрити меню навігації"
+          />
           <div className="drawer-content">
             <Header />
             {props.children}

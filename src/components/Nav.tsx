@@ -16,7 +16,10 @@ const Nav: React.FC<NavProps> = ({ className, ...rest }) => {
     <ul className={className}>
       {mainRoute.map((link) => (
         <li key={link.id}>
-          <Link href={link.path} className={`btn ${pathname?.includes(link.path) ? 'btn-active' : ''}`}>
+          <Link
+            href={link.path}
+            className={`btn bg-trueblue text-white hover:bg-darkBlue focus:bg-darkBlue ${pathname?.includes(link.path) ? 'btn-active ring-2 ring-offset-2' : ''}`}
+          >
             {link.label}
           </Link>
         </li>

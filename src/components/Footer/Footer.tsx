@@ -129,8 +129,9 @@ const Footer = () => {
             href="https://ovbi.dev"
             target="_blank"
             rel="noreferrer"
+            aria-label="Розробник сайту — ovbi.dev"
           >
-            <DiCode className="inline-block text-2xl " />
+            <DiCode className="inline-block text-2xl" aria-hidden="true" />
           </a>
         </p>
       </div>
