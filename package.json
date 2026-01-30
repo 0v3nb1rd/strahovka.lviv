@@ -58,5 +58,10 @@
 	},
 	"prisma": {
 		"seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
-	}
+	},
+	"browserslist": [
+		"defaults",
+		"not dead",
+		"not ie 11"
+	]
 }
