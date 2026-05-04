@@ -54,7 +54,7 @@ export default async function NewPage({ params }: Props) {
         </div>
 
         <div className="relative h-52 overflow-hidden  rounded-2xl sm:h-64 md:h-[480px]">
-          <BlurImage src={`${serviceCat?.image_url}`} className="object-cover" alt={`${serviceCat?.title}`} fill />
+          <BlurImage src={`${serviceCat?.image_url}`} className="object-cover" alt={`${serviceCat?.title}`} fill priority sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
         </div>
 
         <div

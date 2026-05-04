@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef, forwardRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import ReCAPTCHA from 'react-google-recaptcha'
 import { useForm } from 'react-hook-form'
@@ -27,10 +27,11 @@ interface Props {
   icon_url?: string
   variant?: 'sm' | 'md' | 'lg'
   children?: React.ReactNode
+  onClose?: () => void
 }
 
-const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
-  const { className, title, icon_url, variant, children, checked = false } = props
+const Modal = (props: Props) => {
+  const { className, title, icon_url, variant, children, checked = false, onClose } = props
 
   const [formData, setFormData] = useState([])
   const [loading, setLoading] = useState(false)
@@ -80,6 +81,22 @@ const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
     reset()
   }
 
+  const handleClose = () => {
+    onClose?.()
+  }
+
+  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      handleClose()
+    }
+  }
+
+  const handleBackdropKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Escape') {
+      handleClose()
+    }
+  }
+
   return (
     <>
       <input
@@ -89,8 +106,37 @@ const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
         readOnly
         className={`modal-toggle ${className ? className : ''}`}
       />
-      <label htmlFor="modal-service" ref={ref} className="modal cursor-pointer">
-        <label className={`modal-box relative ${variant === 'sm' ? 'w-screen max-w-sm shadow-md' : ''}`} htmlFor="">
+      <div
+        role="dialog"
+        aria-modal="true"
+        tabIndex={-1}
+        onClick={handleBackdropClick}
+        onKeyDown={handleBackdropKeyDown}
+        className="modal cursor-pointer"
+      >
+        <div className={`modal-box relative ${variant === 'sm' ? 'w-screen max-w-sm shadow-md' : ''}`}>
+          <button
+            type="button"
+            onClick={handleClose}
+            aria-label="Закрити вікно"
+            className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full text-gray-500 hover:bg-gray-100 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
           {children ? (
             children
           ) : (
@@ -133,10 +179,10 @@ const Modal = forwardRef<HTMLLabelElement, Props>((props, ref) => {
               </Form>
             </>
           )}
-        </label>
-      </label>
+        </div>
+      </div>
     </>
   )
-})
+}
 
 export default Modal

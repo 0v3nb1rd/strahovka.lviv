@@ -1,7 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 
 import Card from './Card'
 import { Service } from '@prisma/client'
@@ -38,28 +38,18 @@ const serviceData = {
 }
 
 export default function ServiceCards({ service }: { service?: Service[] }) {
-  const modalRef = useRef(null)
-
   const [modal, setModal] = useState<any>({
     on: false,
     title: 'Замовити послугу',
     desc: '',
   })
 
-  useEffect(() => {
-    const handleClickOutside = (e: any) => {
-      if (e.target === modalRef.current) {
-        setModal({ ...modal, on: false })
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [])
-
   const handleClick = (obj: any) => {
     setModal({ ...modal, ...obj, on: true })
+  }
+
+  const handleClose = () => {
+    setModal({ ...modal, on: false })
   }
 
   if (service) {
@@ -72,7 +62,13 @@ export default function ServiceCards({ service }: { service?: Service[] }) {
             </li>
           ))}
         </ul>
-        <Modal ref={modalRef} variant="sm" icon_url={modal.icon_url} title={modal.title} checked={modal.on} />
+        <Modal
+          variant="sm"
+          icon_url={modal.icon_url}
+          title={modal.title}
+          checked={modal.on}
+          onClose={handleClose}
+        />
       </div>
     )
   }
@@ -85,7 +81,13 @@ export default function ServiceCards({ service }: { service?: Service[] }) {
           </li>
         ))}
       </ul>
-      <Modal ref={modalRef} variant="sm" icon_url={modal.icon_url} title={modal.title} checked={modal.on} />
+      <Modal
+        variant="sm"
+        icon_url={modal.icon_url}
+        title={modal.title}
+        checked={modal.on}
+        onClose={handleClose}
+      />
     </div>
   )
 }
