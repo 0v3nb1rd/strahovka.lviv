@@ -22,7 +22,7 @@ export default async function CooperationPage() {
 
             <div className="relative h-52 overflow-hidden rounded-2xl sm:h-64 md:h-[480px]">
               {/* <Image className="object-cover" src={img_cooperation} fill alt="image cooperation" /> */}
-              <BlurImage src={img_cooperation} className="object-cover" alt="image cooperation" fill />
+              <BlurImage src={img_cooperation} className="object-cover" alt="image cooperation" fill priority sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
             </div>
 
             <div className="mx-auto flex max-w-[840px] flex-col gap-4 text-base sm:text-lg">
