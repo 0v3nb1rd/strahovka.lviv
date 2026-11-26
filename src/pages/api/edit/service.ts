@@ -4,8 +4,8 @@ import * as yup from 'yup'
 import { requireAdmin } from '@/lib/auth/requireAdmin'
 import { updService } from '@/lib/_actions/services'
 
-// Редактор (`components/Editor/EditTitle`) змінює лише заголовок категорії послуг.
-// `noUnknown` + `stripUnknown` відкидають усі інші поля, щоб не можна було переписати slug, тексти тощо.
+// The editor (`components/Editor/EditTitle`) changes only the service category title.
+// `noUnknown` + `stripUnknown` drop every other field so slug, texts etc. cannot be overwritten.
 const bodySchema = yup
   .object({
     id: yup.number().integer().positive().required(),
