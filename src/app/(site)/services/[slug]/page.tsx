@@ -66,7 +66,7 @@ export default async function NewPage({ params }: Props) {
         {Boolean(service?.length) && (
           <Suspense fallback={loader}>
             <div className="divider">
-              <img src="/icons/service.svg" className="h-10 w-10 " />
+              <img src="/icons/service.svg" alt="" className="h-10 w-10 " />
             </div>
             <div id="service">
               <h2 className="text-center text-2xl font-bold text-gray-600 md:text-3xl">

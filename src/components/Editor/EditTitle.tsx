@@ -67,3 +67,5 @@ export const EditTitle = forwardRef<HTMLHeadingElement, Props>((props, ref) => {
     </>
   )
 })
+
+EditTitle.displayName = 'EditTitle'

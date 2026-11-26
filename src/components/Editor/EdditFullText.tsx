@@ -116,3 +116,5 @@ export const EditFullText = forwardRef(({ text }: Props, ref: any) => {
     </div>
   )
 })
+
+EditFullText.displayName = 'EditFullText'

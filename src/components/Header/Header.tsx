@@ -53,4 +53,6 @@ const Header = forwardRef<HTMLElement>(() => {
   )
 })
 
+Header.displayName = 'Header'
+
 export default Header

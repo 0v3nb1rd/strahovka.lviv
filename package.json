@@ -46,6 +46,8 @@
 		"@types/sanitize-html": "^2.16.2",
 		"autoprefixer": "10.4.14",
 		"encoding": "^0.1.13",
+		"eslint": "^8.57.1",
+		"eslint-config-next": "^14.2.35",
 		"postcss": "8.4.24",
 		"prettier": "^2.8.8",
 		"prettier-plugin-tailwindcss": "^0.3.0",
