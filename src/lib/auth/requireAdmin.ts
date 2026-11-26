@@ -3,13 +3,12 @@ import { getServerSession } from 'next-auth/next'
 
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import prisma from '@/lib/prisma'
-
-export const ADMIN_ROLES = ['admin', 'dev'] as const
+import { isAdminRole } from '@/lib/auth/roles'
 
 /**
- * Перевіряє сесію NextAuth і роль користувача в БД (роль не зберігається в JWT,
- * тож відкликання ролі діє одразу). Якщо доступу немає — сам відповідає 401/403
- * і повертає null; обробник у такому разі просто виходить.
+ * Checks the NextAuth session and the user's role in the DB (not the role in the JWT,
+ * which lives until the session expires), so revoking a role takes effect immediately.
+ * On failure it responds with 401/403 itself and returns null; the handler just returns.
  */
 export async function requireAdmin(req: NextApiRequest, res: NextApiResponse) {
   const session = await getServerSession(req, res, authOptions)
@@ -20,7 +19,7 @@ export async function requireAdmin(req: NextApiRequest, res: NextApiResponse) {
   }
 
   const user = await prisma.user.findUnique({ where: { email }, select: { id: true, role: true } })
-  if (!user || !ADMIN_ROLES.includes(user.role as (typeof ADMIN_ROLES)[number])) {
+  if (!user || !isAdminRole(user.role)) {
     res.status(403).json({ error: 'Forbidden' })
     return null
   }

@@ -1,6 +1,9 @@
 import { baseUrl } from '@/utils'
 import NextAuth from 'next-auth/next'
 import CredentialsProvider from 'next-auth/providers/credentials'
+import type { User } from 'next-auth'
+import type { AdapterUser } from 'next-auth/adapters'
+import type { JWT } from 'next-auth/jwt'
 
 export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
@@ -39,6 +42,14 @@ export const authOptions = {
       },
     }),
   ],
+  callbacks: {
+    // The role is written to the JWT only at sign-in; middleware checks it for `/adm/*`.
+    // Sessions created before this change have no role, so admins must sign in again.
+    async jwt({ token, user }: { token: JWT; user?: User | AdapterUser }) {
+      if (user) token.role = (user as { role?: string | null }).role ?? null
+      return token
+    },
+  },
 }
 
 export default NextAuth(authOptions)
