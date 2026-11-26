@@ -20,7 +20,6 @@
 		"disqus-react": "^1.1.5",
 		"next": "^14.2.35",
 		"next-auth": "4.24.11",
-		"node-telegram-bot-api": "^0.66.0",
 		"nodemailer": "^6.9.3",
 		"react": "18.2.0",
 		"react-content-loader": "^6.2.1",
@@ -39,7 +38,6 @@
 	"devDependencies": {
 		"@tinymce/tinymce-react": "^5.1.1",
 		"@types/node": "^20.3.1",
-		"@types/node-telegram-bot-api": "^0.61.6",
 		"@types/nodemailer": "^6.4.8",
 		"@types/react": "18.2.12",
 		"@types/react-dom": "18.2.5",
