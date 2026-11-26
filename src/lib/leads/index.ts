@@ -1,4 +1,4 @@
-import { Lead, LeadType, Prisma } from '@prisma/client'
+import { Lead, LeadStatus, LeadType, Prisma } from '@prisma/client'
 
 import prisma from '@/lib/prisma'
 
@@ -63,5 +63,40 @@ export async function recordDelivery(id: number, result: DeliveryResult): Promis
       attempts: { increment: 1 },
       lastError: result.errors.length ? result.errors.join('; ').slice(0, 1000) : null,
     },
+  })
+}
+
+export const LEAD_ENVS = ['production', 'preview', 'development'] as const
+
+/** Leads for the admin list, newest first. `env: 'all'` shows test leads too. */
+export async function listLeads(filter: { env: string; status?: LeadStatus; take?: number }): Promise<Lead[]> {
+  return prisma.lead.findMany({
+    where: {
+      ...(filter.env !== 'all' ? { env: filter.env } : {}),
+      ...(filter.status ? { status: filter.status } : {}),
+    },
+    orderBy: { createdAt: 'desc' },
+    take: filter.take ?? 100,
+  })
+}
+
+export async function getLead(id: number): Promise<Lead | null> {
+  return prisma.lead.findUnique({ where: { id } })
+}
+
+/**
+ * Undelivered leads of the current environment for the scheduled retry: not yet over the attempt
+ * limit, and older than `minAgeMs` so a lead whose first delivery is still running is not picked up.
+ */
+export async function findLeadsToRetry(opts: { maxAttempts: number; minAgeMs: number; take: number }): Promise<Lead[]> {
+  return prisma.lead.findMany({
+    where: {
+      env: currentEnv(),
+      status: { in: ['new', 'failed'] },
+      attempts: { lt: opts.maxAttempts },
+      createdAt: { lt: new Date(Date.now() - opts.minAgeMs) },
+    },
+    orderBy: { createdAt: 'asc' },
+    take: opts.take,
   })
 }

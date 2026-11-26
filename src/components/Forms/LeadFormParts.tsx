@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef, useId } from 'react'
 
 import type { SendResult } from '@/lib/api'
 import { SUCCESS_MESSAGE } from '@/lib/api'
@@ -8,12 +8,12 @@ import { SUCCESS_MESSAGE } from '@/lib/api'
  * The server silently drops submissions where it is not empty.
  */
 export const Honeypot = forwardRef<HTMLInputElement>(function Honeypot(_, ref) {
+  // Unique per form: the home page can render the order modal and the subscribe form together.
+  const id = useId()
   return (
     <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
-      <label>
-        Website
-        <input ref={ref} type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
-      </label>
+      <label htmlFor={id}>Website</label>
+      <input ref={ref} id={id} type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
     </div>
   )
 })

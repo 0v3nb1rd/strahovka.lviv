@@ -11,6 +11,11 @@ const adminRoutes = [
     label: 'Services',
     to: '/adm/services',
   },
+  {
+    id: 3,
+    label: 'Leads',
+    to: '/adm/leads',
+  },
 ]
 
 export function Nav({ ...props }) {

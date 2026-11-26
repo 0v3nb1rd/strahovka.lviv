@@ -71,3 +71,18 @@ export async function deliverLead(lead: Lead): Promise<Lead> {
 }
 
 const errorMessage = (e: unknown) => (e instanceof Error ? e.message : String(e))
+
+/**
+ * Alert for the agency about leads that could not be delivered. Goes to both channels: whichever
+ * still works carries it. Contains lead ids and errors only, no client data.
+ * Returns true if at least one channel accepted it.
+ */
+export async function sendAdminAlert(subject: string, text: string): Promise<boolean> {
+  const results = await Promise.allSettled([
+    sendTelegramMessage(`<b>⚠️ ${escapeHtml(subject)}</b>\n${escapeHtml(text)}`),
+    sendAgencyEmail(`⚠️ ${subject}`, `<h2>${escapeHtml(subject)}</h2><pre>${escapeHtml(text)}</pre>`),
+  ])
+  const ok = results.some((r) => r.status === 'fulfilled')
+  if (!ok) console.error('[leads] admin alert not delivered by any channel')
+  return ok
+}
