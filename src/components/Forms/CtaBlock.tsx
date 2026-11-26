@@ -1,13 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import ReCAPTCHA from 'react-google-recaptcha'
 import { Button, Form } from '../UI'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { subscribeSchema } from '@/lib/validation/schema'
-import { Fields } from 'react-facebook'
-import Filed from './Filed'
-import { sendContactForm } from '@/lib/api'
+import { newIdempotencyKey, sendContactForm, SendResult } from '@/lib/api'
+import { FormStatus, Honeypot } from './LeadFormParts'
 
 type SubscribeValues = {
   email: string
@@ -15,6 +15,12 @@ type SubscribeValues = {
 
 export default function CtaBlock() {
   const [loading, setLoading] = useState(false)
+  const [captcha, setCaptcha] = useState<string | null>()
+  const [result, setResult] = useState<SendResult | null>(null)
+
+  const recaptchaRef = useRef<ReCAPTCHA>(null)
+  const honeypotRef = useRef<HTMLInputElement>(null)
+  const idempotencyKey = useRef('')
 
   const {
     register,
@@ -26,17 +32,29 @@ export default function CtaBlock() {
     resolver: yupResolver(subscribeSchema),
   })
 
-  const onSubmit = async (data: any) => {
-    const senderData = { ...data, title: 'Форма підписки', action: 'form_subscribe' }
+  const onSubmit = async (data: SubscribeValues) => {
+    if (!captcha) {
+      setResult({ ok: false, message: 'Підтвердіть, що ви не робот.' })
+      return
+    }
+
     setLoading(true)
-    console.log(senderData)
-
-    const res = await sendContactForm(senderData)
-
+    if (!idempotencyKey.current) idempotencyKey.current = newIdempotencyKey()
+    const res = await sendContactForm('form_subscribe', data, {
+      captcha,
+      idempotencyKey: idempotencyKey.current,
+      website: honeypotRef.current?.value,
+    })
+    setResult(res)
     setLoading(false)
-    reset()
 
-    // alert(JSON.stringify(data))
+    // reCAPTCHA tokens are single-use: reset the widget after every attempt.
+    recaptchaRef.current?.reset()
+    setCaptcha(null)
+    if (res.ok) {
+      reset()
+      idempotencyKey.current = ''
+    }
   }
 
   return (
@@ -67,7 +85,17 @@ export default function CtaBlock() {
           >
             Підписатись
           </Button>
+          <Honeypot ref={honeypotRef} />
         </Form>
+        <ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY!}
+          size="normal"
+          className="mt-4"
+          onChange={setCaptcha}
+          onExpired={() => setCaptcha(null)}
+          ref={recaptchaRef}
+        />
+        <FormStatus result={result} className="mt-3 text-center" />
       </div>
     </div>
   )

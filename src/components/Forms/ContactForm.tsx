@@ -9,7 +9,8 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Form, Button } from '../UI'
 import Filed from './Filed'
 import { contactSchema } from '@/lib/validation/schema'
-import { sendContactForm } from '@/lib/api'
+import { newIdempotencyKey, sendContactForm, SendResult } from '@/lib/api'
+import { FormStatus, Honeypot } from './LeadFormParts'
 
 type FormValues = {
   fullName?: string
@@ -21,8 +22,12 @@ type FormValues = {
 export default function ContactForm({ className, ...rest }: { className?: string }) {
   const [loading, setLoading] = useState(false)
   const [captcha, setCaptcha] = useState<string | null>()
+  const [result, setResult] = useState<SendResult | null>(null)
 
   const recaptchaRef = useRef<ReCAPTCHA>(null)
+  const honeypotRef = useRef<HTMLInputElement>(null)
+  // Lazily created on the client (crypto.randomUUID is not used during SSR).
+  const idempotencyKey = useRef('')
 
   const {
     register,
@@ -36,21 +41,27 @@ export default function ContactForm({ className, ...rest }: { className?: string
 
   const onSubmit = async (data: FormValues) => {
     if (!captcha) {
-      console.error('Please verify that you are not a robot')
+      setResult({ ok: false, message: 'Підтвердіть, що ви не робот.' })
       return
     }
 
     setLoading(true)
+    if (!idempotencyKey.current) idempotencyKey.current = newIdempotencyKey()
+    const res = await sendContactForm('form_contacts', data, {
+      captcha,
+      idempotencyKey: idempotencyKey.current,
+      website: honeypotRef.current?.value,
+    })
+    setResult(res)
+    setLoading(false)
 
-    const senderData = { ...data, title: 'Контакт форма', action: 'form_contacts' }
-    const res = await sendContactForm(senderData)
-
+    // reCAPTCHA tokens are single-use: reset the widget after every attempt.
     recaptchaRef.current?.reset()
     setCaptcha(null)
-    setLoading(false)
-    reset()
-
-    // alert(JSON.stringify(data))
+    if (res.ok) {
+      reset()
+      idempotencyKey.current = ''
+    }
   }
   return (
     <Form onSubmit={handleSubmit(onSubmit)} className={className}>
@@ -67,6 +78,7 @@ export default function ContactForm({ className, ...rest }: { className?: string
           required
         />
       </div>
+      <Honeypot ref={honeypotRef} />
 
       <ReCAPTCHA
         sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY!}
@@ -80,6 +92,7 @@ export default function ContactForm({ className, ...rest }: { className?: string
       <Button disabled={!isValid || loading} className={`btn-secondary btn-wide mt-8 ${loading ? 'loading' : ''}`}>
         Відправити
       </Button>
+      <FormStatus result={result} className="mt-4" />
     </Form>
   )
 }

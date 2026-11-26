@@ -6,21 +6,15 @@ export const addTrailingSlash = (str: string): string => {
   return str.endsWith('/') ? str : str + '/'
 }
 
-const IS_SERVER = typeof window === 'undefined'
-export function getURL(path: string) {
-  const baseURL = IS_SERVER ? (process.env.NEXT_PUBLIC_URL || 'http://localhost:3000') : window.location.origin
-  return new URL(path, baseURL).toString()
-}
-
 const withHttps = (host?: string) => (host ? `https://${host}` : '')
 
 /**
- * Базова адреса сайту без кінцевого слеша (sitemap, Disqus, запит входу NextAuth).
- * - Production на Vercel: основний домен проєкту (strahovka.lviv.ua). Не адреса конкретного
- *   деплою: вона тимчасова, має noindex, і sitemap з нею пошуковики відкидають.
- * - Preview на Vercel: постійна адреса гілки, запасний варіант — адреса деплою.
- * - Локально: NEXT_PUBLIC_URL або http://localhost:3000.
- * Системні змінні Vercel порожні, коли не застосовні, тому ланцюжок через `||`.
+ * Site base URL without a trailing slash (sitemap, Disqus, NextAuth sign-in request).
+ * - Vercel production: the project's production domain (strahovka.lviv.ua), not the deployment
+ *   URL: that one is temporary, served with noindex, and search engines reject a sitemap using it.
+ * - Vercel preview: the stable branch URL, falling back to the deployment URL.
+ * - Local: NEXT_PUBLIC_URL or http://localhost:3000.
+ * Vercel system env vars are empty when not applicable, hence the `||` chain.
  */
 function resolveBaseUrl(): string {
   const vercelEnv = process.env.NEXT_PUBLIC_VERCEL_ENV

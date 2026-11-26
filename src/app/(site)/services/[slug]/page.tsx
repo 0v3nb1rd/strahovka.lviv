@@ -1,4 +1,5 @@
 import { getRelatedService, getServiceCatBySlug } from '@/lib/_actions/services'
+import { sanitizeInline, sanitizeRich } from '@/lib/sanitize'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -44,11 +45,11 @@ export default async function NewPage({ params }: Props) {
           <div className="flex flex-col items-center">
             <span
               className="badge-secondary badge badge-lg mb-3"
-              dangerouslySetInnerHTML={{ __html: serviceCat?.category_ua || '' }}
+              dangerouslySetInnerHTML={{ __html: sanitizeInline(serviceCat?.category_ua) }}
             />
             <h1
               className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl md:text-4xl md:leading-tight"
-              dangerouslySetInnerHTML={{ __html: serviceCat?.title || '' }}
+              dangerouslySetInnerHTML={{ __html: sanitizeInline(serviceCat?.title) }}
             />
           </div>
         </div>
@@ -59,7 +60,7 @@ export default async function NewPage({ params }: Props) {
 
         <div
           className="mx-auto flex max-w-[840px] flex-col gap-4 text-lg font-semibold text-black/60"
-          dangerouslySetInnerHTML={{ __html: serviceCat?.full_text || '' }}
+          dangerouslySetInnerHTML={{ __html: sanitizeRich(serviceCat?.full_text) }}
         />
 
         {Boolean(service?.length) && (

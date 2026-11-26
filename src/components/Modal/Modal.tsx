@@ -11,7 +11,8 @@ import Badge from '@/components/Badge'
 import Image from 'next/image'
 import Button from '../UI/Button'
 import Filed from '../Forms/Filed'
-import { sendContactForm } from '@/lib/api'
+import { newIdempotencyKey, sendContactForm, SendResult } from '@/lib/api'
+import { FormStatus, Honeypot } from '../Forms/LeadFormParts'
 import { orderSchema } from '@/lib/validation/schema'
 
 export interface ServiceFormValues {
@@ -33,12 +34,14 @@ interface Props {
 const Modal = (props: Props) => {
   const { className, title, icon_url, variant, children, checked = false, onClose } = props
 
-  const [formData, setFormData] = useState([])
   const [loading, setLoading] = useState(false)
   const [captcha, setCaptcha] = useState<string | null>()
+  const [result, setResult] = useState<SendResult | null>(null)
 
   const firstInputRef = useRef<HTMLInputElement>(null)
   const recaptchaRef = useRef<ReCAPTCHA>(null)
+  const honeypotRef = useRef<HTMLInputElement>(null)
+  const idempotencyKey = useRef('')
 
   const {
     register,
@@ -57,28 +60,39 @@ const Modal = (props: Props) => {
   }, [])
 
   useEffect(() => {
-    if (!checked) {
+    if (checked) {
+      // New key per opening of the modal: one opening = at most one stored lead.
+      idempotencyKey.current = newIdempotencyKey()
+    } else {
       recaptchaRef.current?.reset()
       setCaptcha(null)
+      setResult(null)
     }
   }, [checked])
 
   const onSubmit = async (data: ServiceFormValues) => {
     if (!captcha) {
-      console.error('Please verify that you are not a robot')
+      setResult({ ok: false, message: 'Підтвердіть, що ви не робот.' })
       return
     }
 
     setLoading(true)
-    // alert(JSON.stringify(data))
-    const senderData = { ...data, title, action: 'form_service' }
-    // console.log(senderData)
-    const res = await sendContactForm(senderData)
+    if (!idempotencyKey.current) idempotencyKey.current = newIdempotencyKey()
+    const res = await sendContactForm(
+      'form_service',
+      { ...data, title },
+      { captcha, idempotencyKey: idempotencyKey.current, website: honeypotRef.current?.value }
+    )
+    setResult(res)
+    setLoading(false)
 
+    // reCAPTCHA tokens are single-use: reset the widget after every attempt.
     recaptchaRef.current?.reset()
     setCaptcha(null)
-    setLoading(false)
-    reset()
+    if (res.ok) {
+      reset()
+      idempotencyKey.current = newIdempotencyKey()
+    }
   }
 
   const handleClose = () => {
@@ -160,6 +174,7 @@ const Modal = (props: Props) => {
                     label="Ваше повідомлення"
                   />
                 </div>
+                <Honeypot ref={honeypotRef} />
 
                 <ReCAPTCHA
                   sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_KEY!}
@@ -176,6 +191,7 @@ const Modal = (props: Props) => {
                 >
                   Замовити
                 </Button>
+                <FormStatus result={result} className="mt-4 text-center" />
               </Form>
             </>
           )}
