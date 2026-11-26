@@ -52,13 +52,11 @@ export async function updateServiceCat(id: number, data: any) {
   }
 }
 
-export async function updService({ id, data }: any) {
-  console.log(id, data)
-
+export async function updService({ id, data }: { id: number; data: { title: string } }) {
   try {
     const serviceCat = await prisma.service_category.update({
       where: { id },
-      data: data,
+      data: { title: data.title },
     })
     return { serviceCat }
   } catch (error) {
