@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic'
 import { Post } from '@prisma/client'
 
 import prisma from '@/lib/prisma'
+import { sanitizeRich } from '@/lib/sanitize'
 import { baseUrl } from '@/utils'
 import BlurImage from '@/components/Blur-image'
 
@@ -55,7 +56,7 @@ export default async function NewPage({ params }: Props) {
         </figure>
 
         <div className="description px-5 py-4">
-          <div id="content" dangerouslySetInnerHTML={{ __html: data?.full_text || '' }} />
+          <div id="content" dangerouslySetInnerHTML={{ __html: sanitizeRich(data?.full_text) }} />
         </div>
 
         <FooterBlock id={data?.id} likes={data?.like_count} />

@@ -1,5 +1,6 @@
 import { Service_category } from '@prisma/client'
 import prisma from '@/lib/prisma'
+import { sanitizeInline } from '@/lib/sanitize'
 
 export async function getServiceCat() {
   try {
@@ -56,7 +57,7 @@ export async function updService({ id, data }: { id: number; data: { title: stri
   try {
     const serviceCat = await prisma.service_category.update({
       where: { id },
-      data: { title: data.title },
+      data: { title: sanitizeInline(data.title) },
     })
     return { serviceCat }
   } catch (error) {

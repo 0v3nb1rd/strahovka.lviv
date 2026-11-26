@@ -2,6 +2,8 @@ import { Service_category } from '@prisma/client'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 
+import { sanitizeInline } from '@/lib/sanitize'
+
 interface Props {
   service: Service_category
   isAdm?: boolean
@@ -18,7 +20,7 @@ export default function Service({ service, isAdm = false }: Props) {
           <span className="badge-secondary badge badge-lg mb-3">{service.category_ua}</span>
           <h1
             className="mb-2 max-w-2xl text-center text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl lg:leading-tight"
-            dangerouslySetInnerHTML={{ __html: service?.title }}
+            dangerouslySetInnerHTML={{ __html: sanitizeInline(service?.title) }}
           />
           <p className="text-center text-base font-semibold text-black/60 sm:text-lg">{service.short_text}</p>
         </div>
