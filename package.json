@@ -17,7 +17,6 @@
 		"@prisma/client": "^4.15.0",
 		"@types/bcrypt": "^5.0.0",
 		"bcrypt": "^5.1.0",
-		"bootstrap-icons": "^1.10.5",
 		"classnames": "^2.3.2",
 		"daisyui": "^2.51.6",
 		"disqus-react": "^1.1.5",
@@ -34,7 +33,6 @@
 		"sanitize-html": "^2.18.2",
 		"sharp": "^0.33.5",
 		"usehooks-ts": "^2.9.1",
-		"uuid": "^9.0.0",
 		"yup": "^1.2.0",
 		"yup-phone-lite": "^2.0.1"
 	},
@@ -46,7 +44,6 @@
 		"@types/react-dom": "18.2.5",
 		"@types/react-google-recaptcha": "^2.1.9",
 		"@types/sanitize-html": "^2.16.2",
-		"@types/uuid": "^9.0.2",
 		"autoprefixer": "10.4.14",
 		"encoding": "^0.1.13",
 		"postcss": "8.4.24",
