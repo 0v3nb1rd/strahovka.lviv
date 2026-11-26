@@ -2,6 +2,22 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  // sanitize-html (CJS) requires ESM-only htmlparser2 & co. Pages API routes load node_modules
+  // at runtime with require(), which fails with ERR_REQUIRE_ESM on Node < 22.12 (Vercel
+  // functions). transpilePackages bundles them into the route; 'loose' lets webpack resolve
+  // the ESM packages from a require() call.
+  transpilePackages: [
+    'sanitize-html',
+    'htmlparser2',
+    'domhandler',
+    'domutils',
+    'dom-serializer',
+    'domelementtype',
+    'entities',
+  ],
+  experimental: {
+    esmExternals: 'loose',
+  },
   images: {
     remotePatterns: [
       {
