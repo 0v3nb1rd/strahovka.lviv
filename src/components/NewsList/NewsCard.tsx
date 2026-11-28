@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import cn from 'classnames'
-import { Post } from '@prisma/client'
+import type { Post } from '@/db/schema'
 
 import BlurImage from '../Blur-image'
 

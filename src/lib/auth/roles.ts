@@ -1,4 +1,4 @@
-// Roles allowed into the admin area. Kept free of Prisma because middleware (Edge runtime) imports it.
+// Roles allowed into the admin area. Kept free of DB imports because middleware (Edge runtime) imports it.
 export const ADMIN_ROLES = ['admin', 'dev'] as const
 
 export const isAdminRole = (role: unknown): boolean =>

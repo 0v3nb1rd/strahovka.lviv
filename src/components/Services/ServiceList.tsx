@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { Service_category } from '@prisma/client'
+import type { Service_category } from '@/db/schema'
 
 import Service from './Service'
 import { Skeleton } from './Skeleton'

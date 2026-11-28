@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { revalidatePath } from 'next/cache'
 
-import { Service, Service_category } from '@prisma/client'
+import type { Service, Service_category } from '@/db/schema'
 import BlurImage from '@/components/Blur-image'
 import { EditFullText } from './EdditFullText'
 import { EditTitle } from './EditTitle'

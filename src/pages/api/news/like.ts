@@ -4,7 +4,7 @@ import * as yup from 'yup'
 import { changePostLikes } from '@/lib/_actions/blog'
 
 // Public endpoint (like button in `NewsList/FooterBlock`). Only ±1 is allowed:
-// `action` used to be passed to Prisma as is, so `set`, `multiply`… could set any value.
+// `action` used to be passed to the ORM as is, so `set`, `multiply`… could set any value.
 const bodySchema = yup.object({
   id: yup.number().strict().integer().positive().required(),
   action: yup.mixed<'increment' | 'decrement'>().oneOf(['increment', 'decrement']).required(),

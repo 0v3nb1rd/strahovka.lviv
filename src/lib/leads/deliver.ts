@@ -1,4 +1,4 @@
-import { Lead } from '@prisma/client'
+import type { Lead } from '@/db/schema'
 
 import { sendAgencyEmail } from '@/lib/mailer/mailer'
 import { sendTelegramMessage } from '@/lib/telegram'

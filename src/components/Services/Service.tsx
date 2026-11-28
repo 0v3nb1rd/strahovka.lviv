@@ -1,4 +1,4 @@
-import { Service_category } from '@prisma/client'
+import type { Service_category } from '@/db/schema'
 import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 

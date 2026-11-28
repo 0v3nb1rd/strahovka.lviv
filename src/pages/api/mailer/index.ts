@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import { LeadType } from '@prisma/client'
+import type { LeadType } from '@/db/schema'
 
 import { saveLead } from '@/lib/leads'
 import { deliverLead } from '@/lib/leads/deliver'

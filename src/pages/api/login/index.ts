@@ -2,10 +2,13 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import * as bcrypt from 'bcrypt'
 import * as yup from 'yup'
 
-import prisma from '@/lib/prisma'
+import { eq } from 'drizzle-orm'
+
+import { db } from '@/lib/db'
+import { user as userTable } from '@/db/schema'
 
 // Called from NextAuth `authorize` (`pages/api/auth/[...nextauth].ts`).
-// The schema guarantees strings: an object in `email` would become a Prisma filter (e.g. `{ contains: "@" }`).
+// The schema guarantees strings before they reach the query.
 // Goes away after the move to Better Auth.
 const bodySchema = yup.object({
   username: yup.string().strict().email().max(254).required(),
@@ -29,7 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json(null)
   }
 
-  const user = await prisma.user.findUnique({ where: { email: body.username } })
+  const [user] = await db.select().from(userTable).where(eq(userTable.email, body.username))
   const valid = await bcrypt.compare(body.password, user?.password ?? DUMMY_HASH)
 
   if (!user || !valid) {

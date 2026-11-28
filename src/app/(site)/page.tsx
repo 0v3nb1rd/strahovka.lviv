@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import prisma from '@/lib/prisma'
+import { getPosts } from '@/lib/_actions/blog'
 
 import Banner from '@/components/Banner'
 import CtaBlock from '@/components/Forms/CtaBlock'
@@ -9,25 +9,14 @@ import ServiceCards from '@/components/ServiceCards/ServiceCards'
 import Badge from '@/components/Badge'
 import NewsList from '@/components/NewsList/NewsList'
 
-import { Post } from '@prisma/client'
 import { Suspense } from 'react'
-
-const fetchLastPost = async (count: number): Promise<Post[]> => {
-  const res = await prisma.post.findMany({
-    take: count,
-    orderBy: {
-      created_at: 'desc',
-    },
-  })
-  return res
-}
 
 const loader = `<div className="loader">
     <div className="spinner"></div>
   </div>`
 
 export default async function HomePage() {
-  const lastPosts = await fetchLastPost(3)
+  const lastPosts = await getPosts({ limit: 3 })
 
   return (
     <main className="main pt-32">

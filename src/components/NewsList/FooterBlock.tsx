@@ -5,8 +5,6 @@ import { useLocalStorage } from 'usehooks-ts'
 
 import { BiLike, BiShare, BiMessageAltDetail, BiBookmark } from 'react-icons/bi'
 
-import prisma from '@/lib/prisma'
-
 interface Props {
   id?: number
   likes?: number

@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import type { MainServices } from '@/@types'
-import { Service } from '@prisma/client'
+import type { Service } from '@/db/schema'
 
 interface ServicesProps extends Service {
   onClick?: any

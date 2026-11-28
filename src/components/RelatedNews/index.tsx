@@ -1,27 +1,15 @@
-import { Post } from '@prisma/client'
+import type { Post } from '@/db/schema'
 import Link from 'next/link'
 
 import BlurImage from '../Blur-image'
-import prisma from '@/lib/prisma'
+import { getTopPosts } from '@/lib/_actions/blog'
 
 interface Props {
   maxLength?: number
 }
 
-const fetchTopNews = async (): Promise<Post[]> => {
-  const res = await prisma.post.findMany({
-    take: 3,
-    orderBy: {
-      like_count: 'desc',
-    },
-  })
-
-  // ToDo should add arror page & remove possibility return null
-  return res
-}
-
 const RelatedPosts = async ({ maxLength }: Props) => {
-  const newsData = await fetchTopNews()
+  const newsData = await getTopPosts(3)
 
   return (
     <ul>

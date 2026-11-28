@@ -2,7 +2,6 @@
 
 import { BiShow, BiTimeFive } from 'react-icons/bi'
 import Badge from '../Badge'
-import prisma from '@/lib/prisma'
 import { useEffect, useState } from 'react'
 
 // import { useEffect } from 'react'

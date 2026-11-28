@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { LeadStatus } from '@prisma/client'
+import type { LeadStatus } from '@/db/schema'
 
 import { currentEnv, LEAD_ENVS, LeadPayload, listLeads } from '@/lib/leads'
 import RetryButton from './RetryButton'

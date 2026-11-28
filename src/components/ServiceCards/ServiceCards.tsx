@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic'
 import { useState } from 'react'
 
 import Card from './Card'
-import { Service } from '@prisma/client'
+import type { Service } from '@/db/schema'
 
 const Modal = dynamic(() => import('@/components/Modal/Modal'), { ssr: false })
 

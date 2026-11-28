@@ -2,7 +2,10 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { getServerSession } from 'next-auth/next'
 
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
-import prisma from '@/lib/prisma'
+import { eq } from 'drizzle-orm'
+
+import { db } from '@/lib/db'
+import { user as userTable } from '@/db/schema'
 import { isAdminRole } from '@/lib/auth/roles'
 
 /**
@@ -18,7 +21,10 @@ export async function requireAdmin(req: NextApiRequest, res: NextApiResponse) {
     return null
   }
 
-  const user = await prisma.user.findUnique({ where: { email }, select: { id: true, role: true } })
+  const [user] = await db
+    .select({ id: userTable.id, role: userTable.role })
+    .from(userTable)
+    .where(eq(userTable.email, email))
   if (!user || !isAdminRole(user.role)) {
     res.status(403).json({ error: 'Forbidden' })
     return null

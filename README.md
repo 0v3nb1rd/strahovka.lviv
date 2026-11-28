@@ -23,7 +23,7 @@ A modern, bilingual (Ukrainian/English) insurance website built with Next.js, fe
 - **Framework:** Next.js 14
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS, DaisyUI
-- **Database:** PostgreSQL with Prisma ORM
+- **Database:** PostgreSQL (Neon) with Drizzle ORM
 - **Authentication:** NextAuth.js
 - **Form Handling:** React Hook Form with Yup validation
 - **Content Editor:** TinyMCE
@@ -54,7 +54,7 @@ A modern, bilingual (Ukrainian/English) insurance website built with Next.js, fe
 
 3. Set up environment variables:
    ```bash
-   cp env.example .env.local
+   cp .env.example .env.local
    ```
    Fill in the required environment variables in `.env.local`:
    ```
@@ -67,9 +67,9 @@ A modern, bilingual (Ukrainian/English) insurance website built with Next.js, fe
 
 4. Set up the database:
    ```bash
-   npx prisma generate
-   npx prisma db push
-   npx prisma db seed
+   # DATABASE_URL of a development database in .env.development.local
+   npm run db:migrate   # apply migrations from ./drizzle
+   npm run db:generate  # after changing src/db/schema.ts: create a new migration
    ```
 
 5. Run the development server:
@@ -126,7 +126,7 @@ For support, please contact [your-email@example.com](mailto:your-email@example.c
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [DaisyUI](https://daisyui.com/)
-- [Prisma](https://www.prisma.io/)
+- [Drizzle ORM](https://orm.drizzle.team/)
 
 ## Learn More
 

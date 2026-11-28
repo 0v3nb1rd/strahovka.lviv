@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic'
-import { Post } from '@prisma/client'
 
-import prisma from '@/lib/prisma'
+import { getPostBySlug } from '@/lib/_actions/blog'
 import { sanitizeRich } from '@/lib/sanitize'
 import { baseUrl } from '@/utils'
 import BlurImage from '@/components/Blur-image'
@@ -16,19 +15,8 @@ interface Props {
   }
 }
 
-const fetchNewsData = async (slug: string): Promise<Post | null> => {
-  const res = await prisma.post.findUnique({
-    where: {
-      slug: slug,
-    },
-  })
-
-  // ToDo should add arror page & remove possibility return null
-  return res
-}
-
 export default async function NewPage({ params }: Props) {
-  const data = await fetchNewsData(params.slug)
+  const data = await getPostBySlug(params.slug)
 
   return (
     <div className="flex flex-col">

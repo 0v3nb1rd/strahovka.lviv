@@ -1,6 +1,7 @@
-import { Lead, LeadStatus, LeadType, Prisma } from '@prisma/client'
+import { and, asc, desc, eq, inArray, lt, sql, type SQL } from 'drizzle-orm'
 
-import prisma from '@/lib/prisma'
+import { db } from '@/lib/db'
+import { lead as leadTable, type Lead, type LeadStatus, type LeadType } from '@/db/schema'
 
 export type LeadPayload = {
   title?: string
@@ -25,24 +26,22 @@ export const currentEnv = (): string => process.env.VERCEL_ENV || process.env.NO
  * instead of creating a second one.
  */
 export async function saveLead(input: NewLead): Promise<{ lead: Lead; duplicate: boolean }> {
-  try {
-    const lead = await prisma.lead.create({
-      data: {
-        type: input.type,
-        payload: input.payload,
-        source: input.source || null,
-        env: currentEnv(),
-        idempotencyKey: input.idempotencyKey,
-      },
+  const [created] = await db
+    .insert(leadTable)
+    .values({
+      type: input.type,
+      payload: input.payload,
+      source: input.source || null,
+      env: currentEnv(),
+      idempotencyKey: input.idempotencyKey,
     })
-    return { lead, duplicate: false }
-  } catch (err) {
-    if (err instanceof Prisma.PrismaClientKnownRequestError && err.code === 'P2002') {
-      const lead = await prisma.lead.findUniqueOrThrow({ where: { idempotencyKey: input.idempotencyKey } })
-      return { lead, duplicate: true }
-    }
-    throw err
-  }
+    .onConflictDoNothing({ target: leadTable.idempotencyKey })
+    .returning()
+  if (created) return { lead: created, duplicate: false }
+
+  const [existing] = await db.select().from(leadTable).where(eq(leadTable.idempotencyKey, input.idempotencyKey))
+  if (!existing) throw new Error('Lead insert conflicted but no lead with this idempotency key was found')
+  return { lead: existing, duplicate: true }
 }
 
 export type DeliveryResult = {
@@ -54,34 +53,39 @@ export type DeliveryResult = {
 /** Records one delivery attempt: per-channel timestamps, status, attempt count, last error. */
 export async function recordDelivery(id: number, result: DeliveryResult): Promise<Lead> {
   const delivered = result.telegramDeliveredAt !== null && result.emailDeliveredAt !== null
-  return prisma.lead.update({
-    where: { id },
-    data: {
+  const [updated] = await db
+    .update(leadTable)
+    .set({
       telegramDeliveredAt: result.telegramDeliveredAt,
       emailDeliveredAt: result.emailDeliveredAt,
       status: delivered ? 'delivered' : 'failed',
-      attempts: { increment: 1 },
+      attempts: sql`${leadTable.attempts} + 1`,
       lastError: result.errors.length ? result.errors.join('; ').slice(0, 1000) : null,
-    },
-  })
+    })
+    .where(eq(leadTable.id, id))
+    .returning()
+  if (!updated) throw new Error(`Lead ${id} not found`)
+  return updated
 }
 
 export const LEAD_ENVS = ['production', 'preview', 'development'] as const
 
 /** Leads for the admin list, newest first. `env: 'all'` shows test leads too. */
 export async function listLeads(filter: { env: string; status?: LeadStatus; take?: number }): Promise<Lead[]> {
-  return prisma.lead.findMany({
-    where: {
-      ...(filter.env !== 'all' ? { env: filter.env } : {}),
-      ...(filter.status ? { status: filter.status } : {}),
-    },
-    orderBy: { createdAt: 'desc' },
-    take: filter.take ?? 100,
-  })
+  const conditions: SQL[] = []
+  if (filter.env !== 'all') conditions.push(eq(leadTable.env, filter.env))
+  if (filter.status) conditions.push(eq(leadTable.status, filter.status))
+  return db
+    .select()
+    .from(leadTable)
+    .where(and(...conditions))
+    .orderBy(desc(leadTable.createdAt))
+    .limit(filter.take ?? 100)
 }
 
 export async function getLead(id: number): Promise<Lead | null> {
-  return prisma.lead.findUnique({ where: { id } })
+  const [row] = await db.select().from(leadTable).where(eq(leadTable.id, id))
+  return row ?? null
 }
 
 /**
@@ -89,14 +93,17 @@ export async function getLead(id: number): Promise<Lead | null> {
  * limit, and older than `minAgeMs` so a lead whose first delivery is still running is not picked up.
  */
 export async function findLeadsToRetry(opts: { maxAttempts: number; minAgeMs: number; take: number }): Promise<Lead[]> {
-  return prisma.lead.findMany({
-    where: {
-      env: currentEnv(),
-      status: { in: ['new', 'failed'] },
-      attempts: { lt: opts.maxAttempts },
-      createdAt: { lt: new Date(Date.now() - opts.minAgeMs) },
-    },
-    orderBy: { createdAt: 'asc' },
-    take: opts.take,
-  })
+  return db
+    .select()
+    .from(leadTable)
+    .where(
+      and(
+        eq(leadTable.env, currentEnv()),
+        inArray(leadTable.status, ['new', 'failed']),
+        lt(leadTable.attempts, opts.maxAttempts),
+        lt(leadTable.createdAt, new Date(Date.now() - opts.minAgeMs))
+      )
+    )
+    .orderBy(asc(leadTable.createdAt))
+    .limit(opts.take)
 }

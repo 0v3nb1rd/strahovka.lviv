@@ -1,8 +1,8 @@
 import { baseUrl, addTrailingSlash } from '@/utils'
 import type { MetadataRoute } from 'next'
-import prisma from '@/lib/prisma'
+import { getPostSitemapEntries } from '@/lib/_actions/blog'
 
-const SITE_URL = baseUrl;
+const SITE_URL = baseUrl
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes = ['', '/blog', '/blog/news', '/blog/tips', '/services', '/cooperation', '/contacts']
@@ -15,11 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }))
 
   // Fetch dynamic blog posts directly from database
-  const blogNews = await prisma.post.findMany({
-    where: { category: 'news' },
-    select: { slug: true, created_at: true },
-    orderBy: { created_at: 'desc' },
-  })
+  const blogNews = await getPostSitemapEntries('news')
   const blogNewsEntries = blogNews.map((p) => ({
     url: `${SITE_URL}${addTrailingSlash(`/blog/news/${p.slug}`)}`,
     lastModified: p.created_at ? new Date(p.created_at) : new Date(),
@@ -27,11 +23,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }))
 
-  const blogTips = await prisma.post.findMany({
-    where: { category: 'tips' },
-    select: { slug: true, created_at: true },
-    orderBy: { created_at: 'desc' },
-  })
+  const blogTips = await getPostSitemapEntries('tips')
   const blogTipsEntries = blogTips.map((p) => ({
     url: `${SITE_URL}${addTrailingSlash(`/blog/tips/${p.slug}`)}`,
     lastModified: p.created_at ? new Date(p.created_at) : new Date(),

@@ -1,4 +1,4 @@
-import { Lead } from '@prisma/client'
+import type { Lead } from '@/db/schema'
 
 import { baseUrl } from '@/utils'
 import { findLeadsToRetry } from '@/lib/leads'

@@ -10,12 +10,14 @@
 		"debug": "next dev --trace-warnings",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"db:generate": "node --env-file=.env.development.local node_modules/drizzle-kit/bin.cjs generate",
+		"db:migrate": "node --env-file=.env.development.local node_modules/drizzle-kit/bin.cjs migrate",
+		"db:studio": "node --env-file=.env.development.local node_modules/drizzle-kit/bin.cjs studio"
 	},
 	"dependencies": {
 		"@hookform/resolvers": "^3.1.1",
 		"@neondatabase/serverless": "1.2.1",
-		"@prisma/client": "^4.15.0",
 		"@types/bcrypt": "^5.0.0",
 		"bcrypt": "^5.1.0",
 		"classnames": "^2.3.2",
@@ -54,15 +56,10 @@
 		"postcss": "8.4.24",
 		"prettier": "^2.8.8",
 		"prettier-plugin-tailwindcss": "^0.3.0",
-		"prisma": "^4.15.0",
 		"prop-types": "^15.8.1",
 		"sass": "^1.63.4",
 		"tailwindcss": "3.3.2",
-		"ts-node": "^10.9.1",
 		"typescript": "^5.1.6"
-	},
-	"prisma": {
-		"seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
 	},
 	"browserslist": [
 		"defaults",

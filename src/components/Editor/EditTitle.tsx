@@ -1,10 +1,7 @@
 import { useState, forwardRef, ReactNode, useRef, useEffect } from 'react'
 import { Editor } from '@tinymce/tinymce-react'
 
-import { getServiceCat } from '@/lib/_actions/services'
-import { revalidatePath } from 'next/cache'
 import { usePathname } from 'next/navigation'
-import { Service_category } from '@prisma/client'
 
 interface Props {
   id: number

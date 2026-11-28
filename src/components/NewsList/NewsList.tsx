@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 import cn from 'classnames'
-import { Post } from '@prisma/client'
+import type { Post } from '@/db/schema'
 
 import NewsCard from './NewsCard'
 import SkeletonNews from '@/app/(site)/blog/components/LoadingTopNews'
